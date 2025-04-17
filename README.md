@@ -40,7 +40,6 @@
 
 ### 🏆 Achievements
 
-- 🥇 Top 2 Outstanding Student in Geophysics Program (2023)  
 - 🧾 Published in Q1 Journals (Scopus-indexed):  
   - [Digital Rock ML Estimation](https://doi.org/10.3390/app14177509)  
   - [3D Fracture Prediction](https://doi.org/10.1088/1402-4896/ad9d08)  
