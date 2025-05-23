@@ -23,7 +23,6 @@
   <img src="https://github.com/ardiannurcahya/ardiannurcahya/blob/main/ai-brain.gif?raw=true" width="250" align="right" alt="AI Brain">
 </p>
 
-- � **Education**: Dual degrees in Physics & Geophysics from Universitas Padjadjaran  
 - 🔬 **Focus Areas**: AI, Big Data, Computational Physics, and Image Processing  
 - 💼 **Experience**: Research/Teaching Assistant + AI Software Developer  
 - 📚 **Publications**: 4+ scientific papers in Q1 journals  
