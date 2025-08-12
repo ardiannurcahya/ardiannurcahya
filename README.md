@@ -46,7 +46,11 @@
 </div>
 
 ---
+## 📈 Contribution Graph
 
+<p align="center">
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=ardiannurcahya&theme=github-compact"/>
+</p>
 ## 🏆 **Achievements**
 
 <div align="center">
