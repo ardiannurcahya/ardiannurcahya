@@ -11,27 +11,27 @@
   
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/ardiannurcahya436)
 [![Email](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:ardiannurcahya436@gmail.com)
-[![Portfolio](https://img.shields.io/badge/Portfolio-4285F4?style=for-the-badge&logo=google-chrome&logoColor=white)](https://sites.google.com/view/ardianportofolio)
   
 </div>
 
 ---
 
-## 🧠 **About Me**
+##  **About Me**
 
 <p align="center">
   <img src="https://github.com/ardiannurcahya/ardiannurcahya/blob/main/ai-brain.gif?raw=true" width="250" align="right" alt="AI Brain">
 </p>
+<p align="left"> <img src="https://komarev.com/ghpvc/?username=ardiannurcahya&label=Profile%20views&color=0e75b6&style=flat" alt="khoirulhaq" /> </p>
 
 - 🔬 **Focus Areas**: AI, Big Data, Computational Physics, and Image Processing  
 - 💼 **Experience**: Research/Teaching Assistant + AI Software Developer  
 - 📚 **Publications**: 4+ scientific papers in Q1 journals  
 - 🏆 **Patents**: 4 machine learning-based applications  
-- 🌱 **Currently Learning**: Data Engineering, MLOps, AI product development  
+- 🌱 **Currently Learning**: Data Engineering, MLOps, AI product development, DevOps 
 
 ---
 
-## 🚀 **Featured Projects**
+##  **Featured Projects**
 
 <div align="center">
 
@@ -46,21 +46,15 @@
 </div>
 
 ---
-## 📈 Contribution Graph
+##  Contribution Graph
 
 <p align="center">
   <img src="https://github-readme-activity-graph.vercel.app/graph?username=ardiannurcahya&theme=github-compact"/>
 </p>
-## 🏆 **Achievements**
+##  **Achievements**
 
 <div align="center">
-
-| Category | Highlights |
-|----------|------------|
-| 📚 **Publications** | [![DOI](https://img.shields.io/badge/DOI-10.3390%2Fapp14177509-blue)](https://doi.org/10.3390/app14177509) [![DOI](https://img.shields.io/badge/DOI-10.1088%2F1402--4896%2Fad9d08-blue)](https://doi.org/10.1088/1402-4896/ad9d08) |
-| 📜 **Patents** | **RophysiX** (EC00202479885), **Petra** (EC00202462911), **SiFrac-ML** (EC00202462898), **NeoFract** (EC002022116119) |
-| 🏅 **Honors** | Published in Q1 Scopus-indexed journals |
-
+<p><img align="center" src="https://github-readme-stats.vercel.app/api/top-langs?username=ardiannurcahya&show_icons=true&locale=en&layout=compact" alt="ardiannurcahya" /></p>
 </div>
 
 ---
