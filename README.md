@@ -35,13 +35,13 @@
 
 <div align="center">
 
-| Project | Tech Stack | Description |
-|---------|------------|-------------|
-| 🧠 **[Chatbot for Data Analysis](https://sites.google.com/view/ardianportofolio/projects/chatbot-data-analysis-coder)** | `LLM` `Streamlit` `Plotly` | Chatbot that understands CSVs, cleans data, and generates Python code |
-| 🌫️ **[Air Pollutant Dashboard](https://sites.google.com/view/ardianportofolio/Retail-Sales-Analysis/on-going-air-pollutant-monitoring)** | `LSTM` `Isolation Forest` | AQI forecasting & anomaly detection system |
-| 🛍️ **[Retail Sales Analytics](https://sites.google.com/view/ardianportofolio/Retail-Sales-Analysis/retail-sales-analysis)** | `SQL` `Tableau` `ANN` | Dashboard with RFM, CLV, clustering, and churn prediction |
-| 🔧 **[MLOps System](https://github.com/ardiannurcahya/Development-Operation-Machine-Learning-System)** | `Docker` `Grafana` `Prometheus` | End-to-end ML pipelines for Image/NLP/Time Series |
-| 🪨 **RophysiX/Petra/NeoFract/SiFrac-ML** | `CNN` `TensorFlow` | 4 patented digital rock physics applications |
+| Project | Description |
+|---------|-------------|
+| 🧠 **[Chatbot for Data Analysis](https://sites.google.com/view/ardianportofolio/projects/chatbot-data-analysis-coder)** | Chatbot that understands CSVs, cleans data, and generates Python code |
+| 🌫️ **[Air Pollutant Dashboard](https://sites.google.com/view/ardianportofolio/Retail-Sales-Analysis/on-going-air-pollutant-monitoring)** | AQI forecasting & anomaly detection system |
+| 🛍️ **[Retail Sales Analytics](https://sites.google.com/view/ardianportofolio/Retail-Sales-Analysis/retail-sales-analysis)** | Dashboard with RFM, CLV, clustering, and churn prediction |
+| 🔧 **[MLOps System](https://github.com/ardiannurcahya/Development-Operation-Machine-Learning-System)** | End-to-end ML pipelines for Image/NLP/Time Series |
+| 🪨 **RophysiX/Petra/NeoFract/SiFrac-ML** | 4 patented digital rock physics applications |
 
 </div>
 
