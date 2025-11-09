@@ -4,7 +4,7 @@
 </h1>
 
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=22&duration=3000&pause=1000&color=58A6FF&center=true&vCenter=true&width=500&lines=AI+Developer+%E2%80%A2+Data+Scientist;MLOps+Learner+%E2%80%A2+Open+Source+Enthusiast" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=22&duration=3000&pause=1000&color=58A6FF&center=true&vCenter=true&width=500&lines=AI+Developer+%E2%80%A2;MLOps+Learner" alt="Typing SVG" />
 </p>
 
 <div align="center">
@@ -51,22 +51,7 @@
 <p align="center">
   <img src="https://github-readme-activity-graph.vercel.app/graph?username=ardiannurcahya&theme=github-compact"/>
 </p>
-##  **Achievements**
 
-<div align="center">
-<p><img align="center" src="https://github-readme-stats.vercel.app/api/top-langs?username=ardiannurcahya&show_icons=true&locale=en&layout=compact" alt="ardiannurcahya" /></p>
-</div>
 
 ---
 
-## 💻 **Tech Stack**
-
-```text
-┌──────────────────┬─────────────────────────────────────────────┐
-│   Languages      │ Python • SQL • MATLAB                       │
-│   Data Tools     │ Pandas • NumPy • Excel • Weka               │
-│   ML/AI          │ Scikit-learn • TensorFlow • LSTM • CNN      │
-│   Visualization  │ Tableau • Seaborn • Matplotlib • Plotly     │
-│   MLOps          │ Docker • Prometheus • Grafana • Streamlit   │
-│   Soft Skills    │ Leadership • Public Speaking • Fast Learning│
-└──────────────────┴─────────────────────────────────────────────┘
