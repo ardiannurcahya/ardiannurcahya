@@ -94,7 +94,7 @@
     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/redis/redis-original-wordmark.svg" alt="redis" width="40" height="40"/>
   </a>
   <a href="https://docs.celeryq.dev/" target="_blank" rel="noreferrer">
-    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/celery/celery-original.svg" alt="celery" width="40" height="40"/>
+    <img src="https://docs.celeryq.dev/en/stable/#" alt="celery" width="40" height="40"/>
   </a>
   <!-- Ditambahkan hari ini -->
   <a href="https://nginx.org/" target="_blank" rel="noreferrer">
