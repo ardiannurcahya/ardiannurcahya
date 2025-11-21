@@ -3,6 +3,10 @@
   Hi there, I'm Ardian Nurcahya 👋
 </h1>
 
+![Github Stats](https://github-readme-stats.vercel.app/api?username=ardiannurcahya&theme=tokyonight&show_icons=true&hide_border=true&include_all_commits=true&count_private=true&hide=contribs)
+[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=ardiannurcahya&layout=compact&theme=tokyonight&show_icons=true&hide=html,scss,css&hide_border=true&card_width=240)](https://github.com/ardiannurcahya/github-readme-stats)
+
+
 <p align="center">
   <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=22&duration=3000&pause=1000&color=58A6FF&center=true&vCenter=true&width=500&lines=AI+Developer+%E2%80%A2;MLOps+Learner" alt="Typing SVG" />
 </p>
