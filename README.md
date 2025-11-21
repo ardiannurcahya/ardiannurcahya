@@ -102,8 +102,7 @@
 ##  Contribution Graph
 
 <p align="center">
- [ <img src="https://github-readme-activity-graph.vercel.app/graph?username=ardiannurcahya&theme=github-compact"/>](https://github-readme-activity-graph.vercel.app/graph?username=ardiannurcahya&theme=github-compact&range=280
-)
+ <img src="https://github-readme-activity-graph.vercel.app/graph?username=ardiannurcahya&theme=github-compact"/>
 </p>
 
 
