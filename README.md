@@ -3,8 +3,6 @@
   Hi there, I'm Ardian Nurcahya 👋
 </h1>
 
-![Github Stats](https://github-readme-stats.vercel.app/api?username=ardiannurcahya&theme=tokyonight&show_icons=true&hide_border=true&include_all_commits=true&count_private=true&hide=contribs)
-[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=ardiannurcahya&layout=compact&theme=tokyonight&show_icons=true&hide=html,scss,css&hide_border=true&card_width=240)](https://github.com/ardiannurcahya/github-readme-stats)
 
 
 <p align="center">
