@@ -21,7 +21,7 @@
 <p align="center">
   <img src="https://github.com/ardiannurcahya/ardiannurcahya/blob/main/ai-brain.gif?raw=true" width="250" align="right" alt="AI Brain">
 </p>
-<p align="left"> <img src="https://komarev.com/ghpvc/?username=ardiannurcahya&label=Profile%20views&color=0e75b6&style=flat" alt="khoirulhaq" /> </p>
+<p align="left"> <img src="https://komarev.com/ghpvc/?username=ardiannurcahya&label=Profile%20views&color=0e75b6&style=flat" alt="ardiannurcahya" /> </p>
 
 - 🔬 **Focus Areas**: AI, Big Data, Computational Physics, and Image Processing  
 - 💼 **Experience**: Research/Teaching Assistant + AI Software Developer  
@@ -102,7 +102,8 @@
 ##  Contribution Graph
 
 <p align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=ardiannurcahya&theme=github-compact"/>
+ [ <img src="https://github-readme-activity-graph.vercel.app/graph?username=ardiannurcahya&theme=github-compact"/>](https://github-readme-activity-graph.vercel.app/graph?username=ardiannurcahya&theme=github-compact&range=280
+)
 </p>
 
 
