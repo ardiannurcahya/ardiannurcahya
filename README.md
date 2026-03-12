@@ -27,8 +27,6 @@
 
 - 🔬 **Focus Areas**: AI, Big Data, Computational Physics, and Image Processing  
 - 💼 **Experience**: Research/Teaching Assistant + AI Software Developer  
-- 📚 **Publications**: 4+ scientific papers in Q1 journals  
-- 🏆 **Patents**: 4 machine learning-based applications  
 - 🌱 **Currently Learning**: Data Engineering, MLOps, AI product development, DevOps 
 
 ---
