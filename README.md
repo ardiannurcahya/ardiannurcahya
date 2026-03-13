@@ -41,7 +41,7 @@
 | 🌫️ **[Air Pollutant Dashboard](https://sites.google.com/view/ardianportofolio/Retail-Sales-Analysis/on-going-air-pollutant-monitoring)** | AQI forecasting & anomaly detection system |
 | 🛍️ **[Retail Sales Analytics](https://sites.google.com/view/ardianportofolio/Retail-Sales-Analysis/retail-sales-analysis)** | Dashboard with RFM, CLV, clustering, and churn prediction |
 | 🔧 **[MLOps System](https://github.com/ardiannurcahya/Development-Operation-Machine-Learning-System)** | End-to-end ML pipelines for Image/NLP/Time Series |
-| 🪨 **RophysiX/Petra/NeoFract/SiFrac-ML** | 4 patented digital rock physics applications |
+| 🪨 **RophysiX/Petra/NeoFract/SiFrac-ML** | 4 implemented ML in digital rock physics|
 
 </div>
 
