@@ -31,7 +31,7 @@
 
 <table>
 <tr>
-<td width="55%" valign="top">
+<td width="100%" valign="top">
 
 ```yaml
 name: Ardian Nurcahya
