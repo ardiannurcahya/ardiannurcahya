@@ -7,7 +7,7 @@
 
 <!-- Typing Animation -->
 <a href="https://git.io/typing-svg">
-  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=22&duration=2800&pause=800&color=58A6FF&center=true&vCenter=true&multiline=true&repeat=true&width=640&height=120&lines=%E2%96%A0+Building+AI+products+end-to-end;%E2%96%A0+From+digital+rock+physics+to+MLOps;%E2%96%A0+Turning+research+into+production+systems;%E2%96%A0+Open+to+collaboration+%26+opportunities" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=22&duration=2800&pause=800&color=58A6FF&center=true&vCenter=true&multiline=true&repeat=true&width=640&height=120&lines=%E2%96%A0+Building+AI+products+end-to-end;%E2%96%A0+Open+to+collaboration+%26+opportunities" alt="Typing SVG" />
 </a>
 
 <!-- Social Badges -->
@@ -296,41 +296,6 @@ status: "Open to opportunities 🚀"
 
 ---
 
-## 🐍 &nbsp; Contribution Snake
-
-<div align="center">
-
-<img src="https://raw.githubusercontent.com/ardiannurcahya/ardiannurcahya/output/github-snake-dark.svg" width="100%" alt="contribution snake" />
-
-</div>
-
----
-
-<!-- Pinned Repos -->
-## 📌 &nbsp; Pinned Repositories
-
-<div align="center">
-
-<a href="https://github.com/ardiannurcahya/Development-Operation-Machine-Learning-System">
-  <img src="https://github-readme-stats.vercel.app/api/pin/?username=ardiannurcahya&repo=Development-Operation-Machine-Learning-System&theme=github_dark&hide_border=true&bg_color=0d1117&title_color=58a6ff&text_color=c9d1d9" alt="pin"/>
-</a>
-
-</div>
-
----
-
-<!-- Quote -->
-<div align="center">
-
-<i>"Turning research into production-grade AI systems."</i>
-
-<br/><br/>
-
-<img src="https://readme-jokes.vercel.app/api?theme=github_dark&borderColor=1f6feb&bgColor=0d1117&aColor=58a6ff&textColor=c9d1d9" alt="joke" width="55%"/>
-
-</div>
-
----
 
 <!-- Footer Banner -->
 <div align="center">
