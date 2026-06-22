@@ -27,7 +27,7 @@
 ---
 
 <!-- About Section -->
-## <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Robot.png" width="28" /> &nbsp; About Me
+## 🤖 &nbsp; About Me
 
 <table>
 <tr>
@@ -61,7 +61,7 @@ status: "Open to opportunities 🚀"
 ---
 
 <!-- GitHub Stats Cards -->
-## <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Bar%20Chart.png" width="28" /> &nbsp; GitHub Stats
+## 📊 &nbsp; GitHub Stats
 
 <div align="center">
 
@@ -77,19 +77,8 @@ status: "Open to opportunities 🚀"
 
 ---
 
-<!-- Trophy Section -->
-## <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Trophy.png" width="28" /> &nbsp; Trophies
-
-<div align="center">
-
-<img src="https://github-profile-trophy.vercel.app/?username=ardiannurcahya&theme=algolia&no-frame=true&no-bg=true&column=7&margin-w=8&margin-h=8" width="95%" alt="trophies" />
-
-</div>
-
----
-
 <!-- Featured Projects -->
-## <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Rocket.png" width="28" /> &nbsp; Featured Projects
+## 🚀 &nbsp; Featured Projects
 
 <div align="center">
 <sub><i>↳ sourced from <a href="https://portofolio-ardian-nurcahya.vercel.app/">portofolio-ardian-nurcahya.vercel.app</a></i></sub>
@@ -265,7 +254,7 @@ status: "Open to opportunities 🚀"
 ---
 
 <!-- Tech Stack -->
-## <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Hammer%20and%20Wrench.png" width="28" /> &nbsp; Tech Arsenal
+## 🛠️ &nbsp; Tech Arsenal
 
 <div align="center">
 
@@ -307,8 +296,7 @@ status: "Open to opportunities 🚀"
 
 ---
 
-<!-- Snake Contribution Animation -->
-## <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Animals/Snake.png" width="28" /> &nbsp; Contribution Snake
+## 🐍 &nbsp; Contribution Snake
 
 <div align="center">
 
@@ -319,7 +307,7 @@ status: "Open to opportunities 🚀"
 ---
 
 <!-- Pinned Repos -->
-## <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Pushpin.png" width="28" /> &nbsp; Pinned Repositories
+## 📌 &nbsp; Pinned Repositories
 
 <div align="center">
 
@@ -338,7 +326,7 @@ status: "Open to opportunities 🚀"
 
 <br/><br/>
 
-<img src="https://readme-jokes.vercel.app/api?theme=github_dark&borderColor=1f6feb&bgColor=0d1117&aColor=58a6ff& textColor=c9d1d9" alt="joke" width="55%"/>
+<img src="https://readme-jokes.vercel.app/api?theme=github_dark&borderColor=1f6feb&bgColor=0d1117&aColor=58a6ff&textColor=c9d1d9" alt="joke" width="55%"/>
 
 </div>
 
