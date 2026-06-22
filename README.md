@@ -50,11 +50,6 @@ status: "Open to opportunities 🚀"
 ```
 
 </td>
-<td width="45%" valign="top" align="center">
-
-<img src="https://github-readme-stats.vercel.app/api?username=ardiannurcahya&show_icons=true&theme=github_dark&hide_border=true&count_private=true&bg_color=0d1117&title_color=58a6ff&icon_color=1f6feb&text_color=c9d1d9" height="170" alt="stats" />
-
-</td>
 </tr>
 </table>
 
