@@ -30,8 +30,6 @@
 ## 🤖 &nbsp; About Me
 
 <table>
-<tr>
-<td width="100%" valign="top">
 
 ```yaml
 name: Ardian Nurcahya
@@ -48,9 +46,6 @@ current:
   - DevOps Learner
 status: "Open to opportunities 🚀"
 ```
-
-</td>
-</tr>
 </table>
 
 ---
