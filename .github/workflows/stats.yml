@@ -22,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out profile repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Generate repository-owned stats cards
         run: node .github/scripts/generate-stats.mjs
