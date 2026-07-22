@@ -29,8 +29,6 @@
 <!-- About Section -->
 ## 🤖 &nbsp; About Me
 
-<table>
-
 ```yaml
 name: Ardian Nurcahya
 role: AI / ML Engineer
@@ -46,7 +44,6 @@ current:
   - DevOps Learner
 status: "Open to opportunities 🚀"
 ```
-</table>
 
 ---
 
@@ -55,13 +52,11 @@ status: "Open to opportunities 🚀"
 
 <div align="center">
 
-<img src="https://github-readme-stats.vercel.app/api?username=ardiannurcahya&show=reviews,discussions_started,discussions_commented,prs_merged,prs&theme=github_dark&hide_border=true&show_icons=true&bg_color=0d1117&title_color=58a6ff&icon_color=1f6feb&text_color=c9d1d9" height="180" alt="extra stats" />
-<img src="https://github-readme-streak-stats.herokuapp.com/?user=ardiannurcahya&theme=github-dark-blue&hide_border=true&background=0d1117&ring=1f6feb&fire=58a6ff&curr=58a6ff&side=1f6feb&dates=c9d1d9" height="180" alt="streak" />
+<img src="https://github-readme-stats.vercel.app/api?username=ardiannurcahya&show_icons=true&include_all_commits=true&rank_icon=default&theme=github_dark&hide_border=true&bg_color=0d1117&title_color=58a6ff&icon_color=1f6feb&text_color=c9d1d9" height="190" alt="Ardian Nurcahya's GitHub statistics" />
+<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=ardiannurcahya&layout=compact&langs_count=8&theme=github_dark&hide_border=true&bg_color=0d1117&title_color=58a6ff&text_color=c9d1d9" height="190" alt="Ardian Nurcahya's most used programming languages" />
 
 <br/>
-
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=ardiannurcahya&layout=compact&theme=github_dark&hide_border=true&bg_color=0d1117&title_color=58a6ff&text_color=c9d1d9&langs_count=10" height="180" alt="top langs" />
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=ardiannurcahya&theme=github-compact&hide_border=true&bg_color=0d1117&color=58a6ff&line=1f6feb&point=c9d1d9" width="55%" alt="activity graph" />
+<sub>Language statistics are based on public repository code and do not indicate proficiency.</sub>
 
 </div>
 
@@ -71,12 +66,36 @@ status: "Open to opportunities 🚀"
 ## 🚀 &nbsp; Featured Projects
 
 <div align="center">
-<sub><i>↳ sourced from <a href="https://portofolio-ardian-nurcahya.vercel.app/">portofolio-ardian-nurcahya.vercel.app</a></i></sub>
+<sub><i>Selected work across production AI, open source, and research</i></sub>
 </div>
 
 <br/>
 
 <table>
+<tr>
+<td colspan="2" valign="top">
+
+### 🧠 OpenGraphMemory
+<sub>Open-source knowledge graph platform and Agent Memory infrastructure</sub>
+
+> Self-hosted platform for ingesting documents, extracting evidence-backed knowledge graphs, exploring graph structure, and exposing structured graph APIs. Built as one system across three repositories: the core engine, a stateless MCP bridge, and a portable agent skill for OpenCode, Claude Code, and Hermes.
+
+**Architecture:** `Engine` -> `MCP Bridge` -> `Agent Skills`
+
+<p>
+<img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python"/>
+<img src="https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white" alt="FastAPI"/>
+<img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white" alt="PostgreSQL"/>
+<img src="https://img.shields.io/badge/Neo4j-4581C3?style=flat-square&logo=neo4j&logoColor=white" alt="Neo4j"/>
+<img src="https://img.shields.io/badge/MCP-6366F1?style=flat-square" alt="Model Context Protocol"/>
+</p>
+
+<a href="https://github.com/ardiannurcahya/open-graph-memory">🔗 Engine</a> ·
+<a href="https://github.com/ardiannurcahya/ogm-agent-bridge">MCP Bridge</a> ·
+<a href="https://github.com/ardiannurcahya/opengraphmemory-skill">Agent Skills</a>
+
+</td>
+</tr>
 <tr>
 <td width="50%" valign="top">
 
@@ -148,7 +167,7 @@ status: "Open to opportunities 🚀"
 <img src="https://img.shields.io/badge/LLM-FF6F00?style=flat-square&logo=openai&logoColor=white"/>
 <img src="https://img.shields.io/badge/Prompt_Engineering-1f6feb?style=flat-square"/>
 </p>
-<a href="https://github.com/ardiannurcahya/openclaw-toefl-skill">🔗 GitHub Repo</a>
+<a href="https://github.com/ardiannurcahya/openclaw-english-learn-skill">🔗 GitHub Repo</a>
 
 </td>
 </tr>
