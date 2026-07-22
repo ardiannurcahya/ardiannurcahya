@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="340" height="200" viewBox="0 0 340 200" role="img" aria-labelledby="title desc">
+  <title id="title">Most Used Languages</title>
+  <desc id="desc">Top languages by bytes across public, non-fork, non-archived repositories.</desc>
+  <style>
+    .text { font: 600 13px 'Segoe UI', Ubuntu, sans-serif; fill: #c9d1d9; }
+    .label { font: 400 12px 'Segoe UI', Ubuntu, sans-serif; fill: #8b949e; }
+    .title { font: 600 18px 'Segoe UI', Ubuntu, sans-serif; fill: #58a6ff; }
+    .value { font: 600 14px 'Segoe UI', Ubuntu, sans-serif; fill: #f0f6fc; }
+  </style>
+  <rect x="0.5" y="0.5" width="339" height="199" rx="6" fill="#0d1117" stroke="#30363d"/>
+  <text x="24" y="34" class="title">Most Used Languages</text>
+  <rect x="24" y="51" width="292" height="8" rx="4" fill="#21262d"/>
+  <rect x="24.00" y="51" width="157.10" height="8" fill="#3572A5"/>
+  <rect x="181.10" y="51" width="82.47" height="8" fill="#DA5B0B"/>
+  <rect x="263.57" y="51" width="25.65" height="8" fill="#f1e05a"/>
+  <rect x="289.22" y="51" width="9.02" height="8" fill="#e34c26"/>
+  <rect x="298.25" y="51" width="8.30" height="8" fill="#3178c6"/>
+  <circle cx="29" cy="83" r="5" fill="#3572A5"/>
+  <text x="43" y="87" class="text">Python</text>
+  <text x="316" y="87" text-anchor="end" class="label">53.8%</text>
+  <circle cx="29" cy="107" r="5" fill="#DA5B0B"/>
+  <text x="43" y="111" class="text">Jupyter Notebook</text>
+  <text x="316" y="111" text-anchor="end" class="label">28.2%</text>
+  <circle cx="29" cy="131" r="5" fill="#f1e05a"/>
+  <text x="43" y="135" class="text">JavaScript</text>
+  <text x="316" y="135" text-anchor="end" class="label">8.8%</text>
+  <circle cx="29" cy="155" r="5" fill="#e34c26"/>
+  <text x="43" y="159" class="text">HTML</text>
+  <text x="316" y="159" text-anchor="end" class="label">3.1%</text>
+  <circle cx="29" cy="179" r="5" fill="#3178c6"/>
+  <text x="43" y="183" class="text">TypeScript</text>
+  <text x="316" y="183" text-anchor="end" class="label">2.8%</text>
+</svg>
