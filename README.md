@@ -21,8 +21,6 @@
 ```yaml
 name: Ardian Nurcahya
 role: AI / ML Engineer
-location: Indonesia
-experience: "2+ years in AI development"
 focus:
   - LLMs & AI Agents
   - Computer Vision
