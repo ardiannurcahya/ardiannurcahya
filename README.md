@@ -59,7 +59,7 @@ Selected work across production AI, open source, and research.
 
 Open-source knowledge graph and Agent Memory infrastructure built as one system: `Engine` -> `MCP Bridge` -> `Agent Skills`.
 
-**Links:** [Engine](https://github.com/ardiannurcahya/open-graph-memory) · [MCP Bridge](https://github.com/ardiannurcahya/ogm-agent-bridge) · [Agent Skills](https://github.com/ardiannurcahya/opengraphmemory-skill)<br/>
+**Links:** [Engine](https://github.com/ardiannurcahya/open-graph-memory) · [MCP Bridge](https://github.com/ardiannurcahya/ogm-agent-bridge) · [Agent Skills](https://github.com/ardiannurcahya/opengraphmemory-skill) · [Landing Page](https://ogm.svclabs.cloud)<br/>
 **Stack:** <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python"/> <img src="https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white" alt="FastAPI"/> <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white" alt="PostgreSQL"/> <img src="https://img.shields.io/badge/Neo4j-4581C3?style=flat-square&logo=neo4j&logoColor=white" alt="Neo4j"/>
 
 ### 🏥 Healthcare Anti-Fraud AI Platform
@@ -106,6 +106,27 @@ LLM-powered application for data preprocessing, Python code generation, interact
 
 **Stack:** <img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=flat-square&logo=streamlit&logoColor=white" alt="Streamlit"/> <img src="https://img.shields.io/badge/Plotly-3F4F75?style=flat-square&logo=plotly&logoColor=white" alt="Plotly"/> <img src="https://img.shields.io/badge/LLM-FF6F00?style=flat-square&logo=openai&logoColor=white" alt="LLM"/><br/>
 **Repository:** [DataCoder-AI](https://github.com/ardiannurcahya/DataCoder-AI)
+
+### 🟢 OGM Lightweight
+
+Single-binary persistent memory service for AI coding agents. Go + SQLite, zero external dependencies. Designed for personal devices and single-container deployments.
+
+**Links:** [Repository](https://github.com/ardiannurcahya/ogm-lightweight) · [Landing Page](https://ogm-lightweight.svclabs.cloud)<br/>
+**Stack:** <img src="https://img.shields.io/badge/Go-00ADD8?style=flat-square&logo=go&logoColor=white" alt="Go"/> <img src="https://img.shields.io/badge/SQLite-003B57?style=flat-square&logo=sqlite&logoColor=white" alt="SQLite"/> <img src="https://img.shields.io/badge/MCP-8B5CF6?style=flat-square" alt="MCP"/>
+
+### 🔀 SVCLabs Router
+
+Self-hosted AI routing gateway unifying 48+ LLM providers behind a single OpenAI-compatible API. Model combos, format translation, RTK token compression, and a management dashboard.
+
+**Links:** [Repository](https://github.com/ardiannurcahya/svclabs-router) · [Landing Page](https://ai-gateway.svclabs.cloud)<br/>
+**Stack:** <img src="https://img.shields.io/badge/Go-00ADD8?style=flat-square&logo=go&logoColor=white" alt="Go"/> <img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black" alt="React"/> <img src="https://img.shields.io/badge/SQLite-003B57?style=flat-square&logo=sqlite&logoColor=white" alt="SQLite"/>
+
+### 📧 HiraishinMail
+
+Disposable email service running entirely on Cloudflare Workers. Zero VPS, zero cost. Instant delivery at edge speed with a Gmail-inspired dark interface.
+
+**Links:** [Repository](https://github.com/ardiannurcahya/HiraishinMail) · [Landing Page](https://hiraishinmail.svclabs.cloud)<br/>
+**Stack:** <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript"/> <img src="https://img.shields.io/badge/Cloudflare-F48120?style=flat-square&logo=cloudflare&logoColor=white" alt="Cloudflare Workers"/> <img src="https://img.shields.io/badge/D1-003B57?style=flat-square" alt="D1"/>
 
 ---
 
