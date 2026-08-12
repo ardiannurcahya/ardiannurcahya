@@ -10,24 +10,24 @@
   <rect x="0.5" y="0.5" width="339" height="199" rx="6" fill="#0d1117" stroke="#30363d"/>
   <text x="24" y="34" class="title">Most Used Languages</text>
   <rect x="24" y="51" width="292" height="8" rx="4" fill="#21262d"/>
-  <rect x="24.00" y="51" width="116.11" height="8" fill="#3572A5"/>
-  <rect x="140.11" y="51" width="66.22" height="8" fill="#00ADD8"/>
-  <rect x="206.33" y="51" width="55.34" height="8" fill="#DA5B0B"/>
-  <rect x="261.67" y="51" width="29.76" height="8" fill="#f1e05a"/>
-  <rect x="291.43" y="51" width="11.03" height="8" fill="#3178c6"/>
+  <rect x="24.00" y="51" width="116.10" height="8" fill="#3572A5"/>
+  <rect x="140.10" y="51" width="65.78" height="8" fill="#00ADD8"/>
+  <rect x="205.88" y="51" width="54.97" height="8" fill="#DA5B0B"/>
+  <rect x="260.85" y="51" width="29.57" height="8" fill="#f1e05a"/>
+  <rect x="290.42" y="51" width="12.09" height="8" fill="#3178c6"/>
   <circle cx="29" cy="83" r="5" fill="#3572A5"/>
   <text x="43" y="87" class="text">Python</text>
   <text x="316" y="87" text-anchor="end" class="label">39.8%</text>
   <circle cx="29" cy="107" r="5" fill="#00ADD8"/>
   <text x="43" y="111" class="text">Go</text>
-  <text x="316" y="111" text-anchor="end" class="label">22.7%</text>
+  <text x="316" y="111" text-anchor="end" class="label">22.5%</text>
   <circle cx="29" cy="131" r="5" fill="#DA5B0B"/>
   <text x="43" y="135" class="text">Jupyter Notebook</text>
-  <text x="316" y="135" text-anchor="end" class="label">19.0%</text>
+  <text x="316" y="135" text-anchor="end" class="label">18.8%</text>
   <circle cx="29" cy="155" r="5" fill="#f1e05a"/>
   <text x="43" y="159" class="text">JavaScript</text>
-  <text x="316" y="159" text-anchor="end" class="label">10.2%</text>
+  <text x="316" y="159" text-anchor="end" class="label">10.1%</text>
   <circle cx="29" cy="179" r="5" fill="#3178c6"/>
   <text x="43" y="183" class="text">TypeScript</text>
-  <text x="316" y="183" text-anchor="end" class="label">3.8%</text>
+  <text x="316" y="183" text-anchor="end" class="label">4.1%</text>
 </svg>
