@@ -20,7 +20,7 @@
   <text x="24" y="143" class="label">Stars earned</text>
   <text x="145" y="143" text-anchor="end" class="value">107</text>
   <text x="184" y="143" class="label">Followers</text>
-  <text x="316" y="143" text-anchor="end" class="value">8</text>
+  <text x="316" y="143" text-anchor="end" class="value">9</text>
   <line x1="24" y1="162" x2="316" y2="162" stroke="#21262d"/>
   <text x="24" y="184" class="label">Estimated rank</text>
   <text x="316" y="184" text-anchor="end" class="value">B</text>
