@@ -7,7 +7,7 @@ on:
       - ".github/scripts/generate-stats.mjs"
       - ".github/workflows/stats.yml"
   schedule:
-    - cron: "17 3 * * *"
+    - cron: "17 * * * *"
   workflow_dispatch:
 
 permissions:
