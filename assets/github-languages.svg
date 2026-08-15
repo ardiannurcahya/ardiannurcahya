@@ -10,11 +10,11 @@
   <rect x="0.5" y="0.5" width="339" height="199" rx="6" fill="#0d1117" stroke="#30363d"/>
   <text x="24" y="34" class="title">Most Used Languages</text>
   <rect x="24" y="51" width="292" height="8" rx="4" fill="#21262d"/>
-  <rect x="24.00" y="51" width="112.53" height="8" fill="#3572A5"/>
-  <rect x="136.53" y="51" width="63.55" height="8" fill="#00ADD8"/>
-  <rect x="200.08" y="51" width="53.10" height="8" fill="#DA5B0B"/>
-  <rect x="253.18" y="51" width="29.00" height="8" fill="#f1e05a"/>
-  <rect x="282.18" y="51" width="20.78" height="8" fill="#3178c6"/>
+  <rect x="24.00" y="51" width="112.50" height="8" fill="#3572A5"/>
+  <rect x="136.50" y="51" width="63.52" height="8" fill="#00ADD8"/>
+  <rect x="200.02" y="51" width="53.08" height="8" fill="#DA5B0B"/>
+  <rect x="253.10" y="51" width="28.99" height="8" fill="#f1e05a"/>
+  <rect x="282.09" y="51" width="20.88" height="8" fill="#3178c6"/>
   <circle cx="29" cy="83" r="5" fill="#3572A5"/>
   <text x="43" y="87" class="text">Python</text>
   <text x="316" y="87" text-anchor="end" class="label">38.5%</text>
