@@ -10,24 +10,24 @@
   <rect x="0.5" y="0.5" width="339" height="199" rx="6" fill="#0d1117" stroke="#30363d"/>
   <text x="24" y="34" class="title">Most Used Languages</text>
   <rect x="24" y="51" width="292" height="8" rx="4" fill="#21262d"/>
-  <rect x="24.00" y="51" width="113.03" height="8" fill="#3572A5"/>
-  <rect x="137.03" y="51" width="63.82" height="8" fill="#00ADD8"/>
-  <rect x="200.85" y="51" width="53.33" height="8" fill="#DA5B0B"/>
-  <rect x="254.18" y="51" width="28.69" height="8" fill="#f1e05a"/>
-  <rect x="282.88" y="51" width="20.03" height="8" fill="#3178c6"/>
+  <rect x="24.00" y="51" width="112.53" height="8" fill="#3572A5"/>
+  <rect x="136.53" y="51" width="63.55" height="8" fill="#00ADD8"/>
+  <rect x="200.08" y="51" width="53.10" height="8" fill="#DA5B0B"/>
+  <rect x="253.18" y="51" width="29.00" height="8" fill="#f1e05a"/>
+  <rect x="282.18" y="51" width="20.78" height="8" fill="#3178c6"/>
   <circle cx="29" cy="83" r="5" fill="#3572A5"/>
   <text x="43" y="87" class="text">Python</text>
-  <text x="316" y="87" text-anchor="end" class="label">38.7%</text>
+  <text x="316" y="87" text-anchor="end" class="label">38.5%</text>
   <circle cx="29" cy="107" r="5" fill="#00ADD8"/>
   <text x="43" y="111" class="text">Go</text>
-  <text x="316" y="111" text-anchor="end" class="label">21.9%</text>
+  <text x="316" y="111" text-anchor="end" class="label">21.8%</text>
   <circle cx="29" cy="131" r="5" fill="#DA5B0B"/>
   <text x="43" y="135" class="text">Jupyter Notebook</text>
-  <text x="316" y="135" text-anchor="end" class="label">18.3%</text>
+  <text x="316" y="135" text-anchor="end" class="label">18.2%</text>
   <circle cx="29" cy="155" r="5" fill="#f1e05a"/>
   <text x="43" y="159" class="text">JavaScript</text>
-  <text x="316" y="159" text-anchor="end" class="label">9.8%</text>
+  <text x="316" y="159" text-anchor="end" class="label">9.9%</text>
   <circle cx="29" cy="179" r="5" fill="#3178c6"/>
   <text x="43" y="183" class="text">TypeScript</text>
-  <text x="316" y="183" text-anchor="end" class="label">6.9%</text>
+  <text x="316" y="183" text-anchor="end" class="label">7.1%</text>
 </svg>
