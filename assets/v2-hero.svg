@@ -123,7 +123,7 @@
     <g transform="translate(508, 0)">
       <rect class="pill" width="200" height="30"/>
       <circle cx="12" cy="15" r="3.5" fill="#ff9f0a"/>
-      <text class="spec-text" x="24" y="19">K3s Clusters • Docker Ops, Github Actions</text>
+      <text class="spec-text" x="24" y="19">K8s/k3s • Docker</text>
     </g>
     <g transform="translate(718, 0)">
       <rect class="pill" width="74" height="30"/>
