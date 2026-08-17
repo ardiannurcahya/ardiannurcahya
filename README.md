@@ -2,25 +2,25 @@
 
 <div align="center">
 
-<!-- Telemetry Hero Banner -->
+<!-- Developer Profile Hero Banner -->
 <a href="https://portofolio-ardian-nurcahya.vercel.app/">
   <img src="./assets/v2-hero.svg" width="100%" alt="Ardian Nurcahya - AI Systems &amp; Agent Memory Engineer" />
 </a>
 
 <br/>
 
-<!-- Industrial Action Triggers -->
+<!-- Action Triggers -->
 <p align="center">
   <a href="https://portofolio-ardian-nurcahya.vercel.app/">
-    <img src="https://img.shields.io/badge/PORTFOLIO-090a0f?style=for-the-badge&logo=vercel&logoColor=f4f4f5&labelColor=18181b" alt="Portfolio"/>
+    <img src="https://img.shields.io/badge/PORTFOLIO-121319?style=for-the-badge&logo=vercel&logoColor=f4f4f5&labelColor=1c1e26" alt="Portfolio"/>
   </a>
   &nbsp;
   <a href="https://linkedin.com/in/ardiannurcahya436">
-    <img src="https://img.shields.io/badge/LINKEDIN-090a0f?style=for-the-badge&logo=linkedin&logoColor=10b981&labelColor=18181b" alt="LinkedIn"/>
+    <img src="https://img.shields.io/badge/LINKEDIN-121319?style=for-the-badge&logo=linkedin&logoColor=30d158&labelColor=1c1e26" alt="LinkedIn"/>
   </a>
   &nbsp;
   <a href="mailto:ardiannurcahya436@gmail.com">
-    <img src="https://img.shields.io/badge/EMAIL_DIRECT-090a0f?style=for-the-badge&logo=gmail&logoColor=f59e0b&labelColor=18181b" alt="Email"/>
+    <img src="https://img.shields.io/badge/EMAIL_DIRECT-121319?style=for-the-badge&logo=gmail&logoColor=ff9f0a&labelColor=1c1e26" alt="Email"/>
   </a>
 </p>
 
@@ -28,40 +28,36 @@
 
 ---
 
-<!-- Featured Open Source Systems -->
+<!-- Pinned Repositories Grid (Auto-Synced via GitHub GraphQL) -->
 <div align="center">
-  <img src="./assets/v2-projects.svg" width="100%" alt="Featured Engineering Systems &amp; Architectures" />
+  <img src="./assets/v2-projects.svg" width="100%" alt="Pinned Engineering Repositories" />
 </div>
 
 <br/>
 
-<!-- Technical Architecture Matrix -->
+<!-- Pure Vector Tech Stack Matrix -->
 <div align="center">
-  <img src="./assets/v2-stack.svg" width="100%" alt="Technical Stack &amp; Architecture Matrix" />
+  <img src="./assets/v2-stack.svg" width="100%" alt="Technology Stack Symbols" />
 </div>
 
 <br/>
 
-<!-- Telemetry & Language Volume -->
+<!-- Activity Metrics & Language Distribution -->
 <div align="center">
-  <img src="./assets/github-stats.svg" width="49%" alt="Telemetry Stats" />
-  <img src="./assets/github-languages.svg" width="49%" alt="Language Metrics" />
+  <img src="./assets/github-stats.svg" width="49%" alt="Activity Metrics" />
+  <img src="./assets/github-languages.svg" width="49%" alt="Language Distribution" />
 </div>
 
 <br/>
 
-<!-- Contribution Activity Graph -->
+<!-- Custom Animated Contribution Activity Stream -->
 <div align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ardiannurcahya/ardiannurcahya/output/github-snake-dark.svg" />
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/ardiannurcahya/ardiannurcahya/output/github-snake.svg" />
-    <img alt="GitHub Contribution Activity Stream" src="https://raw.githubusercontent.com/ardiannurcahya/ardiannurcahya/output/github-snake.svg" width="100%" />
-  </picture>
+  <img src="./assets/v2-contributions.svg" width="100%" alt="Custom Animated 52-Week Contribution Stream" />
 </div>
 
 ---
 
-<!-- Industrial Monolith Footer -->
+<!-- Footer -->
 <div align="center">
-  <sub><code>SYSTEM // VERIFIED AUTONOMOUS PROTOCOLS • ARCHITECTED BY <a href="https://linkedin.com/in/ardiannurcahya436">ARDIAN NURCAHYA</a></code></sub>
+  <sub><code>AUTONOMOUS PROTOCOLS • ARCHITECTED BY <a href="https://linkedin.com/in/ardiannurcahya436">ARDIAN NURCAHYA</a></code></sub>
 </div>
