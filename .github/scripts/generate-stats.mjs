@@ -251,6 +251,7 @@ async function collectData() {
   };
   stats.rank = calculateRank(stats);
 
+  // Fetch languages concurrently in batches of 8
   const languages = new Map();
   const batchSize = 8;
   for (let i = 0; i < repositories.length; i += batchSize) {
