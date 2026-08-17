@@ -185,17 +185,17 @@
 
     <!-- Badges Row 2 -->
     <g transform="translate(16, 82)">
-      <!-- Qdrant / Vector DB -->
+      <!-- Vector DB -->
       <g transform="translate(0, 0)">
-        <rect class="badge-pill" width="128" height="30"/>
+        <rect class="badge-pill" width="118" height="30"/>
         <circle cx="12" cy="15" r="3.5" fill="#ec4899"/>
         <text class="badge-text" x="22" y="19">Vector DBs</text>
       </g>
-      <!-- REST / gRPC -->
-      <g transform="translate(136, 0)">
-        <rect class="badge-pill" width="118" height="30"/>
-        <circle cx="12" cy="15" r="3.5" fill="#06b6d4"/>
-        <text class="badge-text" x="22" y="19">REST &amp; gRPC</text>
+      <!-- GraphDB -->
+      <g transform="translate(126, 0)">
+        <rect class="badge-pill" width="98" height="30"/>
+        <circle cx="12" cy="15" r="3.5" fill="#008CC1"/>
+        <text class="badge-text" x="22" y="19">GraphDB</text>
       </g>
     </g>
   </g>
