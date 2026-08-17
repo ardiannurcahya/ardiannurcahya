@@ -172,103 +172,6 @@ async function fetchContributionCalendar() {
   };
 }
 
-async function fetchPinnedRepositories() {
-  try {
-    const data = await githubGraphql(
-      `query ($login: String!) {
-        user(login: $login) {
-          pinnedItems(first: 6, types: [REPOSITORY]) {
-            nodes {
-              ... on Repository {
-                name
-                description
-                stargazerCount
-                primaryLanguage {
-                  name
-                  color
-                }
-                repositoryTopics(first: 3) {
-                  nodes {
-                    topic {
-                      name
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }`,
-      { login: username }
-    );
-    const nodes = data?.user?.pinnedItems?.nodes;
-    if (nodes && nodes.length > 0) {
-      return nodes.map((r) => ({
-        name: r.name,
-        description: r.description || "Open source software architecture.",
-        stars: r.stargazerCount || 0,
-        language: r.primaryLanguage?.name || "Code",
-        color: r.primaryLanguage?.color || languageColors[r.primaryLanguage?.name] || "#30d158",
-        topics: (r.repositoryTopics?.nodes || []).map((t) => t.topic?.name).filter(Boolean),
-      }));
-    }
-  } catch (error) {
-    // fallback
-  }
-
-  // Fallback defaults
-  return [
-    {
-      name: "open-graph-memory",
-      description: "Self-hosted knowledge graph extraction, temporal graph storage, and agent memory platform.",
-      stars: 60,
-      language: "Python",
-      color: "#3776AB",
-      topics: ["knowledge-graph", "agent-memory"],
-    },
-    {
-      name: "antigravity-cli-telegram-bot",
-      description: "Connect Antigravity CLI to Telegram with secure allowlisted bot gateway.",
-      stars: 47,
-      language: "TypeScript",
-      color: "#3178c6",
-      topics: ["antigravity-tools", "telegrambot"],
-    },
-    {
-      name: "k3s-multinode-vps",
-      description: "Multi-node K3s cluster infrastructure provisioning and workload orchestration.",
-      stars: 17,
-      language: "Kubernetes",
-      color: "#f59e0b",
-      topics: ["k3s-cluster", "devops"],
-    },
-    {
-      name: "ogm-mcp-skills",
-      description: "MCP Server and AI Agent Skills for OpenGraphMemory workflows.",
-      stars: 6,
-      language: "Python",
-      color: "#3776AB",
-      topics: ["mcp-server", "agent-skills"],
-    },
-    {
-      name: "ogm-slim",
-      description: "OpenGraphMemory Slim: persistent experience memory & codebase extraction engine.",
-      stars: 2,
-      language: "TypeScript",
-      color: "#3178c6",
-      topics: ["agent-memory", "codebase-graph"],
-    },
-    {
-      name: "LoRA-Fine-Tuning-Qwen2.5-7B-Unsloth",
-      description: "Parameter-efficient fine-tuning (PEFT/LoRA) on Qwen2.5-7B LLM with Unsloth.",
-      stars: 0,
-      language: "Jupyter Notebook",
-      color: "#DA5B0B",
-      topics: ["unsloth-lora", "qwen2.5-7b"],
-    },
-  ];
-}
-
 async function fetchRepositories() {
   const repositories = [];
   try {
@@ -327,13 +230,12 @@ async function collectData() {
     }
   };
 
-  const [user, allRepositories, pullRequests, issues, reviews, pinnedRepos, calendar] = await Promise.all([
+  const [user, allRepositories, pullRequests, issues, reviews, calendar] = await Promise.all([
     fetchUser(),
     fetchRepositories(),
     searchCount(`author:${username} type:pr`),
     searchCount(`author:${username} type:issue`),
     fetchReviewContributions(),
-    fetchPinnedRepositories(),
     fetchContributionCalendar(),
   ]);
 
@@ -365,7 +267,7 @@ async function collectData() {
     }
   }
 
-  return { stats, languages, pinnedRepos, calendar };
+  return { stats, languages, calendar };
 }
 
 function escapeXml(value) {
@@ -510,130 +412,6 @@ function renderLanguages(languages) {
   );
 }
 
-function splitDescription(text, maxChars = 46) {
-  if (!text) return ["Open source software architecture.", ""];
-  const words = text.split(" ");
-  let line1 = "";
-  let line2 = "";
-  for (const w of words) {
-    if ((line1 + " " + w).trim().length <= maxChars && !line2) {
-      line1 = (line1 + " " + w).trim();
-    } else {
-      line2 = (line2 + " " + w).trim();
-    }
-  }
-  if (line2.length > maxChars) {
-    line2 = line2.slice(0, maxChars - 3) + "...";
-  }
-  return [line1, line2];
-}
-
-function renderProjects(pinnedRepos) {
-  const items = pinnedRepos.slice(0, 6);
-  const rows = Math.ceil(items.length / 2);
-  const totalHeight = 52 + rows * 150 + 16;
-
-  const projectCards = items.map((repo, idx) => {
-    const col = idx % 2;
-    const row = Math.floor(idx / 2);
-    const x = col === 0 ? 24 : 426;
-    const y = 52 + row * 150;
-
-    let desc = repo.description;
-    if (!desc || desc.trim() === "") {
-      if (repo.name.includes("LoRA")) {
-        desc = "Parameter-efficient fine-tuning on Qwen2.5-7B with Unsloth.";
-      } else {
-        desc = "Open source software engineering architecture.";
-      }
-    }
-
-    const [desc1, desc2] = splitDescription(desc);
-    const starText = repo.stars > 0 ? `★ ${repo.stars}` : "★ 0";
-
-    // Deduplicate and sanitize topics
-    let lang = repo.language || "Code";
-    if (lang === "Jupyter Notebook") lang = "Jupyter";
-
-    let rawTopics = (repo.topics || []).filter((t) => {
-      const lower = t.toLowerCase();
-      return lower !== lang.toLowerCase() && lower !== "code";
-    });
-
-    if (rawTopics.length === 0) {
-      if (repo.name.includes("k3s")) rawTopics = ["k3s-cluster", "devops"];
-      else if (repo.name.includes("slim")) rawTopics = ["agent-memory", "codebase"];
-      else if (repo.name.includes("LoRA")) rawTopics = ["unsloth", "qwen2.5"];
-      else rawTopics = ["architecture", "open-source"];
-    }
-
-    const tag1 = rawTopics[0] ? `# ${rawTopics[0]}` : "";
-    const tag2 = rawTopics[1] ? `# ${rawTopics[1]}` : "";
-
-    return `  <!-- Project ${idx + 1}: ${escapeXml(repo.name)} -->
-  <g transform="translate(${x}, ${y})">
-    <rect class="panel-box" width="390" height="138"/>
-    <!-- Zone 1: Title & Star Badge -->
-    <g transform="translate(16, 26)">
-      <circle cx="0" cy="0" r="3.5" fill="${repo.color || "#30d158"}"/>
-      <text class="proj-title" x="12" y="4">${escapeXml(repo.name)}</text>
-      <g transform="translate(296, -9)">
-        <rect width="52" height="18" rx="4" fill="#1f222d" stroke="#2d303f"/>
-        <text class="meta-tag" x="26" y="13" text-anchor="middle" fill="#ff9f0a">${escapeXml(starText)}</text>
-      </g>
-    </g>
-    <!-- Zone 2: Description lines -->
-    <text class="proj-desc" x="16" y="58">${escapeXml(desc1)}</text>
-    <text class="proj-desc" x="16" y="78">${escapeXml(desc2)}</text>
-    <!-- Zone 3: Bottom Tags (Flowing Inline Tspans - Zero Overlap) -->
-    <text class="meta-tag" x="16" y="116">
-      <tspan fill="${repo.color || "#64d2ff"}"># ${escapeXml(lang)}</tspan>
-      ${tag1 ? `<tspan fill="#52525b">  •  </tspan><tspan fill="#30d158">${escapeXml(tag1)}</tspan>` : ""}
-      ${tag2 ? `<tspan fill="#52525b">  •  </tspan><tspan fill="#a1a1a6">${escapeXml(tag2)}</tspan>` : ""}
-    </text>
-  </g>`;
-  });
-
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="840" height="${totalHeight}" viewBox="0 0 840 ${totalHeight}" fill="none" role="img" aria-labelledby="proj-title proj-desc">
-  <title id="proj-title">Ardian Nurcahya - Pinned Repositories</title>
-  <desc id="proj-desc">Clean dark window displaying pinned repositories dynamically synced from GitHub GraphQL.</desc>
-  <style>
-    .window-title { font: 500 12px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; fill: #86868b; }
-    .proj-title { font: 700 13px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; fill: #f5f5f7; }
-    .proj-desc { font: 400 12px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; fill: #a1a1a6; }
-    .meta-tag { font: 600 10.5px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
-    .panel-box { fill: #161820; stroke: #262933; stroke-width: 1; rx: 6; }
-    @media (prefers-color-scheme: light) {
-      .win-bg { fill: #ffffff; stroke: #d1d5db; }
-      .win-header { fill: #f3f4f6; stroke: #e5e7eb; }
-      .window-title { fill: #4b5563; }
-      .panel-box { fill: #f9fafb; stroke: #e5e7eb; }
-      .proj-title { fill: #111827; }
-      .proj-desc { fill: #4b5563; }
-      .divider { stroke: #e5e7eb; }
-    }
-  </style>
-
-  <!-- Window Container -->
-  <rect class="win-bg" x="1" y="1" width="838" height="${totalHeight - 2}" rx="10" fill="#121319" stroke="#2d3139" stroke-width="1.5"/>
-
-  <!-- Titlebar Header -->
-  <path class="win-header" d="M 1 11 C 1 5.5 5.5 1 11 1 L 829 1 C 834.5 1 839 5.5 839 11 L 839 36 L 1 36 Z" fill="#1c1e26"/>
-  <line class="divider" x1="1" y1="36" x2="839" y2="36" stroke="#262833" stroke-width="1"/>
-
-  <!-- Control Dots -->
-  <circle cx="20" cy="18" r="5.5" fill="#ff5f56" stroke="#e0443e" stroke-width="0.8"/>
-  <circle cx="36" cy="18" r="5.5" fill="#ffbd2e" stroke="#dea123" stroke-width="0.8"/>
-  <circle cx="52" cy="18" r="5.5" fill="#27c93f" stroke="#1aab29" stroke-width="0.8"/>
-
-  <!-- Centered Title -->
-  <text class="window-title" x="420" y="22" text-anchor="middle">pinned-repositories — ${items.length} projects</text>
-
-${projectCards.join("\n\n")}
-</svg>
-`;
-}
-
 function renderContributions(calendar) {
   const weeks = calendar?.weeks || [];
   const total = calendar?.totalContributions || 864;
@@ -765,11 +543,10 @@ async function writeAtomically(path, content) {
   await rename(temporaryPath, path);
 }
 
-const { stats, languages, pinnedRepos, calendar } = await collectData();
+const { stats, languages, calendar } = await collectData();
 await Promise.all([
   writeAtomically(resolve(outputDir, "github-stats.svg"), renderStats(stats)),
   writeAtomically(resolve(outputDir, "github-languages.svg"), renderLanguages(languages)),
-  writeAtomically(resolve(outputDir, "v2-projects.svg"), renderProjects(pinnedRepos)),
   writeAtomically(resolve(outputDir, "v2-contributions.svg"), renderContributions(calendar)),
 ]);
-console.log(`Successfully generated all profile assets including custom contribution activity for ${username}!`);
+console.log(`Successfully generated streamlined profile assets for ${username}!`);

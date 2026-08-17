@@ -28,13 +28,6 @@
 
 ---
 
-<!-- Pinned Repositories Grid (Auto-Synced via GitHub GraphQL) -->
-<div align="center">
-  <img src="./assets/v2-projects.svg" width="100%" alt="Pinned Engineering Repositories" />
-</div>
-
-<br/>
-
 <!-- Pure Vector Tech Stack Matrix -->
 <div align="center">
   <img src="./assets/v2-stack.svg" width="100%" alt="Technology Stack Symbols" />
