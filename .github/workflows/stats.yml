@@ -1,13 +1,13 @@
-name: Refresh GitHub Stats
+name: Refresh GitHub Stats & Pinned Projects
 
 on:
   push:
-    branches: [main]
+    branches: [main, feat/v2-monolith-profile]
     paths:
       - ".github/scripts/generate-stats.mjs"
       - ".github/workflows/stats.yml"
   schedule:
-    - cron: "17 * * * *"
+    - cron: "0 0 * * *"
   workflow_dispatch:
 
 permissions:
@@ -22,9 +22,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out profile repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v4
 
-      - name: Generate repository-owned stats cards
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Generate repository-owned stats & pinned projects cards
         run: node .github/scripts/generate-stats.mjs
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -34,6 +39,6 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/github-stats.svg assets/github-languages.svg
-          git diff --cached --quiet || git commit -m "chore: refresh GitHub profile stats"
+          git add assets/github-stats.svg assets/github-languages.svg assets/v2-projects.svg
+          git diff --cached --quiet || git commit -m "chore: refresh GitHub stats & pinned projects [skip ci]"
           git push

@@ -5,7 +5,7 @@ import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const username = process.env.GITHUB_STATS_USERNAME || "ardiannurcahya";
-const token = process.env.GITHUB_TOKEN;
+const token = process.env.GITHUB_TOKEN || process.env.GH_TOKEN;
 const apiRoot = "https://api.github.com";
 const outputDir = resolve(dirname(fileURLToPath(import.meta.url)), "../../assets");
 
@@ -54,9 +54,9 @@ async function githubApi(path, params = {}) {
   return response.json();
 }
 
-async function githubGraphql(query, variables) {
+async function githubGraphql(query, variables = {}) {
   if (!token) {
-    console.warn("GITHUB_TOKEN not present, skipping GraphQL review query.");
+    console.warn("GITHUB_TOKEN not present, skipping GraphQL query.");
     return null;
   }
   const response = await fetch("https://api.github.com/graphql", {
@@ -111,11 +111,108 @@ async function fetchReviewContributions() {
       { login: username },
     );
     if (!data?.user) return 0;
-    return Number(data.user.contributionsCollection.totalPullRequestReviewContributions);
+    return Number(data.user.contributionsCollection.totalPullRequestReviewContributions || 0);
   } catch (error) {
     console.warn(`Fetch reviews failed: ${error.message}`);
     return 0;
   }
+}
+
+async function fetchPinnedRepositories() {
+  try {
+    const data = await githubGraphql(
+      `query ($login: String!) {
+        user(login: $login) {
+          pinnedItems(first: 6, types: [REPOSITORY]) {
+            nodes {
+              ... on Repository {
+                name
+                description
+                stargazerCount
+                primaryLanguage {
+                  name
+                  color
+                }
+                repositoryTopics(first: 3) {
+                  nodes {
+                    topic {
+                      name
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }`,
+      { login: username }
+    );
+    const nodes = data?.user?.pinnedItems?.nodes;
+    if (nodes && nodes.length > 0) {
+      return nodes.map((r) => ({
+        name: r.name,
+        description: r.description || "Open source software architecture.",
+        stars: r.stargazerCount || 0,
+        language: r.primaryLanguage?.name || "Code",
+        color: r.primaryLanguage?.color || languageColors[r.primaryLanguage?.name] || "#10b981",
+        topics: (r.repositoryTopics?.nodes || []).map((t) => t.topic?.name).filter(Boolean),
+      }));
+    }
+  } catch (error) {
+    console.warn(`Fetch pinned repos failed: ${error.message}`);
+  }
+
+  // Fallback defaults if GraphQL fails
+  return [
+    {
+      name: "open-graph-memory",
+      description: "Self-hosted knowledge graph extraction, temporal graph storage, and agent memory platform.",
+      stars: 60,
+      language: "Python",
+      color: "#3776AB",
+      topics: ["knowledge-graph", "agent-memory"],
+    },
+    {
+      name: "antigravity-cli-telegram-bot",
+      description: "Connect Antigravity CLI to Telegram with secure allowlisted bot gateway.",
+      stars: 47,
+      language: "TypeScript",
+      color: "#3178c6",
+      topics: ["antigravity-tools", "telegrambot"],
+    },
+    {
+      name: "k3s-multinode-vps",
+      description: "Multi-node K3s cluster infrastructure provisioning and workload orchestration.",
+      stars: 17,
+      language: "Kubernetes",
+      color: "#f59e0b",
+      topics: ["k3s-cluster", "devops"],
+    },
+    {
+      name: "ogm-mcp-skills",
+      description: "MCP Server and AI Agent Skills for OpenGraphMemory workflows.",
+      stars: 6,
+      language: "Python",
+      color: "#3776AB",
+      topics: ["mcp-server", "agent-skills"],
+    },
+    {
+      name: "ogm-slim",
+      description: "OpenGraphMemory Slim: persistent experience memory & codebase extraction engine.",
+      stars: 2,
+      language: "TypeScript",
+      color: "#3178c6",
+      topics: ["agent-memory", "codebase-graph"],
+    },
+    {
+      name: "LoRA-Fine-Tuning-Qwen2.5-7B-Unsloth",
+      description: "Parameter-efficient fine-tuning (PEFT/LoRA) on Qwen2.5-7B LLM with Unsloth.",
+      stars: 0,
+      language: "Jupyter Notebook",
+      color: "#DA5B0B",
+      topics: ["unsloth-lora", "qwen2.5-7b"],
+    },
+  ];
 }
 
 async function fetchRepositories() {
@@ -157,12 +254,13 @@ async function collectData() {
     console.warn(`Commits search failed: ${error.message}`);
   }
 
-  const [user, allRepositories, pullRequests, issues, reviews] = await Promise.all([
+  const [user, allRepositories, pullRequests, issues, reviews, pinnedRepos] = await Promise.all([
     githubApi(`/users/${username}`),
     fetchRepositories(),
     searchCount(`author:${username} type:pr`),
     searchCount(`author:${username} type:issue`),
     fetchReviewContributions(),
+    fetchPinnedRepositories(),
   ]);
 
   const repositories = allRepositories.filter((repository) => !repository.fork && !repository.archived);
@@ -193,11 +291,11 @@ async function collectData() {
     }
   }
 
-  return { stats, languages };
+  return { stats, languages, pinnedRepos };
 }
 
 function escapeXml(value) {
-  return String(value)
+  return String(value || "")
     .replaceAll("&", "&amp;")
     .replaceAll("<", "&lt;")
     .replaceAll(">", "&gt;")
@@ -337,6 +435,153 @@ function renderLanguages(languages) {
   );
 }
 
+function splitDescription(text, maxChars = 56) {
+  if (!text) return ["Open source software architecture.", ""];
+  const words = text.split(" ");
+  let line1 = "";
+  let line2 = "";
+  for (const w of words) {
+    if ((line1 + " " + w).trim().length <= maxChars && !line2) {
+      line1 = (line1 + " " + w).trim();
+    } else {
+      line2 = (line2 + " " + w).trim();
+    }
+  }
+  if (line2.length > maxChars) {
+    line2 = line2.slice(0, maxChars - 3) + "...";
+  }
+  return [line1, line2];
+}
+
+function renderProjects(pinnedRepos) {
+  const items = pinnedRepos.slice(0, 6);
+  const rows = Math.ceil(items.length / 2);
+  const totalHeight = 54 + rows * 142 + 20;
+
+  const projectCards = items.map((repo, idx) => {
+    const col = idx % 2;
+    const row = Math.floor(idx / 2);
+    const x = col === 0 ? 32 : 434;
+    const y = 54 + row * 142;
+
+    const [desc1, desc2] = splitDescription(repo.description);
+    const starText = repo.stars > 0 ? `★ ${repo.stars}` : "★ 0";
+    const topic1 = repo.topics[0] ? `# ${escapeXml(repo.topics[0])}` : `# ${escapeXml(repo.language)}`;
+    const topic2 = repo.topics[1] ? escapeXml(repo.topics[1]) : "OpenSource";
+
+    return `  <!-- Project ${idx + 1}: ${escapeXml(repo.name)} -->
+  <g transform="translate(${x}, ${y})">
+    <rect class="panel-box" width="374" height="130"/>
+    <g transform="translate(16, 26)">
+      <circle cx="0" cy="0" r="3.5" fill="${repo.color || "#10b981"}"/>
+      <text class="proj-title" x="12" y="4">${escapeXml(repo.name)}</text>
+      <g transform="translate(280, -9)">
+        <rect width="52" height="18" rx="3" fill="#1c202a" stroke="#27272a"/>
+        <text class="meta-tag" x="8" y="13" fill="#f59e0b">${escapeXml(starText)}</text>
+      </g>
+    </g>
+    <text class="proj-desc" x="16" y="58">${escapeXml(desc1)}</text>
+    <text class="proj-desc" x="16" y="76">${escapeXml(desc2)}</text>
+    <g transform="translate(16, 110)">
+      <text class="meta-tag" fill="${repo.color || "#38bdf8"}"># ${escapeXml(repo.language)}</text>
+      <text class="meta-tag" fill="#71717a" x="84">•</text>
+      <text class="meta-tag" fill="#10b981" x="98">${topic1}</text>
+      <text class="meta-tag" fill="#71717a" x="190">•</text>
+      <text class="meta-tag" fill="#a1a1aa" x="204">${topic2}</text>
+    </g>
+  </g>`;
+  });
+
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="840" height="${totalHeight}" viewBox="0 0 840 ${totalHeight}" fill="none" role="img" aria-labelledby="proj-title proj-desc">
+  <title id="proj-title">Ardian Nurcahya - Pinned Repositories Telemetry</title>
+  <desc id="proj-desc">Showcase of pinned open-source repositories dynamically synchronized from GitHub GraphQL API.</desc>
+  <style>
+    @keyframes scanLine {
+      0% { transform: translateY(0); opacity: 0; }
+      10% { opacity: 0.8; }
+      90% { opacity: 0.8; }
+      100% { transform: translateY(${totalHeight - 4}px); opacity: 0; }
+    }
+    .sec-header {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      fill: #10b981;
+    }
+    .proj-title {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 14px;
+      font-weight: 700;
+      fill: #f4f4f5;
+    }
+    .proj-desc {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: 12px;
+      font-weight: 400;
+      fill: #a1a1aa;
+      line-height: 1.4;
+    }
+    .meta-tag {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 10.5px;
+      font-weight: 600;
+    }
+    .corner-tick {
+      fill: #52525b;
+      font-family: ui-monospace, monospace;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .panel-box {
+      fill: #12131a;
+      stroke: #27272a;
+      stroke-width: 1;
+      rx: 6;
+    }
+    .scanner {
+      animation: scanLine 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    }
+    @media (prefers-color-scheme: light) {
+      .card-bg { fill: #f8fafc; stroke: #e2e8f0; }
+      .panel-box { fill: #ffffff; stroke: #e2e8f0; }
+      .sec-header { fill: #059669; }
+      .proj-title { fill: #09090b; }
+      .proj-desc { fill: #475569; }
+    }
+  </style>
+
+  <defs>
+    <linearGradient id="scan-grad" x1="0" y1="0" x2="840" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#10b981" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#10b981" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Container Base -->
+  <rect class="card-bg" x="1" y="1" width="838" height="${totalHeight - 2}" rx="8" fill="#090a0f" stroke="#27272a" stroke-width="1.5"/>
+
+  <!-- Scanning Sweep Laser Animation -->
+  <line class="scanner" x1="2" y1="0" x2="838" y2="0" stroke="url(#scan-grad)" stroke-width="2"/>
+
+  <!-- Architectural Corner Crosshairs -->
+  <text class="corner-tick" x="14" y="22">+</text>
+  <text class="corner-tick" x="818" y="22">+</text>
+  <text class="corner-tick" x="14" y="${totalHeight - 12}">+</text>
+  <text class="corner-tick" x="818" y="${totalHeight - 12}">+</text>
+
+  <!-- Header -->
+  <g transform="translate(32, 34)">
+    <text class="sec-header" x="0" y="0">PINNED_SYSTEMS // REPOSITORY MATRIX</text>
+    <text font-family="ui-monospace, monospace" font-size="11" font-weight="400" fill="#71717a" x="530" y="0">SYNC: ${items.length} PINNED REPOSITORIES</text>
+  </g>
+
+${projectCards.join("\n\n")}
+</svg>
+`;
+}
+
 async function writeAtomically(path, content) {
   await mkdir(dirname(path), { recursive: true });
   const temporaryPath = `${path}.tmp`;
@@ -344,9 +589,10 @@ async function writeAtomically(path, content) {
   await rename(temporaryPath, path);
 }
 
-const { stats, languages } = await collectData();
+const { stats, languages, pinnedRepos } = await collectData();
 await Promise.all([
   writeAtomically(resolve(outputDir, "github-stats.svg"), renderStats(stats)),
   writeAtomically(resolve(outputDir, "github-languages.svg"), renderLanguages(languages)),
+  writeAtomically(resolve(outputDir, "v2-projects.svg"), renderProjects(pinnedRepos)),
 ]);
-console.log(`Successfully generated Precision Monolith stats for ${username}:`, JSON.stringify(stats));
+console.log(`Successfully generated all profile assets (stats, languages, pinned repos) for ${username}!`);
