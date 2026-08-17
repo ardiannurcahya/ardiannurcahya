@@ -108,8 +108,8 @@
   <!-- Main Titles & Bio Info -->
   <g transform="translate(104, 0)">
     <text class="title-text" x="0" y="58">Ardian Nurcahya</text>
-    <text class="subtitle-text" x="0" y="86">AI/ML Engineer <tspan fill="#38bdf8">•</tspan> MLOps Specialist <tspan fill="#818cf8">•</tspan> AI Product Development</text>
-    <text class="tagline-text" x="0" y="110">Engineering production-grade AI systems, autonomous agents, and scalable computer vision pipelines.</text>
+    <text class="subtitle-text" x="0" y="86">AI/ML Engineer <tspan fill="#38bdf8">•</tspan> MLOps <tspan fill="#818cf8">•</tspan> AI Product Development</text>
+    <text class="tagline-text" x="0" y="110">Engineering AI systems, autonomous agents, and computer vision pipelines.</text>
   </g>
 
   <!-- Quick Feature Chips Bar (Bottom) -->
