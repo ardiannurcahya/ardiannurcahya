@@ -1,217 +1,167 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="840" height="500" viewBox="0 0 840 500" fill="none" role="img" aria-labelledby="proj-title proj-desc">
-  <title id="proj-title">Ardian Nurcahya - Pinned Repositories Telemetry</title>
-  <desc id="proj-desc">Showcase of pinned open-source repositories dynamically synchronized from GitHub GraphQL API.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="504" viewBox="0 0 840 504" fill="none" role="img" aria-labelledby="proj-title proj-desc">
+  <title id="proj-title">Ardian Nurcahya - macOS Pinned Repositories</title>
+  <desc id="proj-desc">Dark macOS style inspector window showing pinned repositories dynamically synced from GitHub GraphQL.</desc>
   <style>
-    @keyframes scanLine {
-      0% { transform: translateY(0); opacity: 0; }
-      10% { opacity: 0.8; }
-      90% { opacity: 0.8; }
-      100% { transform: translateY(496px); opacity: 0; }
-    }
-    .sec-header {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      fill: #10b981;
-    }
-    .proj-title {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      font-size: 14px;
-      font-weight: 700;
-      fill: #f4f4f5;
-    }
-    .proj-desc {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      font-size: 12px;
-      font-weight: 400;
-      fill: #a1a1aa;
-      line-height: 1.4;
-    }
-    .meta-tag {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      font-size: 10.5px;
-      font-weight: 600;
-    }
-    .corner-tick {
-      fill: #52525b;
-      font-family: ui-monospace, monospace;
-      font-size: 12px;
-      font-weight: 700;
-    }
-    .panel-box {
-      fill: #12131a;
-      stroke: #27272a;
-      stroke-width: 1;
-      rx: 6;
-    }
-    .scanner {
-      animation: scanLine 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-    }
+    .window-title { font: 500 12px -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', sans-serif; fill: #86868b; }
+    .proj-title { font: 700 13.5px ui-monospace, 'SF Mono', Menlo, Monaco, Consolas, monospace; fill: #f5f5f7; }
+    .proj-desc { font: 400 12px -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', sans-serif; fill: #a1a1a6; line-height: 1.4; }
+    .meta-tag { font: 600 10.5px ui-monospace, 'SF Mono', Menlo, Monaco, Consolas, monospace; }
+    .panel-box { fill: #161820; stroke: #262933; stroke-width: 1; rx: 6; }
     @media (prefers-color-scheme: light) {
-      .card-bg { fill: #f8fafc; stroke: #e2e8f0; }
-      .panel-box { fill: #ffffff; stroke: #e2e8f0; }
-      .sec-header { fill: #059669; }
-      .proj-title { fill: #09090b; }
-      .proj-desc { fill: #475569; }
+      .win-bg { fill: #ffffff; stroke: #d1d5db; }
+      .win-header { fill: #f3f4f6; stroke: #e5e7eb; }
+      .window-title { fill: #4b5563; }
+      .panel-box { fill: #f9fafb; stroke: #e5e7eb; }
+      .proj-title { fill: #111827; }
+      .proj-desc { fill: #4b5563; }
+      .divider { stroke: #e5e7eb; }
     }
   </style>
 
-  <defs>
-    <linearGradient id="scan-grad" x1="0" y1="0" x2="840" y2="0" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#10b981" stop-opacity="0"/>
-      <stop offset="50%" stop-color="#10b981" stop-opacity="0.3"/>
-      <stop offset="100%" stop-color="#10b981" stop-opacity="0"/>
-    </linearGradient>
-  </defs>
+  <!-- Window Container -->
+  <rect class="win-bg" x="1" y="1" width="838" height="502" rx="10" fill="#121319" stroke="#2d3139" stroke-width="1.5"/>
 
-  <!-- Container Base -->
-  <rect class="card-bg" x="1" y="1" width="838" height="498" rx="8" fill="#090a0f" stroke="#27272a" stroke-width="1.5"/>
+  <!-- macOS Titlebar -->
+  <path class="win-header" d="M 1 11 C 1 5.5 5.5 1 11 1 L 829 1 C 834.5 1 839 5.5 839 11 L 839 36 L 1 36 Z" fill="#1c1e26"/>
+  <line class="divider" x1="1" y1="36" x2="839" y2="36" stroke="#262833" stroke-width="1"/>
 
-  <!-- Scanning Sweep Laser Animation -->
-  <line class="scanner" x1="2" y1="0" x2="838" y2="0" stroke="url(#scan-grad)" stroke-width="2"/>
+  <!-- Traffic Lights -->
+  <circle cx="20" cy="18" r="5.5" fill="#ff5f56" stroke="#e0443e" stroke-width="0.8"/>
+  <circle cx="36" cy="18" r="5.5" fill="#ffbd2e" stroke="#dea123" stroke-width="0.8"/>
+  <circle cx="52" cy="18" r="5.5" fill="#27c93f" stroke="#1aab29" stroke-width="0.8"/>
 
-  <!-- Architectural Corner Crosshairs -->
-  <text class="corner-tick" x="14" y="22">+</text>
-  <text class="corner-tick" x="818" y="22">+</text>
-  <text class="corner-tick" x="14" y="488">+</text>
-  <text class="corner-tick" x="818" y="488">+</text>
+  <!-- Centered Title -->
+  <text class="window-title" x="420" y="22" text-anchor="middle">pinned-systems — 6 repositories</text>
 
-  <!-- Header -->
-  <g transform="translate(32, 34)">
-    <text class="sec-header" x="0" y="0">PINNED_SYSTEMS // REPOSITORY MATRIX</text>
-    <text font-family="ui-monospace, monospace" font-size="11" font-weight="400" fill="#71717a" x="530" y="0">SYNC: 6 PINNED REPOSITORIES</text>
-  </g>
-
-  <!-- Project 1: ogm-mcp-skills -->
-  <g transform="translate(32, 54)">
-    <rect class="panel-box" width="374" height="130"/>
+  <!-- Project 1: open-graph-memory -->
+  <g transform="translate(24, 54)">
+    <rect class="panel-box" width="390" height="132"/>
     <g transform="translate(16, 26)">
-      <circle cx="0" cy="0" r="3.5" fill="#3572A5"/>
-      <text class="proj-title" x="12" y="4">ogm-mcp-skills</text>
-      <g transform="translate(280, -9)">
-        <rect width="52" height="18" rx="3" fill="#1c202a" stroke="#27272a"/>
-        <text class="meta-tag" x="8" y="13" fill="#f59e0b">★ 6</text>
-      </g>
-    </g>
-    <text class="proj-desc" x="16" y="58">MCP Server and AI Agent Skills for OpenGraphMemory</text>
-    <text class="proj-desc" x="16" y="76"></text>
-    <g transform="translate(16, 110)">
-      <text class="meta-tag" fill="#3572A5"># Python</text>
-      <text class="meta-tag" fill="#71717a" x="84">•</text>
-      <text class="meta-tag" fill="#10b981" x="98"># agent-skills</text>
-      <text class="meta-tag" fill="#71717a" x="190">•</text>
-      <text class="meta-tag" fill="#a1a1aa" x="204">mcp-server</text>
-    </g>
-  </g>
-
-  <!-- Project 2: open-graph-memory -->
-  <g transform="translate(434, 54)">
-    <rect class="panel-box" width="374" height="130"/>
-    <g transform="translate(16, 26)">
-      <circle cx="0" cy="0" r="3.5" fill="#3572A5"/>
+      <circle cx="0" cy="0" r="3.5" fill="#3776AB"/>
       <text class="proj-title" x="12" y="4">open-graph-memory</text>
-      <g transform="translate(280, -9)">
-        <rect width="52" height="18" rx="3" fill="#1c202a" stroke="#27272a"/>
-        <text class="meta-tag" x="8" y="13" fill="#f59e0b">★ 60</text>
+      <g transform="translate(296, -9)">
+        <rect width="52" height="18" rx="4" fill="#1f222d" stroke="#2d303f"/>
+        <text class="meta-tag" x="8" y="13" fill="#ff9f0a">★ 60</text>
       </g>
     </g>
     <text class="proj-desc" x="16" y="58">Self-hosted knowledge graph extraction, temporal graph</text>
     <text class="proj-desc" x="16" y="76">storage, and agent memory platform.</text>
     <g transform="translate(16, 110)">
-      <text class="meta-tag" fill="#3572A5"># Python</text>
-      <text class="meta-tag" fill="#71717a" x="84">•</text>
-      <text class="meta-tag" fill="#10b981" x="98"># agent-memory</text>
-      <text class="meta-tag" fill="#71717a" x="190">•</text>
-      <text class="meta-tag" fill="#a1a1aa" x="204">codebase-extraction</text>
+      <text class="meta-tag" fill="#3776AB"># Python</text>
+      <text class="meta-tag" fill="#86868b" x="84">•</text>
+      <text class="meta-tag" fill="#30d158" x="98"># knowledge-graph</text>
+      <text class="meta-tag" fill="#86868b" x="190">•</text>
+      <text class="meta-tag" fill="#a1a1a6" x="204">agent-memory</text>
     </g>
   </g>
 
-  <!-- Project 3: LoRA-Fine-Tuning-Qwen2.5-7B-Unsloth -->
-  <g transform="translate(32, 196)">
-    <rect class="panel-box" width="374" height="130"/>
-    <g transform="translate(16, 26)">
-      <circle cx="0" cy="0" r="3.5" fill="#DA5B0B"/>
-      <text class="proj-title" x="12" y="4">LoRA-Fine-Tuning-Qwen2.5-7B-Unsloth</text>
-      <g transform="translate(280, -9)">
-        <rect width="52" height="18" rx="3" fill="#1c202a" stroke="#27272a"/>
-        <text class="meta-tag" x="8" y="13" fill="#f59e0b">★ 0</text>
-      </g>
-    </g>
-    <text class="proj-desc" x="16" y="58">Open source software architecture.</text>
-    <text class="proj-desc" x="16" y="76"></text>
-    <g transform="translate(16, 110)">
-      <text class="meta-tag" fill="#DA5B0B"># Jupyter Notebook</text>
-      <text class="meta-tag" fill="#71717a" x="84">•</text>
-      <text class="meta-tag" fill="#10b981" x="98"># Jupyter Notebook</text>
-      <text class="meta-tag" fill="#71717a" x="190">•</text>
-      <text class="meta-tag" fill="#a1a1aa" x="204">OpenSource</text>
-    </g>
-  </g>
-
-  <!-- Project 4: antigravity-cli-telegram-bot -->
-  <g transform="translate(434, 196)">
-    <rect class="panel-box" width="374" height="130"/>
+  <!-- Project 2: antigravity-cli-telegram-bot -->
+  <g transform="translate(426, 54)">
+    <rect class="panel-box" width="390" height="132"/>
     <g transform="translate(16, 26)">
       <circle cx="0" cy="0" r="3.5" fill="#3178c6"/>
       <text class="proj-title" x="12" y="4">antigravity-cli-telegram-bot</text>
-      <g transform="translate(280, -9)">
-        <rect width="52" height="18" rx="3" fill="#1c202a" stroke="#27272a"/>
-        <text class="meta-tag" x="8" y="13" fill="#f59e0b">★ 47</text>
+      <g transform="translate(296, -9)">
+        <rect width="52" height="18" rx="4" fill="#1f222d" stroke="#2d303f"/>
+        <text class="meta-tag" x="8" y="13" fill="#ff9f0a">★ 47</text>
       </g>
     </g>
-    <text class="proj-desc" x="16" y="58">Connect Antigravity CLI to Telegram with a allowlisted</text>
-    <text class="proj-desc" x="16" y="76">bot gateway.</text>
+    <text class="proj-desc" x="16" y="58">Connect Antigravity CLI to Telegram with secure</text>
+    <text class="proj-desc" x="16" y="76">allowlisted bot gateway.</text>
     <g transform="translate(16, 110)">
       <text class="meta-tag" fill="#3178c6"># TypeScript</text>
-      <text class="meta-tag" fill="#71717a" x="84">•</text>
-      <text class="meta-tag" fill="#10b981" x="98"># antigravity-tools</text>
-      <text class="meta-tag" fill="#71717a" x="190">•</text>
-      <text class="meta-tag" fill="#a1a1aa" x="204">telegrambot</text>
+      <text class="meta-tag" fill="#86868b" x="84">•</text>
+      <text class="meta-tag" fill="#30d158" x="98"># antigravity-tools</text>
+      <text class="meta-tag" fill="#86868b" x="190">•</text>
+      <text class="meta-tag" fill="#a1a1a6" x="204">telegrambot</text>
     </g>
   </g>
 
-  <!-- Project 5: k3s-multinode-vps -->
-  <g transform="translate(32, 338)">
-    <rect class="panel-box" width="374" height="130"/>
+  <!-- Project 3: k3s-multinode-vps -->
+  <g transform="translate(24, 198)">
+    <rect class="panel-box" width="390" height="132"/>
     <g transform="translate(16, 26)">
-      <circle cx="0" cy="0" r="3.5" fill="#10b981"/>
+      <circle cx="0" cy="0" r="3.5" fill="#f59e0b"/>
       <text class="proj-title" x="12" y="4">k3s-multinode-vps</text>
-      <g transform="translate(280, -9)">
-        <rect width="52" height="18" rx="3" fill="#1c202a" stroke="#27272a"/>
-        <text class="meta-tag" x="8" y="13" fill="#f59e0b">★ 18</text>
+      <g transform="translate(296, -9)">
+        <rect width="52" height="18" rx="4" fill="#1f222d" stroke="#2d303f"/>
+        <text class="meta-tag" x="8" y="13" fill="#ff9f0a">★ 17</text>
       </g>
     </g>
-    <text class="proj-desc" x="16" y="58">Manage your small vps with k3s</text>
-    <text class="proj-desc" x="16" y="76"></text>
+    <text class="proj-desc" x="16" y="58">Multi-node K3s cluster infrastructure provisioning and</text>
+    <text class="proj-desc" x="16" y="76">workload orchestration.</text>
     <g transform="translate(16, 110)">
-      <text class="meta-tag" fill="#10b981"># Code</text>
-      <text class="meta-tag" fill="#71717a" x="84">•</text>
-      <text class="meta-tag" fill="#10b981" x="98"># Code</text>
-      <text class="meta-tag" fill="#71717a" x="190">•</text>
-      <text class="meta-tag" fill="#a1a1aa" x="204">OpenSource</text>
+      <text class="meta-tag" fill="#f59e0b"># Kubernetes</text>
+      <text class="meta-tag" fill="#86868b" x="84">•</text>
+      <text class="meta-tag" fill="#30d158" x="98"># k3s-cluster</text>
+      <text class="meta-tag" fill="#86868b" x="190">•</text>
+      <text class="meta-tag" fill="#a1a1a6" x="204">devops</text>
     </g>
   </g>
 
-  <!-- Project 6: ogm-slim -->
-  <g transform="translate(434, 338)">
-    <rect class="panel-box" width="374" height="130"/>
+  <!-- Project 4: ogm-mcp-skills -->
+  <g transform="translate(426, 198)">
+    <rect class="panel-box" width="390" height="132"/>
+    <g transform="translate(16, 26)">
+      <circle cx="0" cy="0" r="3.5" fill="#3776AB"/>
+      <text class="proj-title" x="12" y="4">ogm-mcp-skills</text>
+      <g transform="translate(296, -9)">
+        <rect width="52" height="18" rx="4" fill="#1f222d" stroke="#2d303f"/>
+        <text class="meta-tag" x="8" y="13" fill="#ff9f0a">★ 6</text>
+      </g>
+    </g>
+    <text class="proj-desc" x="16" y="58">MCP Server and AI Agent Skills for OpenGraphMemory</text>
+    <text class="proj-desc" x="16" y="76">workflows.</text>
+    <g transform="translate(16, 110)">
+      <text class="meta-tag" fill="#3776AB"># Python</text>
+      <text class="meta-tag" fill="#86868b" x="84">•</text>
+      <text class="meta-tag" fill="#30d158" x="98"># mcp-server</text>
+      <text class="meta-tag" fill="#86868b" x="190">•</text>
+      <text class="meta-tag" fill="#a1a1a6" x="204">agent-skills</text>
+    </g>
+  </g>
+
+  <!-- Project 5: ogm-slim -->
+  <g transform="translate(24, 342)">
+    <rect class="panel-box" width="390" height="132"/>
     <g transform="translate(16, 26)">
       <circle cx="0" cy="0" r="3.5" fill="#3178c6"/>
       <text class="proj-title" x="12" y="4">ogm-slim</text>
-      <g transform="translate(280, -9)">
-        <rect width="52" height="18" rx="3" fill="#1c202a" stroke="#27272a"/>
-        <text class="meta-tag" x="8" y="13" fill="#f59e0b">★ 2</text>
+      <g transform="translate(296, -9)">
+        <rect width="52" height="18" rx="4" fill="#1f222d" stroke="#2d303f"/>
+        <text class="meta-tag" x="8" y="13" fill="#ff9f0a">★ 2</text>
       </g>
     </g>
-    <text class="proj-desc" x="16" y="58">OpenGraphMemory Slim : persistent experience memory &amp;</text>
-    <text class="proj-desc" x="16" y="76">codebase extraxtion for AI coding agent</text>
+    <text class="proj-desc" x="16" y="58">OpenGraphMemory Slim: persistent experience memory &amp;</text>
+    <text class="proj-desc" x="16" y="76">codebase extraction engine.</text>
     <g transform="translate(16, 110)">
       <text class="meta-tag" fill="#3178c6"># TypeScript</text>
-      <text class="meta-tag" fill="#71717a" x="84">•</text>
-      <text class="meta-tag" fill="#10b981" x="98"># TypeScript</text>
-      <text class="meta-tag" fill="#71717a" x="190">•</text>
-      <text class="meta-tag" fill="#a1a1aa" x="204">OpenSource</text>
+      <text class="meta-tag" fill="#86868b" x="84">•</text>
+      <text class="meta-tag" fill="#30d158" x="98"># agent-memory</text>
+      <text class="meta-tag" fill="#86868b" x="190">•</text>
+      <text class="meta-tag" fill="#a1a1a6" x="204">codebase-graph</text>
+    </g>
+  </g>
+
+  <!-- Project 6: LoRA-Fine-Tuning-Qwen2.5-7B-Unsloth -->
+  <g transform="translate(426, 342)">
+    <rect class="panel-box" width="390" height="132"/>
+    <g transform="translate(16, 26)">
+      <circle cx="0" cy="0" r="3.5" fill="#DA5B0B"/>
+      <text class="proj-title" x="12" y="4">LoRA-Fine-Tuning-Qwen2.5-7B-Unsloth</text>
+      <g transform="translate(296, -9)">
+        <rect width="52" height="18" rx="4" fill="#1f222d" stroke="#2d303f"/>
+        <text class="meta-tag" x="8" y="13" fill="#ff9f0a">★ 0</text>
+      </g>
+    </g>
+    <text class="proj-desc" x="16" y="58">Parameter-efficient fine-tuning (PEFT/LoRA) on</text>
+    <text class="proj-desc" x="16" y="76">Qwen2.5-7B LLM with Unsloth.</text>
+    <g transform="translate(16, 110)">
+      <text class="meta-tag" fill="#DA5B0B"># Jupyter Notebook</text>
+      <text class="meta-tag" fill="#86868b" x="84">•</text>
+      <text class="meta-tag" fill="#30d158" x="98"># unsloth-lora</text>
+      <text class="meta-tag" fill="#86868b" x="190">•</text>
+      <text class="meta-tag" fill="#a1a1a6" x="204">qwen2.5-7b</text>
     </g>
   </g>
 </svg>

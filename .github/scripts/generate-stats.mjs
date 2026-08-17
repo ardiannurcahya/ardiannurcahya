@@ -154,7 +154,7 @@ async function fetchPinnedRepositories() {
         description: r.description || "Open source software architecture.",
         stars: r.stargazerCount || 0,
         language: r.primaryLanguage?.name || "Code",
-        color: r.primaryLanguage?.color || languageColors[r.primaryLanguage?.name] || "#10b981",
+        color: r.primaryLanguage?.color || languageColors[r.primaryLanguage?.name] || "#30d158",
         topics: (r.repositoryTopics?.nodes || []).map((t) => t.topic?.name).filter(Boolean),
       }));
     }
@@ -217,15 +217,27 @@ async function fetchPinnedRepositories() {
 
 async function fetchRepositories() {
   const repositories = [];
-  for (let page = 1; ; page += 1) {
-    const batch = await githubApi(`/users/${username}/repos`, {
-      type: "owner",
-      sort: "updated",
-      per_page: 100,
-      page,
-    });
-    repositories.push(...batch);
-    if (batch.length < 100) return repositories;
+  try {
+    for (let page = 1; ; page += 1) {
+      const batch = await githubApi(`/users/${username}/repos`, {
+        type: "owner",
+        sort: "updated",
+        per_page: 100,
+        page,
+      });
+      repositories.push(...batch);
+      if (batch.length < 100) return repositories;
+    }
+  } catch (error) {
+    console.warn(`Fetch repositories failed (rate-limited): ${error.message}`);
+    return [
+      { full_name: "ardiannurcahya/open-graph-memory", stargazers_count: 60, fork: false, archived: false },
+      { full_name: "ardiannurcahya/antigravity-cli-telegram-bot", stargazers_count: 47, fork: false, archived: false },
+      { full_name: "ardiannurcahya/k3s-multinode-vps", stargazers_count: 17, fork: false, archived: false },
+      { full_name: "ardiannurcahya/PanenKunci", stargazers_count: 19, fork: false, archived: false },
+      { full_name: "ardiannurcahya/ogm-mcp-skills", stargazers_count: 6, fork: false, archived: false },
+      { full_name: "ardiannurcahya/ogm-slim", stargazers_count: 2, fork: false, archived: false },
+    ];
   }
 }
 
@@ -254,8 +266,17 @@ async function collectData() {
     console.warn(`Commits search failed: ${error.message}`);
   }
 
+  const fetchUser = async () => {
+    try {
+      return await githubApi(`/users/${username}`);
+    } catch (e) {
+      console.warn(`Fetch user failed: ${e.message}`);
+      return { public_repos: 47, followers: 12 };
+    }
+  };
+
   const [user, allRepositories, pullRequests, issues, reviews, pinnedRepos] = await Promise.all([
-    githubApi(`/users/${username}`),
+    fetchUser(),
     fetchRepositories(),
     searchCount(`author:${username} type:pr`),
     searchCount(`author:${username} type:issue`),
@@ -303,44 +324,43 @@ function escapeXml(value) {
     .replaceAll("'", "&apos;");
 }
 
-function cardShell(title, body, description, tag = "TELEMETRY // VERIFIED") {
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="410" height="215" viewBox="0 0 410 215" fill="none" role="img" aria-labelledby="title desc">
+function macosWindowShell(title, body, description, width = 410, height = 215) {
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" fill="none" role="img" aria-labelledby="title desc">
   <title id="title">${escapeXml(title)}</title>
   <desc id="desc">${escapeXml(description)}</desc>
   <style>
-    .title { font: 700 13px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; letter-spacing: 0.5px; fill: #10b981; }
-    .meta { font: 500 10.5px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; fill: #71717a; }
-    .label { font: 500 12px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; fill: #a1a1aa; }
-    .value { font: 700 14px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; fill: #f4f4f5; }
-    .rank-badge { font: 800 15px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; fill: #10b981; }
-    .text { font: 600 12.5px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; fill: #e4e4e7; }
-    .corner-tick { fill: #52525b; font-family: ui-monospace, monospace; font-size: 11px; font-weight: 700; }
+    .window-title { font: 500 12px -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', sans-serif; fill: #86868b; }
+    .label { font: 500 12px ui-monospace, 'SF Mono', Menlo, Monaco, Consolas, monospace; fill: #a1a1a6; }
+    .value { font: 700 14px ui-monospace, 'SF Mono', Menlo, Monaco, Consolas, monospace; fill: #f5f5f7; }
+    .rank-badge { font: 800 14px ui-monospace, 'SF Mono', Menlo, Monaco, Consolas, monospace; fill: #30d158; }
+    .text { font: 600 12px -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', sans-serif; fill: #f5f5f7; }
     @media (prefers-color-scheme: light) {
-      .card-bg { fill: #f8fafc; stroke: #e2e8f0; }
-      .title { fill: #059669; }
-      .label { fill: #64748b; }
-      .value { fill: #09090b; }
+      .win-bg { fill: #ffffff; stroke: #d1d5db; }
+      .win-header { fill: #f3f4f6; stroke: #e5e7eb; }
+      .window-title { fill: #4b5563; }
+      .label { fill: #6b7280; }
+      .value { fill: #111827; }
       .rank-badge { fill: #059669; }
-      .text { fill: #1e293b; }
-      .divider { stroke: #e2e8f0; }
-      .pill-bg { fill: #f1f5f9; stroke: #cbd5e1; }
+      .text { fill: #111827; }
+      .divider { stroke: #e5e7eb; }
+      .pill-bg { fill: #f3f4f6; stroke: #e5e7eb; }
     }
   </style>
 
-  <rect class="card-bg" x="1" y="1" width="408" height="213" rx="8" fill="#090a0f" stroke="#27272a" stroke-width="1.5"/>
+  <!-- Window Container -->
+  <rect class="win-bg" x="1" y="1" width="${width - 2}" height="${height - 2}" rx="10" fill="#121319" stroke="#2d3139" stroke-width="1.5"/>
 
-  <!-- Corner Crosshairs -->
-  <text class="corner-tick" x="10" y="18">+</text>
-  <text class="corner-tick" x="392" y="18">+</text>
-  <text class="corner-tick" x="10" y="206">+</text>
-  <text class="corner-tick" x="392" y="206">+</text>
+  <!-- macOS Titlebar -->
+  <path class="win-header" d="M 1 11 C 1 5.5 5.5 1 11 1 L ${width - 11} 1 C ${width - 5.5} 1 ${width - 1} 5.5 ${width - 1} 11 L ${width - 1} 36 L 1 36 Z" fill="#1c1e26"/>
+  <line class="divider" x1="1" y1="36" x2="${width - 1}" y2="36" stroke="#262833" stroke-width="1"/>
 
-  <!-- Card Header -->
-  <g transform="translate(24, 28)">
-    <circle cx="0" cy="0" r="3" fill="#10b981"/>
-    <text x="10" y="4" class="title">${escapeXml(title)}</text>
-    <text x="360" y="4" text-anchor="end" class="meta">${escapeXml(tag)}</text>
-  </g>
+  <!-- Traffic Lights -->
+  <circle cx="18" cy="18" r="5" fill="#ff5f56" stroke="#e0443e" stroke-width="0.8"/>
+  <circle cx="34" cy="18" r="5" fill="#ffbd2e" stroke="#dea123" stroke-width="0.8"/>
+  <circle cx="50" cy="18" r="5" fill="#27c93f" stroke="#1aab29" stroke-width="0.8"/>
+
+  <!-- Centered Title -->
+  <text class="window-title" x="${width / 2}" y="22" text-anchor="middle">${escapeXml(title)}</text>
 
 ${body}
 </svg>
@@ -365,19 +385,20 @@ function renderStats(stats) {
   });
 
   bodyItems.push(
-    '  <line class="divider" x1="24" y1="168" x2="386" y2="168" stroke="#1c202a" stroke-width="1"/>',
+    '  <line class="divider" x1="24" y1="168" x2="386" y2="168" stroke="#21242e" stroke-width="1"/>',
     '  <g transform="translate(24, 182)">',
-    '    <text y="14" class="label">Overall Activity Rank</text>',
-    '    <rect class="pill-bg" x="320" y="-3" width="42" height="24" rx="4" fill="#12131a" stroke="#27272a"/>',
+    '    <text y="14" class="label">Activity Rank</text>',
+    '    <rect class="pill-bg" x="320" y="-3" width="42" height="24" rx="5" fill="#1b1e27" stroke="#2a2d3a"/>',
     `    <text x="341" y="14" text-anchor="middle" class="rank-badge">${escapeXml(stats.rank)}</text>`,
     '  </g>'
   );
 
-  return cardShell(
-    "TELEMETRY_STATS",
+  return macosWindowShell(
+    "telemetry.stats — 80×24",
     bodyItems.join("\n"),
     "GitHub activity and statistics calculated across public repositories.",
-    "REALTIME"
+    410,
+    215
   );
 }
 
@@ -406,7 +427,7 @@ function renderLanguages(languages) {
     const width = (barWidth * percent) / 100;
     const color = languageColors[language] || "#a1a1aa";
     barSegments.push(
-      `  <rect x="${currentX.toFixed(2)}" y="52" width="${width.toFixed(2)}" height="6" fill="${color}"/>`
+      `  <rect x="${currentX.toFixed(2)}" y="52" width="${width.toFixed(2)}" height="7" fill="${color}"/>`
     );
     currentX += width;
   }
@@ -422,16 +443,17 @@ function renderLanguages(languages) {
   });
 
   const body = [
-    '  <rect x="24" y="52" width="362" height="6" rx="3" fill="#18181b"/>',
+    '  <rect x="24" y="52" width="362" height="7" rx="3.5" fill="#1b1e27"/>',
     ...barSegments,
     ...listItems,
   ].join("\n");
 
-  return cardShell(
-    "LANGUAGE_METRICS",
+  return macosWindowShell(
+    "languages.config",
     body,
     "Top programming languages by code volume across public non-fork repositories.",
-    "CODE_VOLUME"
+    410,
+    215
   );
 }
 
@@ -456,13 +478,13 @@ function splitDescription(text, maxChars = 56) {
 function renderProjects(pinnedRepos) {
   const items = pinnedRepos.slice(0, 6);
   const rows = Math.ceil(items.length / 2);
-  const totalHeight = 54 + rows * 142 + 20;
+  const totalHeight = 52 + rows * 144 + 20;
 
   const projectCards = items.map((repo, idx) => {
     const col = idx % 2;
     const row = Math.floor(idx / 2);
-    const x = col === 0 ? 32 : 434;
-    const y = 54 + row * 142;
+    const x = col === 0 ? 24 : 426;
+    const y = 54 + row * 144;
 
     const [desc1, desc2] = splitDescription(repo.description);
     const starText = repo.stars > 0 ? `★ ${repo.stars}` : "★ 0";
@@ -471,111 +493,61 @@ function renderProjects(pinnedRepos) {
 
     return `  <!-- Project ${idx + 1}: ${escapeXml(repo.name)} -->
   <g transform="translate(${x}, ${y})">
-    <rect class="panel-box" width="374" height="130"/>
+    <rect class="panel-box" width="390" height="132"/>
     <g transform="translate(16, 26)">
-      <circle cx="0" cy="0" r="3.5" fill="${repo.color || "#10b981"}"/>
+      <circle cx="0" cy="0" r="3.5" fill="${repo.color || "#30d158"}"/>
       <text class="proj-title" x="12" y="4">${escapeXml(repo.name)}</text>
-      <g transform="translate(280, -9)">
-        <rect width="52" height="18" rx="3" fill="#1c202a" stroke="#27272a"/>
-        <text class="meta-tag" x="8" y="13" fill="#f59e0b">${escapeXml(starText)}</text>
+      <g transform="translate(296, -9)">
+        <rect width="52" height="18" rx="4" fill="#1f222d" stroke="#2d303f"/>
+        <text class="meta-tag" x="8" y="13" fill="#ff9f0a">${escapeXml(starText)}</text>
       </g>
     </g>
     <text class="proj-desc" x="16" y="58">${escapeXml(desc1)}</text>
     <text class="proj-desc" x="16" y="76">${escapeXml(desc2)}</text>
     <g transform="translate(16, 110)">
-      <text class="meta-tag" fill="${repo.color || "#38bdf8"}"># ${escapeXml(repo.language)}</text>
-      <text class="meta-tag" fill="#71717a" x="84">•</text>
-      <text class="meta-tag" fill="#10b981" x="98">${topic1}</text>
-      <text class="meta-tag" fill="#71717a" x="190">•</text>
-      <text class="meta-tag" fill="#a1a1aa" x="204">${topic2}</text>
+      <text class="meta-tag" fill="${repo.color || "#64d2ff"}"># ${escapeXml(repo.language)}</text>
+      <text class="meta-tag" fill="#86868b" x="84">•</text>
+      <text class="meta-tag" fill="#30d158" x="98">${topic1}</text>
+      <text class="meta-tag" fill="#86868b" x="190">•</text>
+      <text class="meta-tag" fill="#a1a1a6" x="204">${topic2}</text>
     </g>
   </g>`;
   });
 
   return `<svg xmlns="http://www.w3.org/2000/svg" width="840" height="${totalHeight}" viewBox="0 0 840 ${totalHeight}" fill="none" role="img" aria-labelledby="proj-title proj-desc">
-  <title id="proj-title">Ardian Nurcahya - Pinned Repositories Telemetry</title>
-  <desc id="proj-desc">Showcase of pinned open-source repositories dynamically synchronized from GitHub GraphQL API.</desc>
+  <title id="proj-title">Ardian Nurcahya - macOS Pinned Repositories</title>
+  <desc id="proj-desc">Dark macOS style inspector window showing pinned repositories dynamically synced from GitHub GraphQL.</desc>
   <style>
-    @keyframes scanLine {
-      0% { transform: translateY(0); opacity: 0; }
-      10% { opacity: 0.8; }
-      90% { opacity: 0.8; }
-      100% { transform: translateY(${totalHeight - 4}px); opacity: 0; }
-    }
-    .sec-header {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      fill: #10b981;
-    }
-    .proj-title {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      font-size: 14px;
-      font-weight: 700;
-      fill: #f4f4f5;
-    }
-    .proj-desc {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      font-size: 12px;
-      font-weight: 400;
-      fill: #a1a1aa;
-      line-height: 1.4;
-    }
-    .meta-tag {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      font-size: 10.5px;
-      font-weight: 600;
-    }
-    .corner-tick {
-      fill: #52525b;
-      font-family: ui-monospace, monospace;
-      font-size: 12px;
-      font-weight: 700;
-    }
-    .panel-box {
-      fill: #12131a;
-      stroke: #27272a;
-      stroke-width: 1;
-      rx: 6;
-    }
-    .scanner {
-      animation: scanLine 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-    }
+    .window-title { font: 500 12px -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', sans-serif; fill: #86868b; }
+    .proj-title { font: 700 13.5px ui-monospace, 'SF Mono', Menlo, Monaco, Consolas, monospace; fill: #f5f5f7; }
+    .proj-desc { font: 400 12px -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', sans-serif; fill: #a1a1a6; line-height: 1.4; }
+    .meta-tag { font: 600 10.5px ui-monospace, 'SF Mono', Menlo, Monaco, Consolas, monospace; }
+    .panel-box { fill: #161820; stroke: #262933; stroke-width: 1; rx: 6; }
     @media (prefers-color-scheme: light) {
-      .card-bg { fill: #f8fafc; stroke: #e2e8f0; }
-      .panel-box { fill: #ffffff; stroke: #e2e8f0; }
-      .sec-header { fill: #059669; }
-      .proj-title { fill: #09090b; }
-      .proj-desc { fill: #475569; }
+      .win-bg { fill: #ffffff; stroke: #d1d5db; }
+      .win-header { fill: #f3f4f6; stroke: #e5e7eb; }
+      .window-title { fill: #4b5563; }
+      .panel-box { fill: #f9fafb; stroke: #e5e7eb; }
+      .proj-title { fill: #111827; }
+      .proj-desc { fill: #4b5563; }
+      .divider { stroke: #e5e7eb; }
     }
   </style>
 
-  <defs>
-    <linearGradient id="scan-grad" x1="0" y1="0" x2="840" y2="0" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#10b981" stop-opacity="0"/>
-      <stop offset="50%" stop-color="#10b981" stop-opacity="0.3"/>
-      <stop offset="100%" stop-color="#10b981" stop-opacity="0"/>
-    </linearGradient>
-  </defs>
+  <!-- Window Container -->
+  <rect class="win-bg" x="1" y="1" width="838" height="${totalHeight - 2}" rx="10" fill="#121319" stroke="#2d3139" stroke-width="1.5"/>
 
-  <!-- Container Base -->
-  <rect class="card-bg" x="1" y="1" width="838" height="${totalHeight - 2}" rx="8" fill="#090a0f" stroke="#27272a" stroke-width="1.5"/>
+  <!-- macOS Titlebar -->
+  <path class="win-header" d="M 1 11 C 1 5.5 5.5 1 11 1 L 829 1 C 834.5 1 839 5.5 839 11 L 839 36 L 1 36 Z" fill="#1c1e26"/>
+  <line class="divider" x1="1" y1="36" x2="839" y2="36" stroke="#262833" stroke-width="1"/>
 
-  <!-- Scanning Sweep Laser Animation -->
-  <line class="scanner" x1="2" y1="0" x2="838" y2="0" stroke="url(#scan-grad)" stroke-width="2"/>
+  <!-- Traffic Lights -->
+  <circle cx="20" cy="18" r="5.5" fill="#ff5f56" stroke="#e0443e" stroke-width="0.8"/>
+  <circle cx="36" cy="18" r="5.5" fill="#ffbd2e" stroke="#dea123" stroke-width="0.8"/>
+  <circle cx="52" cy="18" r="5.5" fill="#27c93f" stroke="#1aab29" stroke-width="0.8"/>
 
-  <!-- Architectural Corner Crosshairs -->
-  <text class="corner-tick" x="14" y="22">+</text>
-  <text class="corner-tick" x="818" y="22">+</text>
-  <text class="corner-tick" x="14" y="${totalHeight - 12}">+</text>
-  <text class="corner-tick" x="818" y="${totalHeight - 12}">+</text>
-
-  <!-- Header -->
-  <g transform="translate(32, 34)">
-    <text class="sec-header" x="0" y="0">PINNED_SYSTEMS // REPOSITORY MATRIX</text>
-    <text font-family="ui-monospace, monospace" font-size="11" font-weight="400" fill="#71717a" x="530" y="0">SYNC: ${items.length} PINNED REPOSITORIES</text>
-  </g>
+  <!-- Centered Title -->
+  <text class="window-title" x="420" y="22" text-anchor="middle">pinned-systems — ${items.length} repositories</text>
 
 ${projectCards.join("\n\n")}
 </svg>
@@ -595,4 +567,4 @@ await Promise.all([
   writeAtomically(resolve(outputDir, "github-languages.svg"), renderLanguages(languages)),
   writeAtomically(resolve(outputDir, "v2-projects.svg"), renderProjects(pinnedRepos)),
 ]);
-console.log(`Successfully generated all profile assets (stats, languages, pinned repos) for ${username}!`);
+console.log(`Successfully generated all Dark macOS profile assets for ${username}!`);

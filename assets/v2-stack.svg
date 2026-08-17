@@ -1,220 +1,207 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="840" height="320" viewBox="0 0 840 320" fill="none" role="img" aria-labelledby="stack-title stack-desc">
-  <title id="stack-title">Ardian Nurcahya - Precision Technical Architecture</title>
-  <desc id="stack-desc">Technical stack across core languages, agent memory and graphs, backend routing, and cluster infrastructure.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="330" viewBox="0 0 840 330" fill="none" role="img" aria-labelledby="stack-title stack-desc">
+  <title id="stack-title">Ardian Nurcahya - macOS Tech Matrix</title>
+  <desc id="stack-desc">Dark macOS style window showcasing Ardian's full technical architecture and engineering skills.</desc>
   <style>
-    .sec-header {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    .window-title {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
       font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      fill: #10b981;
+      font-weight: 500;
+      fill: #86868b;
     }
     .col-title {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      font-size: 12px;
+      font-family: ui-monospace, "SF Mono", Menlo, Monaco, Consolas, monospace;
+      font-size: 11.5px;
       font-weight: 700;
       letter-spacing: 0.5px;
-      fill: #f4f4f5;
+      fill: #f5f5f7;
     }
     .item-text {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      font-size: 11.5px;
+      font-family: ui-monospace, "SF Mono", Menlo, Monaco, Consolas, monospace;
+      font-size: 11px;
       font-weight: 500;
-      fill: #a1a1aa;
-    }
-    .corner-tick {
-      fill: #52525b;
-      font-family: ui-monospace, monospace;
-      font-size: 12px;
-      font-weight: 700;
+      fill: #a1a1a6;
     }
     .panel-col {
-      fill: #12131a;
-      stroke: #27272a;
+      fill: #161820;
+      stroke: #262933;
       stroke-width: 1;
       rx: 6;
     }
     .chip {
-      fill: #1c202a;
-      stroke: #27272a;
+      fill: #1d202b;
+      stroke: #2c2f3d;
       stroke-width: 1;
       rx: 4;
     }
     @media (prefers-color-scheme: light) {
-      .card-bg { fill: #f8fafc; stroke: #e2e8f0; }
-      .panel-col { fill: #ffffff; stroke: #e2e8f0; }
-      .chip { fill: #f1f5f9; stroke: #cbd5e1; }
-      .sec-header { fill: #059669; }
-      .col-title { fill: #09090b; }
-      .item-text { fill: #334155; }
+      .win-bg { fill: #ffffff; stroke: #d1d5db; }
+      .win-header { fill: #f3f4f6; stroke: #e5e7eb; }
+      .window-title { fill: #4b5563; }
+      .panel-col { fill: #f9fafb; stroke: #e5e7eb; }
+      .chip { fill: #ffffff; stroke: #e5e7eb; }
+      .col-title { fill: #111827; }
+      .item-text { fill: #4b5563; }
+      .divider { stroke: #e5e7eb; }
     }
   </style>
 
-  <!-- Container Base -->
-  <rect class="card-bg" x="1" y="1" width="838" height="318" rx="8" fill="#090a0f" stroke="#27272a" stroke-width="1.5"/>
+  <!-- Window Base -->
+  <rect class="win-bg" x="1" y="1" width="838" height="328" rx="10" fill="#121319" stroke="#2d3139" stroke-width="1.5"/>
 
-  <!-- Architectural Corner Crosshairs -->
-  <text class="corner-tick" x="14" y="22">+</text>
-  <text class="corner-tick" x="818" y="22">+</text>
-  <text class="corner-tick" x="14" y="308">+</text>
-  <text class="corner-tick" x="818" y="308">+</text>
+  <!-- macOS Titlebar Header -->
+  <path class="win-header" d="M 1 11 C 1 5.5 5.5 1 11 1 L 829 1 C 834.5 1 839 5.5 839 11 L 839 36 L 1 36 Z" fill="#1c1e26"/>
+  <line class="divider" x1="1" y1="36" x2="839" y2="36" stroke="#262833" stroke-width="1"/>
 
-  <!-- Header -->
-  <g transform="translate(32, 34)">
-    <text class="sec-header" x="0" y="0">TECHNICAL_ARCHITECTURE // STACK_MATRIX</text>
-    <text font-family="ui-monospace, monospace" font-size="11" font-weight="400" fill="#71717a" x="550" y="0">SPEC: 2026-Q3 VERIFIED</text>
-  </g>
+  <!-- macOS Traffic Light Buttons -->
+  <circle cx="20" cy="18" r="5.5" fill="#ff5f56" stroke="#e0443e" stroke-width="0.8"/>
+  <circle cx="36" cy="18" r="5.5" fill="#ffbd2e" stroke="#dea123" stroke-width="0.8"/>
+  <circle cx="52" cy="18" r="5.5" fill="#27c93f" stroke="#1aab29" stroke-width="0.8"/>
+
+  <!-- Window Title -->
+  <text class="window-title" x="420" y="22" text-anchor="middle">architecture-stack.yaml — 4 modules</text>
 
   <!-- Column 1: Core Languages -->
-  <g transform="translate(32, 54)">
-    <rect class="panel-col" width="180" height="236"/>
-    <!-- Col Header -->
-    <g transform="translate(14, 26)">
-      <circle cx="0" cy="0" r="3" fill="#10b981"/>
+  <g transform="translate(24, 52)">
+    <rect class="panel-col" width="186" height="258"/>
+    <g transform="translate(14, 22)">
+      <circle cx="0" cy="0" r="3" fill="#30d158"/>
       <text class="col-title" x="10" y="4">01. LANGUAGES</text>
     </g>
-    <!-- List of 6 Exact Languages -->
-    <g transform="translate(14, 52)">
+    <g transform="translate(14, 44)">
       <g transform="translate(0, 0)">
-        <rect class="chip" width="152" height="24"/>
-        <circle cx="10" cy="12" r="3" fill="#00ADD8"/>
-        <text class="item-text" x="22" y="16">Go (Golang)</text>
+        <rect class="chip" width="158" height="26"/>
+        <circle cx="12" cy="13" r="3" fill="#00ADD8"/>
+        <text class="item-text" x="24" y="17">Go (Golang)</text>
       </g>
-      <g transform="translate(0, 30)">
-        <rect class="chip" width="152" height="24"/>
-        <circle cx="10" cy="12" r="3" fill="#3776AB"/>
-        <text class="item-text" x="22" y="16">Python</text>
+      <g transform="translate(0, 34)">
+        <rect class="chip" width="158" height="26"/>
+        <circle cx="12" cy="13" r="3" fill="#3776AB"/>
+        <text class="item-text" x="24" y="17">Python</text>
       </g>
-      <g transform="translate(0, 60)">
-        <rect class="chip" width="152" height="24"/>
-        <circle cx="10" cy="12" r="3" fill="#3178c6"/>
-        <text class="item-text" x="22" y="16">TypeScript</text>
+      <g transform="translate(0, 68)">
+        <rect class="chip" width="158" height="26"/>
+        <circle cx="12" cy="13" r="3" fill="#3178c6"/>
+        <text class="item-text" x="24" y="17">TypeScript</text>
       </g>
-      <g transform="translate(0, 90)">
-        <rect class="chip" width="152" height="24"/>
-        <circle cx="10" cy="12" r="3" fill="#f1e05a"/>
-        <text class="item-text" x="22" y="16">JavaScript</text>
+      <g transform="translate(0, 102)">
+        <rect class="chip" width="158" height="26"/>
+        <circle cx="12" cy="13" r="3" fill="#f1e05a"/>
+        <text class="item-text" x="24" y="17">JavaScript</text>
       </g>
-      <g transform="translate(0, 120)">
-        <rect class="chip" width="152" height="24"/>
-        <circle cx="10" cy="12" r="3" fill="#4479A1"/>
-        <text class="item-text" x="22" y="16">SQL (Postgres)</text>
+      <g transform="translate(0, 136)">
+        <rect class="chip" width="158" height="26"/>
+        <circle cx="12" cy="13" r="3" fill="#4479A1"/>
+        <text class="item-text" x="24" y="17">SQL (Postgres)</text>
       </g>
-      <g transform="translate(0, 150)">
-        <rect class="chip" width="152" height="24"/>
-        <circle cx="10" cy="12" r="3" fill="#4EAA25"/>
-        <text class="item-text" x="22" y="16">Bash Scripting</text>
+      <g transform="translate(0, 170)">
+        <rect class="chip" width="158" height="26"/>
+        <circle cx="12" cy="13" r="3" fill="#4EAA25"/>
+        <text class="item-text" x="24" y="17">Bash Shell</text>
       </g>
     </g>
   </g>
 
   <!-- Column 2: Agent Memory & Graphs -->
-  <g transform="translate(228, 54)">
-    <rect class="panel-col" width="186" height="236"/>
-    <!-- Col Header -->
-    <g transform="translate(14, 26)">
-      <circle cx="0" cy="0" r="3" fill="#38bdf8"/>
+  <g transform="translate(222, 52)">
+    <rect class="panel-col" width="190" height="258"/>
+    <g transform="translate(14, 22)">
+      <circle cx="0" cy="0" r="3" fill="#64d2ff"/>
       <text class="col-title" x="10" y="4">02. AGENT MEMORY</text>
     </g>
-    <!-- List -->
-    <g transform="translate(14, 52)">
+    <g transform="translate(14, 44)">
       <g transform="translate(0, 0)">
-        <rect class="chip" width="158" height="24"/>
-        <text class="item-text" x="10" y="16">Knowledge Graphs</text>
+        <rect class="chip" width="162" height="26"/>
+        <text class="item-text" x="12" y="17">Knowledge Graphs</text>
       </g>
-      <g transform="translate(0, 30)">
-        <rect class="chip" width="158" height="24"/>
-        <text class="item-text" x="10" y="16">Temporal Storage</text>
+      <g transform="translate(0, 34)">
+        <rect class="chip" width="162" height="26"/>
+        <text class="item-text" x="12" y="17">Temporal Graph Store</text>
       </g>
-      <g transform="translate(0, 60)">
-        <rect class="chip" width="158" height="24"/>
-        <text class="item-text" x="10" y="16">Vector DBs (Qdrant)</text>
+      <g transform="translate(0, 68)">
+        <rect class="chip" width="162" height="26"/>
+        <text class="item-text" x="12" y="17">Vector DBs (Qdrant)</text>
       </g>
-      <g transform="translate(0, 90)">
-        <rect class="chip" width="158" height="24"/>
-        <text class="item-text" x="10" y="16">LLM Agent Skills</text>
+      <g transform="translate(0, 102)">
+        <rect class="chip" width="162" height="26"/>
+        <text class="item-text" x="12" y="17">LLM Agent Skills</text>
       </g>
-      <g transform="translate(0, 120)">
-        <rect class="chip" width="158" height="24"/>
-        <text class="item-text" x="10" y="16">Graph RAG Systems</text>
+      <g transform="translate(0, 136)">
+        <rect class="chip" width="162" height="26"/>
+        <text class="item-text" x="12" y="17">Graph RAG Systems</text>
       </g>
-      <g transform="translate(0, 150)">
-        <rect class="chip" width="158" height="24"/>
-        <text class="item-text" x="10" y="16">MCP Protocol</text>
+      <g transform="translate(0, 170)">
+        <rect class="chip" width="162" height="26"/>
+        <text class="item-text" x="12" y="17">MCP Server Protocol</text>
       </g>
     </g>
   </g>
 
-  <!-- Column 3: Backend & Routing -->
-  <g transform="translate(430, 54)">
-    <rect class="panel-col" width="186" height="236"/>
-    <!-- Col Header -->
-    <g transform="translate(14, 26)">
-      <circle cx="0" cy="0" r="3" fill="#f59e0b"/>
+  <!-- Column 3: Backend & Data -->
+  <g transform="translate(424, 52)">
+    <rect class="panel-col" width="190" height="258"/>
+    <g transform="translate(14, 22)">
+      <circle cx="0" cy="0" r="3" fill="#ff9f0a"/>
       <text class="col-title" x="10" y="4">03. BACKEND &amp; DATA</text>
     </g>
-    <!-- List -->
-    <g transform="translate(14, 52)">
+    <g transform="translate(14, 44)">
       <g transform="translate(0, 0)">
-        <rect class="chip" width="158" height="24"/>
-        <text class="item-text" x="10" y="16">FastAPI Services</text>
+        <rect class="chip" width="162" height="26"/>
+        <text class="item-text" x="12" y="17">FastAPI Services</text>
       </g>
-      <g transform="translate(0, 30)">
-        <rect class="chip" width="158" height="24"/>
-        <text class="item-text" x="10" y="16">AI Routing Gateway</text>
+      <g transform="translate(0, 34)">
+        <rect class="chip" width="162" height="26"/>
+        <text class="item-text" x="12" y="17">AI Routing Gateway</text>
       </g>
-      <g transform="translate(0, 60)">
-        <rect class="chip" width="158" height="24"/>
-        <text class="item-text" x="10" y="16">GraphDB &amp; Neo4j</text>
+      <g transform="translate(0, 68)">
+        <rect class="chip" width="162" height="26"/>
+        <text class="item-text" x="12" y="17">GraphDB &amp; Neo4j</text>
       </g>
-      <g transform="translate(0, 90)">
-        <rect class="chip" width="158" height="24"/>
-        <text class="item-text" x="10" y="16">PostgreSQL</text>
+      <g transform="translate(0, 102)">
+        <rect class="chip" width="162" height="26"/>
+        <text class="item-text" x="12" y="17">PostgreSQL</text>
       </g>
-      <g transform="translate(0, 120)">
-        <rect class="chip" width="158" height="24"/>
-        <text class="item-text" x="10" y="16">Redis Cache / Queue</text>
+      <g transform="translate(0, 136)">
+        <rect class="chip" width="162" height="26"/>
+        <text class="item-text" x="12" y="17">Redis Cache/Queue</text>
       </g>
-      <g transform="translate(0, 150)">
-        <rect class="chip" width="158" height="24"/>
-        <text class="item-text" x="10" y="16">OpenAI-Compat APIs</text>
+      <g transform="translate(0, 170)">
+        <rect class="chip" width="162" height="26"/>
+        <text class="item-text" x="12" y="17">OpenAI-Compat APIs</text>
       </g>
     </g>
   </g>
 
-  <!-- Column 4: Infrastructure & MLOps -->
-  <g transform="translate(632, 54)">
-    <rect class="panel-col" width="176" height="236"/>
-    <!-- Col Header -->
-    <g transform="translate(14, 26)">
-      <circle cx="0" cy="0" r="3" fill="#a1a1aa"/>
+  <!-- Column 4: Infrastructure & Ops -->
+  <g transform="translate(626, 52)">
+    <rect class="panel-col" width="190" height="258"/>
+    <g transform="translate(14, 22)">
+      <circle cx="0" cy="0" r="3" fill="#a1a1a6"/>
       <text class="col-title" x="10" y="4">04. CLUSTER &amp; OPS</text>
     </g>
-    <!-- List -->
-    <g transform="translate(14, 52)">
+    <g transform="translate(14, 44)">
       <g transform="translate(0, 0)">
-        <rect class="chip" width="148" height="24"/>
-        <text class="item-text" x="10" y="16">K3s Multinode</text>
+        <rect class="chip" width="162" height="26"/>
+        <text class="item-text" x="12" y="17">K3s Multinode</text>
       </g>
-      <g transform="translate(0, 30)">
-        <rect class="chip" width="148" height="24"/>
-        <text class="item-text" x="10" y="16">Docker Container</text>
+      <g transform="translate(0, 34)">
+        <rect class="chip" width="162" height="26"/>
+        <text class="item-text" x="12" y="17">Docker Engine</text>
       </g>
-      <g transform="translate(0, 60)">
-        <rect class="chip" width="148" height="24"/>
-        <text class="item-text" x="10" y="16">GitHub Actions CI</text>
+      <g transform="translate(0, 68)">
+        <rect class="chip" width="162" height="26"/>
+        <text class="item-text" x="12" y="17">GitHub Actions CI</text>
       </g>
-      <g transform="translate(0, 90)">
-        <rect class="chip" width="148" height="24"/>
-        <text class="item-text" x="10" y="16">Nginx Proxy</text>
+      <g transform="translate(0, 102)">
+        <rect class="chip" width="162" height="26"/>
+        <text class="item-text" x="12" y="17">Nginx Reverse Proxy</text>
       </g>
-      <g transform="translate(0, 120)">
-        <rect class="chip" width="148" height="24"/>
-        <text class="item-text" x="10" y="16">Playwright Bot</text>
+      <g transform="translate(0, 136)">
+        <rect class="chip" width="162" height="26"/>
+        <text class="item-text" x="12" y="17">Playwright Bot</text>
       </g>
-      <g transform="translate(0, 150)">
-        <rect class="chip" width="148" height="24"/>
-        <text class="item-text" x="10" y="16">Linux VPS Admin</text>
+      <g transform="translate(0, 170)">
+        <rect class="chip" width="162" height="26"/>
+        <text class="item-text" x="12" y="17">Linux VPS Admin</text>
       </g>
     </g>
   </g>
