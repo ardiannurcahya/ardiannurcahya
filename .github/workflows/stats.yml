@@ -7,7 +7,7 @@ on:
       - ".github/scripts/generate-stats.mjs"
       - ".github/workflows/stats.yml"
   schedule:
-    - cron: "17 * * * *"
+    - cron: "0 0 * * *"
   workflow_dispatch:
 
 permissions:
@@ -22,7 +22,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out profile repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
 
       - name: Generate repository-owned stats cards
         run: node .github/scripts/generate-stats.mjs
@@ -35,5 +40,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add assets/github-stats.svg assets/github-languages.svg
-          git diff --cached --quiet || git commit -m "chore: refresh GitHub profile stats"
+          git diff --cached --quiet || git commit -m "chore: refresh GitHub profile stats [skip ci]"
           git push
