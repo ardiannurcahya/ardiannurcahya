@@ -1,56 +1,56 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="410" height="215" viewBox="0 0 410 215" fill="none" role="img" aria-labelledby="title desc">
-  <title id="title">ardiannurcahya&apos;s GitHub Stats</title>
+  <title id="title">activity-metrics</title>
   <desc id="desc">GitHub activity and statistics calculated across public repositories.</desc>
   <style>
-    .title { font: 700 15px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; fill: #38bdf8; }
-    .label { font: 500 12px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; fill: #8b949e; }
-    .value { font: 700 14px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; fill: #f0f6fc; }
-    .rank-badge { font: 800 16px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; fill: #38bdf8; }
-    .text { font: 600 12.5px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; fill: #c9d1d9; }
+    .window-title { font: 500 12px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; fill: #86868b; }
+    .label { font: 500 12px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; fill: #a1a1a6; }
+    .value { font: 700 14px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; fill: #f5f5f7; }
+    .rank-badge { font: 800 14px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; fill: #30d158; }
+    .text { font: 600 12px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; fill: #f5f5f7; }
     @media (prefers-color-scheme: light) {
-      .card-bg { fill: #f8fafc; stroke: #e2e8f0; }
-      .title { fill: #0284c7; }
-      .label { fill: #64748b; }
-      .value { fill: #0f172a; }
-      .rank-badge { fill: #0284c7; }
-      .text { fill: #1e293b; }
-      .divider { stroke: #e2e8f0; }
-      .pill-bg { fill: #f1f5f9; }
+      .win-bg { fill: #ffffff; stroke: #d1d5db; }
+      .win-header { fill: #f3f4f6; stroke: #e5e7eb; }
+      .window-title { fill: #4b5563; }
+      .label { fill: #6b7280; }
+      .value { fill: #111827; }
+      .rank-badge { fill: #059669; }
+      .text { fill: #111827; }
+      .divider { stroke: #e5e7eb; }
+      .pill-bg { fill: #f3f4f6; stroke: #e5e7eb; }
     }
   </style>
 
-  <defs>
-    <linearGradient id="card-border" x1="0" y1="0" x2="410" y2="215" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.4"/>
-      <stop offset="50%" stop-color="#30363d" stop-opacity="0.8"/>
-      <stop offset="100%" stop-color="#818cf8" stop-opacity="0.3"/>
-    </linearGradient>
-  </defs>
+  <!-- Window Container -->
+  <rect class="win-bg" x="1" y="1" width="408" height="213" rx="10" fill="#121319" stroke="#2d3139" stroke-width="1.5"/>
 
-  <rect class="card-bg" x="1" y="1" width="408" height="213" rx="12" fill="#0d1117" stroke="url(#card-border)" stroke-width="1.5"/>
+  <!-- Titlebar Header -->
+  <path class="win-header" d="M 1 11 C 1 5.5 5.5 1 11 1 L 399 1 C 404.5 1 409 5.5 409 11 L 409 36 L 1 36 Z" fill="#1c1e26"/>
+  <line class="divider" x1="1" y1="36" x2="409" y2="36" stroke="#262833" stroke-width="1"/>
 
-  <!-- Card Header -->
-  <g transform="translate(22, 28)">
-    <circle cx="6" cy="6" r="4" fill="#38bdf8"/>
-    <text x="18" y="10" class="title">ardiannurcahya&apos;s GitHub Stats</text>
-  </g>
+  <!-- Control Dots -->
+  <circle cx="18" cy="18" r="5" fill="#ff5f56" stroke="#e0443e" stroke-width="0.8"/>
+  <circle cx="34" cy="18" r="5" fill="#ffbd2e" stroke="#dea123" stroke-width="0.8"/>
+  <circle cx="50" cy="18" r="5" fill="#27c93f" stroke="#1aab29" stroke-width="0.8"/>
+
+  <!-- Centered Title -->
+  <text class="window-title" x="205" y="22" text-anchor="middle">activity-metrics</text>
 
   <text x="24" y="68" class="label">Commits Indexed</text>
-  <text x="180" y="68" text-anchor="end" class="value">830</text>
+  <text x="180" y="68" text-anchor="end" class="value">838</text>
   <text x="215" y="68" class="label">Pull Requests</text>
-  <text x="386" y="68" text-anchor="end" class="value">33</text>
-  <text x="24" y="102" class="label">Public Repositories</text>
+  <text x="386" y="68" text-anchor="end" class="value">34</text>
+  <text x="24" y="102" class="label">Public Repos</text>
   <text x="180" y="102" text-anchor="end" class="value">47</text>
   <text x="215" y="102" class="label">Issues Opened</text>
   <text x="386" y="102" text-anchor="end" class="value">2</text>
   <text x="24" y="136" class="label">Stars Earned</text>
-  <text x="180" y="136" text-anchor="end" class="value">158</text>
+  <text x="180" y="136" text-anchor="end" class="value">160</text>
   <text x="215" y="136" class="label">Followers</text>
   <text x="386" y="136" text-anchor="end" class="value">12</text>
-  <line class="divider" x1="24" y1="168" x2="386" y2="168" stroke="#21262d" stroke-width="1"/>
+  <line class="divider" x1="24" y1="168" x2="386" y2="168" stroke="#21242e" stroke-width="1"/>
   <g transform="translate(24, 182)">
-    <text y="14" class="label">Overall Activity Rank</text>
-    <rect class="pill-bg" x="320" y="-3" width="42" height="24" rx="6" fill="#161b22" stroke="#38bdf8" stroke-opacity="0.4"/>
+    <text y="14" class="label">Activity Rank</text>
+    <rect class="pill-bg" x="320" y="-3" width="42" height="24" rx="5" fill="#1b1e27" stroke="#2a2d3a"/>
     <text x="341" y="14" text-anchor="middle" class="rank-badge">B+</text>
   </g>
 </svg>
