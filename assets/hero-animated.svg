@@ -1,47 +1,39 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="840" height="220" viewBox="0 0 840 220" fill="none" role="img" aria-labelledby="hero-title hero-desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="215" viewBox="0 0 840 215" fill="none" role="img" aria-labelledby="hero-title hero-desc">
   <title id="hero-title">Ardian Nurcahya - AI/ML Engineer Hero Banner</title>
-  <desc id="hero-desc">Animated hero banner showcasing Ardian Nurcahya, AI and ML Engineer, MLOps Specialist and AI Product Developer.</desc>
+  <desc id="hero-desc">Hero banner showcasing Ardian Nurcahya, AI and ML Engineer, MLOps Specialist and AI Product Developer.</desc>
   <style>
     @keyframes pulse {
       0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.4; transform: scale(1.15); }
+      50% { opacity: 0.35; transform: scale(1.15); }
     }
-    @keyframes glow {
-      0%, 100% { filter: drop-shadow(0 0 15px rgba(56, 189, 248, 0.35)); }
-      50% { filter: drop-shadow(0 0 25px rgba(129, 140, 248, 0.6)); }
-    }
-    @keyframes shimmer {
-      0% { stop-color: #38bdf8; }
-      50% { stop-color: #818cf8; }
-      100% { stop-color: #38bdf8; }
-    }
-    @keyframes floatChip {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-4px); }
+    @keyframes subtleGlow {
+      0%, 100% { filter: drop-shadow(0 0 10px rgba(56, 189, 248, 0.2)); }
+      50% { filter: drop-shadow(0 0 18px rgba(129, 140, 248, 0.35)); }
     }
     .title-text {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      font-size: 38px;
+      font-size: 34px;
       font-weight: 800;
       letter-spacing: -0.5px;
-      animation: glow 4s ease-in-out infinite;
+      fill: #38bdf8;
+      animation: subtleGlow 4s ease-in-out infinite;
     }
     .subtitle-text {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      font-size: 16px;
-      font-weight: 500;
-      fill: #94a3b8;
+      font-size: 15px;
+      font-weight: 600;
+      fill: #f0f6fc;
     }
     .tagline-text {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
       font-size: 13px;
       font-weight: 400;
-      fill: #64748b;
+      fill: #8b949e;
     }
-    .status-badge {
+    .status-text {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
       font-size: 11px;
-      font-weight: 600;
+      font-weight: 700;
       letter-spacing: 0.5px;
       fill: #34d399;
     }
@@ -49,121 +41,105 @@
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
       font-size: 12px;
       font-weight: 600;
-      fill: #cbd5e1;
+      fill: #e2e8f0;
     }
     .pulse-dot {
-      transform-origin: 730px 42px;
+      transform-origin: 656px 38px;
       animation: pulse 2s ease-in-out infinite;
     }
-    .chip-container {
-      animation: floatChip 5s ease-in-out infinite;
+    .chip-pill {
+      fill: #161b22;
+      stroke: #30363d;
+      stroke-width: 1;
+      rx: 6;
     }
     @media (prefers-color-scheme: light) {
       .card-bg { fill: #f8fafc; stroke: #e2e8f0; }
-      .title-text { fill: #0f172a; }
-      .subtitle-text { fill: #334155; }
+      .title-text { fill: #0284c7; }
+      .subtitle-text { fill: #0f172a; }
       .tagline-text { fill: #64748b; }
-      .chip-bg { fill: #ffffff; stroke: #cbd5e1; }
+      .chip-pill { fill: #ffffff; stroke: #e2e8f0; }
       .chip-text { fill: #1e293b; }
-      .status-pill { fill: #ecfdf5; stroke: #a7f3d0; }
-      .status-badge { fill: #059669; }
+      .status-pill { fill: #f1f5f9; stroke: #a7f3d0; }
+      .status-text { fill: #059669; }
+      .icon-box { fill: #ffffff; stroke: #e2e8f0; }
     }
   </style>
 
   <defs>
-    <linearGradient id="bg-grad" x1="0" y1="0" x2="840" y2="220" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#0a0f1d"/>
-      <stop offset="50%" stop-color="#0f172a"/>
-      <stop offset="100%" stop-color="#070b14"/>
+    <linearGradient id="hero-border" x1="0" y1="0" x2="840" y2="215" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.4"/>
+      <stop offset="50%" stop-color="#30363d" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#818cf8" stop-opacity="0.3"/>
     </linearGradient>
 
-    <linearGradient id="accent-grad" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#38bdf8">
-        <animate attributeName="stop-color" values="#38bdf8; #818cf8; #c084fc; #38bdf8" dur="6s" repeatCount="indefinite"/>
-      </stop>
-      <stop offset="100%" stop-color="#818cf8">
-        <animate attributeName="stop-color" values="#818cf8; #c084fc; #38bdf8; #818cf8" dur="6s" repeatCount="indefinite"/>
-      </stop>
+    <linearGradient id="icon-grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#818cf8"/>
     </linearGradient>
-
-    <linearGradient id="border-grad" x1="0" y1="0" x2="840" y2="220" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.5"/>
-      <stop offset="40%" stop-color="#818cf8" stop-opacity="0.2"/>
-      <stop offset="100%" stop-color="#30363d" stop-opacity="0.8"/>
-    </linearGradient>
-
-    <radialGradient id="mesh-glow" cx="15%" cy="30%" r="60%">
-      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.18"/>
-      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0"/>
-    </radialGradient>
-    <radialGradient id="mesh-glow-2" cx="85%" cy="70%" r="50%">
-      <stop offset="0%" stop-color="#818cf8" stop-opacity="0.15"/>
-      <stop offset="100%" stop-color="#818cf8" stop-opacity="0"/>
-    </radialGradient>
   </defs>
 
-  <!-- Main Card Container -->
-  <rect class="card-bg" x="1" y="1" width="838" height="218" rx="16" fill="url(#bg-grad)" stroke="url(#border-grad)" stroke-width="1.5"/>
-  <rect x="1" y="1" width="838" height="218" rx="16" fill="url(#mesh-glow)"/>
-  <rect x="1" y="1" width="838" height="218" rx="16" fill="url(#mesh-glow-2)"/>
-
-  <!-- Decorative Matrix Accent lines -->
-  <path d="M 0 50 Q 200 40 400 80 T 840 60" stroke="#38bdf8" stroke-opacity="0.07" stroke-width="1.5" fill="none"/>
-  <path d="M 0 160 Q 300 130 600 180 T 840 140" stroke="#818cf8" stroke-opacity="0.07" stroke-width="1.5" fill="none"/>
+  <!-- Container Base (Uniform with tech-arsenal & about-terminal) -->
+  <rect class="card-bg" x="1" y="1" width="838" height="213" rx="14" fill="#0d1117" stroke="url(#hero-border)" stroke-width="1.5"/>
 
   <!-- Live Status Badge (Top Right) -->
   <g id="status-group">
-    <rect class="status-pill" x="635" y="28" width="168" height="28" rx="14" fill="#064e3b" fill-opacity="0.4" stroke="#059669" stroke-opacity="0.5" stroke-width="1"/>
-    <circle class="pulse-dot" cx="652" cy="42" r="4.5" fill="#34d399"/>
-    <text class="status-badge" x="665" y="46">OPEN TO PROJECTS</text>
+    <rect class="status-pill" x="640" y="24" width="168" height="28" rx="14" fill="#161b22" stroke="#059669" stroke-opacity="0.8" stroke-width="1"/>
+    <circle class="pulse-dot" cx="656" cy="38" r="4" fill="#34d399"/>
+    <text class="status-text" x="668" y="42">OPEN TO PROJECTS</text>
   </g>
 
-  <!-- Left Accent AI Orb -->
-  <g transform="translate(42, 42)">
-    <circle cx="28" cy="28" r="26" fill="#1e293b" stroke="#38bdf8" stroke-opacity="0.4" stroke-width="1.5"/>
-    <path d="M 19 28 C 19 23 23 19 28 19 C 33 19 37 23 37 28 C 37 33 33 37 28 37 C 23 37 19 33 19 28 Z" fill="url(#accent-grad)"/>
-    <circle cx="28" cy="28" r="4" fill="#ffffff"/>
-    <line x1="28" y1="12" x2="28" y2="19" stroke="#38bdf8" stroke-width="2" stroke-linecap="round"/>
-    <line x1="28" y1="37" x2="28" y2="44" stroke="#38bdf8" stroke-width="2" stroke-linecap="round"/>
-    <line x1="12" y1="28" x2="19" y2="28" stroke="#38bdf8" stroke-width="2" stroke-linecap="round"/>
-    <line x1="37" y1="28" x2="44" y2="28" stroke="#38bdf8" stroke-width="2" stroke-linecap="round"/>
+  <!-- Left AI Node Avatar Box -->
+  <g transform="translate(26, 26)">
+    <rect class="icon-box" width="60" height="60" rx="10" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <!-- Neural Node Matrix Icon -->
+    <circle cx="30" cy="30" r="16" fill="none" stroke="url(#icon-grad)" stroke-width="1.5" stroke-dasharray="3 3"/>
+    <circle cx="30" cy="30" r="6" fill="url(#icon-grad)"/>
+    <circle cx="30" cy="14" r="3" fill="#38bdf8"/>
+    <circle cx="30" cy="46" r="3" fill="#38bdf8"/>
+    <circle cx="14" cy="30" r="3" fill="#818cf8"/>
+    <circle cx="46" cy="30" r="3" fill="#818cf8"/>
+    <line x1="30" y1="17" x2="30" y2="24" stroke="#38bdf8" stroke-width="1.2"/>
+    <line x1="30" y1="36" x2="30" y2="43" stroke="#38bdf8" stroke-width="1.2"/>
+    <line x1="17" y1="30" x2="24" y2="30" stroke="#818cf8" stroke-width="1.2"/>
+    <line x1="36" y1="30" x2="43" y2="30" stroke="#818cf8" stroke-width="1.2"/>
   </g>
 
-  <!-- Hero Titles -->
-  <g transform="translate(118, 0)">
-    <text class="title-text" x="0" y="68" fill="url(#accent-grad)">Ardian Nurcahya</text>
-    <text class="subtitle-text" x="0" y="98">AI/ML Engineer <tspan fill="#38bdf8">•</tspan> MLOps <tspan fill="#818cf8">•</tspan> AI Product Development</text>
-    <text class="tagline-text" x="0" y="122">Engineering reliable production AI systems, LLM agents, and scalable computer vision pipelines.</text>
+  <!-- Main Titles & Bio Info -->
+  <g transform="translate(104, 0)">
+    <text class="title-text" x="0" y="58">Ardian Nurcahya</text>
+    <text class="subtitle-text" x="0" y="86">AI/ML Engineer <tspan fill="#38bdf8">•</tspan> MLOps Specialist <tspan fill="#818cf8">•</tspan> AI Product Development</text>
+    <text class="tagline-text" x="0" y="110">Engineering production-grade AI systems, autonomous agents, and scalable computer vision pipelines.</text>
   </g>
 
-  <!-- Quick Floating Feature Badges -->
-  <g class="chip-container" transform="translate(118, 150)">
+  <!-- Quick Feature Chips Bar (Bottom) -->
+  <g transform="translate(26, 148)">
     <!-- Chip 1: LLMs & Agents -->
     <g transform="translate(0, 0)">
-      <rect class="chip-bg" width="138" height="34" rx="8" fill="#1e293b" fill-opacity="0.8" stroke="#334155" stroke-width="1"/>
-      <circle cx="16" cy="17" r="4" fill="#38bdf8"/>
-      <text class="chip-text" x="28" y="21">LLMs &amp; Agents</text>
+      <rect class="chip-pill" width="168" height="32"/>
+      <circle cx="14" cy="16" r="3.5" fill="#38bdf8"/>
+      <text class="chip-text" x="24" y="20">LLMs &amp; AI Agents</text>
     </g>
 
     <!-- Chip 2: Computer Vision -->
-    <g transform="translate(148, 0)">
-      <rect class="chip-bg" width="144" height="34" rx="8" fill="#1e293b" fill-opacity="0.8" stroke="#334155" stroke-width="1"/>
-      <circle cx="16" cy="17" r="4" fill="#818cf8"/>
-      <text class="chip-text" x="28" y="21">Computer Vision</text>
+    <g transform="translate(180, 0)">
+      <rect class="chip-pill" width="160" height="32"/>
+      <circle cx="14" cy="16" r="3.5" fill="#818cf8"/>
+      <text class="chip-text" x="24" y="20">Computer Vision</text>
     </g>
 
     <!-- Chip 3: Production MLOps -->
-    <g transform="translate(302, 0)">
-      <rect class="chip-bg" width="156" height="34" rx="8" fill="#1e293b" fill-opacity="0.8" stroke="#334155" stroke-width="1"/>
-      <circle cx="16" cy="17" r="4" fill="#a78bfa"/>
-      <text class="chip-text" x="28" y="21">Production MLOps</text>
+    <g transform="translate(352, 0)">
+      <rect class="chip-pill" width="168" height="32"/>
+      <circle cx="14" cy="16" r="3.5" fill="#a78bfa"/>
+      <text class="chip-text" x="24" y="20">Production MLOps</text>
     </g>
 
     <!-- Chip 4: Full-Stack AI -->
-    <g transform="translate(468, 0)">
-      <rect class="chip-bg" width="132" height="34" rx="8" fill="#1e293b" fill-opacity="0.8" stroke="#334155" stroke-width="1"/>
-      <circle cx="16" cy="17" r="4" fill="#34d399"/>
-      <text class="chip-text" x="28" y="21">Full-Stack AI</text>
+    <g transform="translate(532, 0)">
+      <rect class="chip-pill" width="176" height="32"/>
+      <circle cx="14" cy="16" r="3.5" fill="#34d399"/>
+      <text class="chip-text" x="24" y="20">Full-Stack AI Platforms</text>
     </g>
   </g>
 </svg>
