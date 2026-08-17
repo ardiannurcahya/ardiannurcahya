@@ -324,16 +324,16 @@ function escapeXml(value) {
     .replaceAll("'", "&apos;");
 }
 
-function macosWindowShell(title, body, description, width = 410, height = 215) {
+function darkWindowShell(title, body, description, width = 410, height = 215) {
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" fill="none" role="img" aria-labelledby="title desc">
   <title id="title">${escapeXml(title)}</title>
   <desc id="desc">${escapeXml(description)}</desc>
   <style>
-    .window-title { font: 500 12px -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', sans-serif; fill: #86868b; }
-    .label { font: 500 12px ui-monospace, 'SF Mono', Menlo, Monaco, Consolas, monospace; fill: #a1a1a6; }
-    .value { font: 700 14px ui-monospace, 'SF Mono', Menlo, Monaco, Consolas, monospace; fill: #f5f5f7; }
-    .rank-badge { font: 800 14px ui-monospace, 'SF Mono', Menlo, Monaco, Consolas, monospace; fill: #30d158; }
-    .text { font: 600 12px -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', sans-serif; fill: #f5f5f7; }
+    .window-title { font: 500 12px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; fill: #86868b; }
+    .label { font: 500 12px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; fill: #a1a1a6; }
+    .value { font: 700 14px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; fill: #f5f5f7; }
+    .rank-badge { font: 800 14px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; fill: #30d158; }
+    .text { font: 600 12px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; fill: #f5f5f7; }
     @media (prefers-color-scheme: light) {
       .win-bg { fill: #ffffff; stroke: #d1d5db; }
       .win-header { fill: #f3f4f6; stroke: #e5e7eb; }
@@ -350,11 +350,11 @@ function macosWindowShell(title, body, description, width = 410, height = 215) {
   <!-- Window Container -->
   <rect class="win-bg" x="1" y="1" width="${width - 2}" height="${height - 2}" rx="10" fill="#121319" stroke="#2d3139" stroke-width="1.5"/>
 
-  <!-- macOS Titlebar -->
+  <!-- Titlebar Header -->
   <path class="win-header" d="M 1 11 C 1 5.5 5.5 1 11 1 L ${width - 11} 1 C ${width - 5.5} 1 ${width - 1} 5.5 ${width - 1} 11 L ${width - 1} 36 L 1 36 Z" fill="#1c1e26"/>
   <line class="divider" x1="1" y1="36" x2="${width - 1}" y2="36" stroke="#262833" stroke-width="1"/>
 
-  <!-- Traffic Lights -->
+  <!-- Control Dots -->
   <circle cx="18" cy="18" r="5" fill="#ff5f56" stroke="#e0443e" stroke-width="0.8"/>
   <circle cx="34" cy="18" r="5" fill="#ffbd2e" stroke="#dea123" stroke-width="0.8"/>
   <circle cx="50" cy="18" r="5" fill="#27c93f" stroke="#1aab29" stroke-width="0.8"/>
@@ -393,8 +393,8 @@ function renderStats(stats) {
     '  </g>'
   );
 
-  return macosWindowShell(
-    "telemetry.stats — 80×24",
+  return darkWindowShell(
+    "activity-metrics",
     bodyItems.join("\n"),
     "GitHub activity and statistics calculated across public repositories.",
     410,
@@ -448,8 +448,8 @@ function renderLanguages(languages) {
     ...listItems,
   ].join("\n");
 
-  return macosWindowShell(
-    "languages.config",
+  return darkWindowShell(
+    "language-distribution",
     body,
     "Top programming languages by code volume across public non-fork repositories.",
     410,
@@ -457,7 +457,7 @@ function renderLanguages(languages) {
   );
 }
 
-function splitDescription(text, maxChars = 56) {
+function splitDescription(text, maxChars = 46) {
   if (!text) return ["Open source software architecture.", ""];
   const words = text.split(" ");
   let line1 = "";
@@ -478,13 +478,13 @@ function splitDescription(text, maxChars = 56) {
 function renderProjects(pinnedRepos) {
   const items = pinnedRepos.slice(0, 6);
   const rows = Math.ceil(items.length / 2);
-  const totalHeight = 52 + rows * 144 + 20;
+  const totalHeight = 52 + rows * 150 + 16;
 
   const projectCards = items.map((repo, idx) => {
     const col = idx % 2;
     const row = Math.floor(idx / 2);
     const x = col === 0 ? 24 : 426;
-    const y = 54 + row * 144;
+    const y = 52 + row * 150;
 
     const [desc1, desc2] = splitDescription(repo.description);
     const starText = repo.stars > 0 ? `★ ${repo.stars}` : "★ 0";
@@ -493,7 +493,8 @@ function renderProjects(pinnedRepos) {
 
     return `  <!-- Project ${idx + 1}: ${escapeXml(repo.name)} -->
   <g transform="translate(${x}, ${y})">
-    <rect class="panel-box" width="390" height="132"/>
+    <rect class="panel-box" width="390" height="138"/>
+    <!-- Zone 1: Title & Star -->
     <g transform="translate(16, 26)">
       <circle cx="0" cy="0" r="3.5" fill="${repo.color || "#30d158"}"/>
       <text class="proj-title" x="12" y="4">${escapeXml(repo.name)}</text>
@@ -502,9 +503,11 @@ function renderProjects(pinnedRepos) {
         <text class="meta-tag" x="8" y="13" fill="#ff9f0a">${escapeXml(starText)}</text>
       </g>
     </g>
+    <!-- Zone 2: Description lines with explicit Y coordinates -->
     <text class="proj-desc" x="16" y="58">${escapeXml(desc1)}</text>
-    <text class="proj-desc" x="16" y="76">${escapeXml(desc2)}</text>
-    <g transform="translate(16, 110)">
+    <text class="proj-desc" x="16" y="78">${escapeXml(desc2)}</text>
+    <!-- Zone 3: Bottom Tags -->
+    <g transform="translate(16, 114)">
       <text class="meta-tag" fill="${repo.color || "#64d2ff"}"># ${escapeXml(repo.language)}</text>
       <text class="meta-tag" fill="#86868b" x="84">•</text>
       <text class="meta-tag" fill="#30d158" x="98">${topic1}</text>
@@ -515,13 +518,13 @@ function renderProjects(pinnedRepos) {
   });
 
   return `<svg xmlns="http://www.w3.org/2000/svg" width="840" height="${totalHeight}" viewBox="0 0 840 ${totalHeight}" fill="none" role="img" aria-labelledby="proj-title proj-desc">
-  <title id="proj-title">Ardian Nurcahya - macOS Pinned Repositories</title>
-  <desc id="proj-desc">Dark macOS style inspector window showing pinned repositories dynamically synced from GitHub GraphQL.</desc>
+  <title id="proj-title">Ardian Nurcahya - Pinned Repositories</title>
+  <desc id="proj-desc">Clean dark window displaying pinned repositories dynamically synced from GitHub GraphQL.</desc>
   <style>
-    .window-title { font: 500 12px -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', sans-serif; fill: #86868b; }
-    .proj-title { font: 700 13.5px ui-monospace, 'SF Mono', Menlo, Monaco, Consolas, monospace; fill: #f5f5f7; }
-    .proj-desc { font: 400 12px -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', sans-serif; fill: #a1a1a6; line-height: 1.4; }
-    .meta-tag { font: 600 10.5px ui-monospace, 'SF Mono', Menlo, Monaco, Consolas, monospace; }
+    .window-title { font: 500 12px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; fill: #86868b; }
+    .proj-title { font: 700 13px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; fill: #f5f5f7; }
+    .proj-desc { font: 400 12px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; fill: #a1a1a6; }
+    .meta-tag { font: 600 10.5px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
     .panel-box { fill: #161820; stroke: #262933; stroke-width: 1; rx: 6; }
     @media (prefers-color-scheme: light) {
       .win-bg { fill: #ffffff; stroke: #d1d5db; }
@@ -537,17 +540,17 @@ function renderProjects(pinnedRepos) {
   <!-- Window Container -->
   <rect class="win-bg" x="1" y="1" width="838" height="${totalHeight - 2}" rx="10" fill="#121319" stroke="#2d3139" stroke-width="1.5"/>
 
-  <!-- macOS Titlebar -->
+  <!-- Titlebar Header -->
   <path class="win-header" d="M 1 11 C 1 5.5 5.5 1 11 1 L 829 1 C 834.5 1 839 5.5 839 11 L 839 36 L 1 36 Z" fill="#1c1e26"/>
   <line class="divider" x1="1" y1="36" x2="839" y2="36" stroke="#262833" stroke-width="1"/>
 
-  <!-- Traffic Lights -->
+  <!-- Control Dots -->
   <circle cx="20" cy="18" r="5.5" fill="#ff5f56" stroke="#e0443e" stroke-width="0.8"/>
   <circle cx="36" cy="18" r="5.5" fill="#ffbd2e" stroke="#dea123" stroke-width="0.8"/>
   <circle cx="52" cy="18" r="5.5" fill="#27c93f" stroke="#1aab29" stroke-width="0.8"/>
 
   <!-- Centered Title -->
-  <text class="window-title" x="420" y="22" text-anchor="middle">pinned-systems — ${items.length} repositories</text>
+  <text class="window-title" x="420" y="22" text-anchor="middle">pinned-repositories — ${items.length} projects</text>
 
 ${projectCards.join("\n\n")}
 </svg>
@@ -567,4 +570,4 @@ await Promise.all([
   writeAtomically(resolve(outputDir, "github-languages.svg"), renderLanguages(languages)),
   writeAtomically(resolve(outputDir, "v2-projects.svg"), renderProjects(pinnedRepos)),
 ]);
-console.log(`Successfully generated all Dark macOS profile assets for ${username}!`);
+console.log(`Successfully generated all Dark Window profile assets for ${username}!`);
