@@ -156,7 +156,7 @@ async function fetchContributionCalendar() {
       const rand = seed - Math.floor(seed);
       let count = 0;
       if (rand > 0.45) count = Math.floor(rand * (isWeekend ? 3 : 8));
-      if (w > 40 && rand > 0.3) count = Math.floor(rand * 10) + 1;
+      if (w > 40 && rand > 0.3) count = Math.floor(rand * 12) + 1;
       days.push({
         contributionCount: count,
         weekday: d,
@@ -416,120 +416,206 @@ function renderContributions(calendar) {
   const weeks = calendar?.weeks || [];
   const total = calendar?.totalContributions || 864;
 
-  const colorLevels = ["#161820", "#064e3b", "#059669", "#10b981", "#34d399"];
+  let maxDayCount = 0;
+  let activeDays = 0;
+  weeks.forEach((w) => {
+    (w.contributionDays || []).forEach((d) => {
+      if (d.contributionCount > maxDayCount) maxDayCount = d.contributionCount;
+      if (d.contributionCount > 0) activeDays++;
+    });
+  });
 
-  const getColor = (count) => {
-    if (count === 0) return colorLevels[0];
-    if (count <= 2) return colorLevels[1];
-    if (count <= 5) return colorLevels[2];
-    if (count <= 9) return colorLevels[3];
-    return colorLevels[4];
-  };
+  const consistencyRate = ((activeDays / 364) * 100).toFixed(1);
 
   const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
   const monthLabels = months.map((m, idx) => {
     const x = 52 + idx * 62;
-    return `    <text x="${x}" y="58" class="label-month">${m}</text>`;
+    return `    <text x="${x}" y="88" class="label-month">${m}</text>`;
   });
 
   const cells = [];
   const startX = 52;
-  const startY = 68;
+  const startY = 98;
   const step = 14.2;
 
   weeks.slice(0, 52).forEach((week, wIdx) => {
     (week.contributionDays || []).forEach((day) => {
       const x = startX + wIdx * step;
       const y = startY + day.weekday * step;
-      const fill = getColor(day.contributionCount);
-      const isPeak = day.contributionCount >= 8;
-      const peakClass = isPeak ? ' class="peak-cell"' : "";
-      cells.push(`    <rect${peakClass} x="${x.toFixed(1)}" y="${y.toFixed(1)}" width="11" height="11" rx="2.5" fill="${fill}"/>`);
+      const count = day.contributionCount;
+
+      let fill = "#131622";
+      let stroke = "#1e2233";
+      let glowClass = "";
+
+      if (count === 0) {
+        fill = "#131622";
+        stroke = "#1e2233";
+      } else if (count <= 2) {
+        fill = "#064e3b";
+        stroke = "#059669";
+      } else if (count <= 5) {
+        fill = "#059669";
+        stroke = "#10b981";
+        glowClass = wIdx % 3 === 0 ? ' class="glow-a"' : ' class="glow-b"';
+      } else if (count <= 9) {
+        fill = "#10b981";
+        stroke = "#34d399";
+        glowClass = wIdx % 2 === 0 ? ' class="glow-b"' : ' class="glow-c"';
+      } else {
+        fill = "#34d399";
+        stroke = "#6ee7b7";
+        glowClass = ' class="glow-peak"';
+      }
+
+      cells.push(`    <rect${glowClass} x="${x.toFixed(1)}" y="${y.toFixed(1)}" width="11" height="11" rx="2.8" fill="${fill}" stroke="${stroke}" stroke-width="0.8"/>`);
     });
   });
 
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="840" height="205" viewBox="0 0 840 205" fill="none" role="img" aria-labelledby="contrib-title contrib-desc">
-  <title id="contrib-title">Ardian Nurcahya - Contribution Activity Stream</title>
-  <desc id="contrib-desc">Custom animated 52-week contribution activity heatmap with laser wave sweep.</desc>
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="840" height="240" viewBox="0 0 840 240" fill="none" role="img" aria-labelledby="contrib-title contrib-desc">
+  <title id="contrib-title">Ardian Nurcahya - Ultra Luxury Contribution Telemetry</title>
+  <desc id="contrib-desc">Super luxurious dark obsidian window displaying animated 52-week contribution telemetry and holographic laser sweep.</desc>
   <style>
-    @keyframes sweepWave {
+    @keyframes holoLaser {
       0% { transform: translateX(0); opacity: 0; }
-      10% { opacity: 0.8; }
-      90% { opacity: 0.8; }
-      100% { transform: translateX(750px); opacity: 0; }
+      8% { opacity: 0.9; }
+      92% { opacity: 0.9; }
+      100% { transform: translateX(746px); opacity: 0; }
     }
-    @keyframes glowPulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.6; }
+    @keyframes shimmerA {
+      0%, 100% { opacity: 0.85; }
+      50% { opacity: 1; filter: drop-shadow(0 0 3px #10b981); }
     }
-    .window-title { font: 500 12px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; fill: #86868b; }
-    .label-month { font: 500 10.5px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; fill: #71717a; }
-    .label-day { font: 500 10px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; fill: #52525b; }
+    @keyframes shimmerB {
+      0%, 100% { opacity: 1; filter: drop-shadow(0 0 3px #34d399); }
+      50% { opacity: 0.8; }
+    }
+    @keyframes shimmerC {
+      0%, 100% { opacity: 0.75; }
+      50% { opacity: 1; filter: drop-shadow(0 0 4px #6ee7b7); }
+    }
+    @keyframes pulseLive {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.25); opacity: 0.4; }
+    }
+    .window-title { font: 600 11.5px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; letter-spacing: 0.8px; fill: #86868b; }
+    .label-month { font: 600 10.5px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; fill: #71717a; }
+    .label-day { font: 600 10px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; fill: #52525b; }
+    .hud-title { font: 700 9.5px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; letter-spacing: 0.5px; fill: #71717a; }
+    .hud-val { font: 800 12px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
     .legend-text { font: 500 10.5px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; fill: #71717a; }
-    .meta-stat { font: 700 11px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; fill: #30d158; }
-    .sweep-line { animation: sweepWave 6s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
-    .peak-cell { animation: glowPulse 2.5s ease-in-out infinite; }
+    
+    .laser-beam { animation: holoLaser 5.5s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
+    .glow-a { animation: shimmerA 3s ease-in-out infinite; }
+    .glow-b { animation: shimmerB 3.5s ease-in-out infinite 0.8s; }
+    .glow-c { animation: shimmerC 2.8s ease-in-out infinite 1.6s; }
+    .glow-peak { animation: shimmerB 2s ease-in-out infinite; filter: drop-shadow(0 0 5px #34d399); }
+    .live-dot { transform-origin: 708px 18px; animation: pulseLive 2s ease-in-out infinite; }
+
+    .hud-card { fill: #151824; stroke: #262c3e; stroke-width: 1; rx: 5; }
+    
     @media (prefers-color-scheme: light) {
       .win-bg { fill: #ffffff; stroke: #d1d5db; }
       .win-header { fill: #f3f4f6; stroke: #e5e7eb; }
       .window-title { fill: #4b5563; }
+      .hud-card { fill: #f9fafb; stroke: #e5e7eb; }
       .divider { stroke: #e5e7eb; }
     }
   </style>
 
   <defs>
-    <linearGradient id="wave-grad" x1="0" y1="0" x2="0" y2="105" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#30d158" stop-opacity="0"/>
-      <stop offset="50%" stop-color="#30d158" stop-opacity="0.4"/>
-      <stop offset="100%" stop-color="#30d158" stop-opacity="0"/>
+    <!-- Multi-tier Holographic Laser Beam Gradient -->
+    <linearGradient id="holo-laser" x1="0" y1="0" x2="0" y2="105" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#34d399" stop-opacity="0"/>
+      <stop offset="25%" stop-color="#34d399" stop-opacity="0.8"/>
+      <stop offset="50%" stop-color="#10b981" stop-opacity="1"/>
+      <stop offset="75%" stop-color="#059669" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#047857" stop-opacity="0"/>
     </linearGradient>
+
+    <!-- Glass Ambient Backlight Gradient -->
+    <radialGradient id="ambient-emerald" cx="50%" cy="0%" r="80%">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
   </defs>
 
-  <!-- Window Container -->
-  <rect class="win-bg" x="1" y="1" width="838" height="203" rx="10" fill="#121319" stroke="#2d3139" stroke-width="1.5"/>
+  <!-- Window Container Base -->
+  <rect class="win-bg" x="1" y="1" width="838" height="238" rx="10" fill="#0d0f17" stroke="#232838" stroke-width="1.5"/>
+  <rect x="1" y="1" width="838" height="238" rx="10" fill="url(#ambient-emerald)"/>
 
   <!-- Titlebar Header -->
-  <path class="win-header" d="M 1 11 C 1 5.5 5.5 1 11 1 L 829 1 C 834.5 1 839 5.5 839 11 L 839 36 L 1 36 Z" fill="#1c1e26"/>
-  <line class="divider" x1="1" y1="36" x2="839" y2="36" stroke="#262833" stroke-width="1"/>
+  <path class="win-header" d="M 1 11 C 1 5.5 5.5 1 11 1 L 829 1 C 834.5 1 839 5.5 839 11 L 839 36 L 1 36 Z" fill="#171a24"/>
+  <line class="divider" x1="1" y1="36" x2="839" y2="36" stroke="#232838" stroke-width="1"/>
 
-  <!-- Control Dots -->
+  <!-- Traffic Lights with Gloss -->
   <circle cx="20" cy="18" r="5.5" fill="#ff5f56" stroke="#e0443e" stroke-width="0.8"/>
   <circle cx="36" cy="18" r="5.5" fill="#ffbd2e" stroke="#dea123" stroke-width="0.8"/>
   <circle cx="52" cy="18" r="5.5" fill="#27c93f" stroke="#1aab29" stroke-width="0.8"/>
 
   <!-- Centered Title -->
-  <text class="window-title" x="420" y="22" text-anchor="middle">contribution-stream — 52 weeks</text>
+  <text class="window-title" x="420" y="22" text-anchor="middle">CONTRIBUTION_TELEMETRY // 52_WEEKS_STREAM</text>
 
-  <!-- Top Right Live Metric -->
-  <g transform="translate(670, 10)">
-    <rect width="148" height="18" rx="4" fill="#08231a" stroke="#059669" stroke-width="1"/>
-    <text class="meta-stat" x="74" y="13" text-anchor="middle">${total}+ CONTRIBUTIONS</text>
+  <!-- Live Pulse Beacon -->
+  <g transform="translate(696, 9)">
+    <rect width="128" height="20" rx="10" fill="#06281e" stroke="#059669" stroke-width="1"/>
+    <circle class="live-dot" cx="12" cy="10" r="3.5" fill="#34d399"/>
+    <text font-family="ui-monospace, monospace" font-size="10" font-weight="700" fill="#34d399" x="24" y="13.5">LIVE STREAM</text>
+  </g>
+
+  <!-- 3x Luxury HUD Metrics Bar -->
+  <g transform="translate(52, 46)">
+    <!-- Metric 1: Total Volume -->
+    <g transform="translate(0, 0)">
+      <rect class="hud-card" width="220" height="26"/>
+      <text class="hud-title" x="10" y="17">TOTAL_ACTIVITY:</text>
+      <text class="hud-val" fill="#34d399" x="110" y="18">${total}+ COMMITS &amp; PRS</text>
+    </g>
+
+    <!-- Metric 2: Peak Velocity -->
+    <g transform="translate(240, 0)">
+      <rect class="hud-card" width="230" height="26"/>
+      <text class="hud-title" x="10" y="17">PEAK_VELOCITY:</text>
+      <text class="hud-val" fill="#ff9f0a" x="112" y="18">${maxDayCount || 14} COMMITS / DAY</text>
+    </g>
+
+    <!-- Metric 3: Consistency Rate -->
+    <g transform="translate(490, 0)">
+      <rect class="hud-card" width="246" height="26"/>
+      <text class="hud-title" x="10" y="17">CONSISTENCY_RATE:</text>
+      <text class="hud-val" fill="#64d2ff" x="136" y="18">${consistencyRate}% DAYS ACTIVE</text>
+    </g>
   </g>
 
   <!-- Month Labels -->
 ${monthLabels.join("\n")}
 
   <!-- Day Labels -->
-  <text x="24" y="90" class="label-day">Mon</text>
-  <text x="24" y="118" class="label-day">Wed</text>
-  <text x="24" y="146" class="label-day">Fri</text>
+  <text x="24" y="118" class="label-day">Mon</text>
+  <text x="24" y="146" class="label-day">Wed</text>
+  <text x="24" y="174" class="label-day">Fri</text>
 
   <!-- Heatmap Matrix (52 Weeks x 7 Days) -->
   <g>
 ${cells.join("\n")}
   </g>
 
-  <!-- Animated Wave Laser Sweep -->
-  <line class="sweep-line" x1="52" y1="66" x2="52" y2="170" stroke="url(#wave-grad)" stroke-width="3"/>
+  <!-- Animated Holographic Laser Beam -->
+  <line class="laser-beam" x1="52" y1="96" x2="52" y2="200" stroke="url(#holo-laser)" stroke-width="2.5"/>
+
+  <!-- Footer Telemetry Status & Legend -->
+  <g transform="translate(52, 222)">
+    <text font-family="ui-monospace, monospace" font-size="10" font-weight="600" fill="#52525b" x="0" y="0">STATUS: 52 WEEKS SYNCHRONIZED • REALTIME TELEMETRY</text>
+  </g>
 
   <!-- Bottom Legend -->
-  <g transform="translate(630, 185)">
+  <g transform="translate(630, 214)">
     <text x="0" y="9" class="legend-text">Less</text>
-    <rect x="32" y="0" width="10" height="10" rx="2" fill="${colorLevels[0]}"/>
-    <rect x="46" y="0" width="10" height="10" rx="2" fill="${colorLevels[1]}"/>
-    <rect x="60" y="0" width="10" height="10" rx="2" fill="${colorLevels[2]}"/>
-    <rect x="74" y="0" width="10" height="10" rx="2" fill="${colorLevels[3]}"/>
-    <rect x="88" y="0" width="10" height="10" rx="2" fill="${colorLevels[4]}"/>
+    <rect x="32" y="0" width="10" height="10" rx="2.5" fill="#131622" stroke="#1e2233" stroke-width="0.8"/>
+    <rect x="46" y="0" width="10" height="10" rx="2.5" fill="#064e3b" stroke="#059669" stroke-width="0.8"/>
+    <rect x="60" y="0" width="10" height="10" rx="2.5" fill="#059669" stroke="#10b981" stroke-width="0.8"/>
+    <rect x="74" y="0" width="10" height="10" rx="2.5" fill="#10b981" stroke="#34d399" stroke-width="0.8"/>
+    <rect x="88" y="0" width="10" height="10" rx="2.5" fill="#34d399" stroke="#6ee7b7" stroke-width="0.8"/>
     <text x="104" y="9" class="legend-text">More</text>
   </g>
 </svg>
@@ -549,4 +635,4 @@ await Promise.all([
   writeAtomically(resolve(outputDir, "github-languages.svg"), renderLanguages(languages)),
   writeAtomically(resolve(outputDir, "v2-contributions.svg"), renderContributions(calendar)),
 ]);
-console.log(`Successfully generated streamlined profile assets for ${username}!`);
+console.log(`Successfully generated ultra-luxury profile assets for ${username}!`);
