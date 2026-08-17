@@ -36,150 +36,138 @@
   <!-- Project 1: open-graph-memory -->
   <g transform="translate(24, 52)">
     <rect class="panel-box" width="390" height="138"/>
-    <!-- Zone 1: Title & Star -->
+    <!-- Zone 1: Title & Star Badge -->
     <g transform="translate(16, 26)">
       <circle cx="0" cy="0" r="3.5" fill="#3776AB"/>
       <text class="proj-title" x="12" y="4">open-graph-memory</text>
       <g transform="translate(296, -9)">
         <rect width="52" height="18" rx="4" fill="#1f222d" stroke="#2d303f"/>
-        <text class="meta-tag" x="8" y="13" fill="#ff9f0a">★ 60</text>
+        <text class="meta-tag" x="26" y="13" text-anchor="middle" fill="#ff9f0a">★ 60</text>
       </g>
     </g>
-    <!-- Zone 2: Description lines with explicit Y coordinates -->
+    <!-- Zone 2: Description lines -->
     <text class="proj-desc" x="16" y="58">Self-hosted knowledge graph extraction,</text>
     <text class="proj-desc" x="16" y="78">temporal graph storage, and agent memory pl...</text>
-    <!-- Zone 3: Bottom Tags -->
-    <g transform="translate(16, 114)">
-      <text class="meta-tag" fill="#3776AB"># Python</text>
-      <text class="meta-tag" fill="#86868b" x="84">•</text>
-      <text class="meta-tag" fill="#30d158" x="98"># knowledge-graph</text>
-      <text class="meta-tag" fill="#86868b" x="190">•</text>
-      <text class="meta-tag" fill="#a1a1a6" x="204">agent-memory</text>
-    </g>
+    <!-- Zone 3: Bottom Tags (Flowing Inline Tspans - Zero Overlap) -->
+    <text class="meta-tag" x="16" y="116">
+      <tspan fill="#3776AB"># Python</tspan>
+      <tspan fill="#52525b">  •  </tspan><tspan fill="#30d158"># knowledge-graph</tspan>
+      <tspan fill="#52525b">  •  </tspan><tspan fill="#a1a1a6"># agent-memory</tspan>
+    </text>
   </g>
 
   <!-- Project 2: antigravity-cli-telegram-bot -->
   <g transform="translate(426, 52)">
     <rect class="panel-box" width="390" height="138"/>
-    <!-- Zone 1: Title & Star -->
+    <!-- Zone 1: Title & Star Badge -->
     <g transform="translate(16, 26)">
       <circle cx="0" cy="0" r="3.5" fill="#3178c6"/>
       <text class="proj-title" x="12" y="4">antigravity-cli-telegram-bot</text>
       <g transform="translate(296, -9)">
         <rect width="52" height="18" rx="4" fill="#1f222d" stroke="#2d303f"/>
-        <text class="meta-tag" x="8" y="13" fill="#ff9f0a">★ 47</text>
+        <text class="meta-tag" x="26" y="13" text-anchor="middle" fill="#ff9f0a">★ 47</text>
       </g>
     </g>
-    <!-- Zone 2: Description lines with explicit Y coordinates -->
+    <!-- Zone 2: Description lines -->
     <text class="proj-desc" x="16" y="58">Connect Antigravity CLI to Telegram with</text>
     <text class="proj-desc" x="16" y="78">secure allowlisted bot gateway.</text>
-    <!-- Zone 3: Bottom Tags -->
-    <g transform="translate(16, 114)">
-      <text class="meta-tag" fill="#3178c6"># TypeScript</text>
-      <text class="meta-tag" fill="#86868b" x="84">•</text>
-      <text class="meta-tag" fill="#30d158" x="98"># antigravity-tools</text>
-      <text class="meta-tag" fill="#86868b" x="190">•</text>
-      <text class="meta-tag" fill="#a1a1a6" x="204">telegrambot</text>
-    </g>
+    <!-- Zone 3: Bottom Tags (Flowing Inline Tspans - Zero Overlap) -->
+    <text class="meta-tag" x="16" y="116">
+      <tspan fill="#3178c6"># TypeScript</tspan>
+      <tspan fill="#52525b">  •  </tspan><tspan fill="#30d158"># antigravity-tools</tspan>
+      <tspan fill="#52525b">  •  </tspan><tspan fill="#a1a1a6"># telegrambot</tspan>
+    </text>
   </g>
 
   <!-- Project 3: k3s-multinode-vps -->
   <g transform="translate(24, 202)">
     <rect class="panel-box" width="390" height="138"/>
-    <!-- Zone 1: Title & Star -->
+    <!-- Zone 1: Title & Star Badge -->
     <g transform="translate(16, 26)">
       <circle cx="0" cy="0" r="3.5" fill="#f59e0b"/>
       <text class="proj-title" x="12" y="4">k3s-multinode-vps</text>
       <g transform="translate(296, -9)">
         <rect width="52" height="18" rx="4" fill="#1f222d" stroke="#2d303f"/>
-        <text class="meta-tag" x="8" y="13" fill="#ff9f0a">★ 17</text>
+        <text class="meta-tag" x="26" y="13" text-anchor="middle" fill="#ff9f0a">★ 17</text>
       </g>
     </g>
-    <!-- Zone 2: Description lines with explicit Y coordinates -->
+    <!-- Zone 2: Description lines -->
     <text class="proj-desc" x="16" y="58">Multi-node K3s cluster infrastructure</text>
     <text class="proj-desc" x="16" y="78">provisioning and workload orchestration.</text>
-    <!-- Zone 3: Bottom Tags -->
-    <g transform="translate(16, 114)">
-      <text class="meta-tag" fill="#f59e0b"># Kubernetes</text>
-      <text class="meta-tag" fill="#86868b" x="84">•</text>
-      <text class="meta-tag" fill="#30d158" x="98"># k3s-cluster</text>
-      <text class="meta-tag" fill="#86868b" x="190">•</text>
-      <text class="meta-tag" fill="#a1a1a6" x="204">devops</text>
-    </g>
+    <!-- Zone 3: Bottom Tags (Flowing Inline Tspans - Zero Overlap) -->
+    <text class="meta-tag" x="16" y="116">
+      <tspan fill="#f59e0b"># Kubernetes</tspan>
+      <tspan fill="#52525b">  •  </tspan><tspan fill="#30d158"># k3s-cluster</tspan>
+      <tspan fill="#52525b">  •  </tspan><tspan fill="#a1a1a6"># devops</tspan>
+    </text>
   </g>
 
   <!-- Project 4: ogm-mcp-skills -->
   <g transform="translate(426, 202)">
     <rect class="panel-box" width="390" height="138"/>
-    <!-- Zone 1: Title & Star -->
+    <!-- Zone 1: Title & Star Badge -->
     <g transform="translate(16, 26)">
       <circle cx="0" cy="0" r="3.5" fill="#3776AB"/>
       <text class="proj-title" x="12" y="4">ogm-mcp-skills</text>
       <g transform="translate(296, -9)">
         <rect width="52" height="18" rx="4" fill="#1f222d" stroke="#2d303f"/>
-        <text class="meta-tag" x="8" y="13" fill="#ff9f0a">★ 6</text>
+        <text class="meta-tag" x="26" y="13" text-anchor="middle" fill="#ff9f0a">★ 6</text>
       </g>
     </g>
-    <!-- Zone 2: Description lines with explicit Y coordinates -->
+    <!-- Zone 2: Description lines -->
     <text class="proj-desc" x="16" y="58">MCP Server and AI Agent Skills for</text>
     <text class="proj-desc" x="16" y="78">OpenGraphMemory workflows.</text>
-    <!-- Zone 3: Bottom Tags -->
-    <g transform="translate(16, 114)">
-      <text class="meta-tag" fill="#3776AB"># Python</text>
-      <text class="meta-tag" fill="#86868b" x="84">•</text>
-      <text class="meta-tag" fill="#30d158" x="98"># mcp-server</text>
-      <text class="meta-tag" fill="#86868b" x="190">•</text>
-      <text class="meta-tag" fill="#a1a1a6" x="204">agent-skills</text>
-    </g>
+    <!-- Zone 3: Bottom Tags (Flowing Inline Tspans - Zero Overlap) -->
+    <text class="meta-tag" x="16" y="116">
+      <tspan fill="#3776AB"># Python</tspan>
+      <tspan fill="#52525b">  •  </tspan><tspan fill="#30d158"># mcp-server</tspan>
+      <tspan fill="#52525b">  •  </tspan><tspan fill="#a1a1a6"># agent-skills</tspan>
+    </text>
   </g>
 
   <!-- Project 5: ogm-slim -->
   <g transform="translate(24, 352)">
     <rect class="panel-box" width="390" height="138"/>
-    <!-- Zone 1: Title & Star -->
+    <!-- Zone 1: Title & Star Badge -->
     <g transform="translate(16, 26)">
       <circle cx="0" cy="0" r="3.5" fill="#3178c6"/>
       <text class="proj-title" x="12" y="4">ogm-slim</text>
       <g transform="translate(296, -9)">
         <rect width="52" height="18" rx="4" fill="#1f222d" stroke="#2d303f"/>
-        <text class="meta-tag" x="8" y="13" fill="#ff9f0a">★ 2</text>
+        <text class="meta-tag" x="26" y="13" text-anchor="middle" fill="#ff9f0a">★ 2</text>
       </g>
     </g>
-    <!-- Zone 2: Description lines with explicit Y coordinates -->
+    <!-- Zone 2: Description lines -->
     <text class="proj-desc" x="16" y="58">OpenGraphMemory Slim: persistent experience</text>
     <text class="proj-desc" x="16" y="78">memory &amp; codebase extraction engine.</text>
-    <!-- Zone 3: Bottom Tags -->
-    <g transform="translate(16, 114)">
-      <text class="meta-tag" fill="#3178c6"># TypeScript</text>
-      <text class="meta-tag" fill="#86868b" x="84">•</text>
-      <text class="meta-tag" fill="#30d158" x="98"># agent-memory</text>
-      <text class="meta-tag" fill="#86868b" x="190">•</text>
-      <text class="meta-tag" fill="#a1a1a6" x="204">codebase-graph</text>
-    </g>
+    <!-- Zone 3: Bottom Tags (Flowing Inline Tspans - Zero Overlap) -->
+    <text class="meta-tag" x="16" y="116">
+      <tspan fill="#3178c6"># TypeScript</tspan>
+      <tspan fill="#52525b">  •  </tspan><tspan fill="#30d158"># agent-memory</tspan>
+      <tspan fill="#52525b">  •  </tspan><tspan fill="#a1a1a6"># codebase-graph</tspan>
+    </text>
   </g>
 
   <!-- Project 6: LoRA-Fine-Tuning-Qwen2.5-7B-Unsloth -->
   <g transform="translate(426, 352)">
     <rect class="panel-box" width="390" height="138"/>
-    <!-- Zone 1: Title & Star -->
+    <!-- Zone 1: Title & Star Badge -->
     <g transform="translate(16, 26)">
       <circle cx="0" cy="0" r="3.5" fill="#DA5B0B"/>
       <text class="proj-title" x="12" y="4">LoRA-Fine-Tuning-Qwen2.5-7B-Unsloth</text>
       <g transform="translate(296, -9)">
         <rect width="52" height="18" rx="4" fill="#1f222d" stroke="#2d303f"/>
-        <text class="meta-tag" x="8" y="13" fill="#ff9f0a">★ 0</text>
+        <text class="meta-tag" x="26" y="13" text-anchor="middle" fill="#ff9f0a">★ 0</text>
       </g>
     </g>
-    <!-- Zone 2: Description lines with explicit Y coordinates -->
+    <!-- Zone 2: Description lines -->
     <text class="proj-desc" x="16" y="58">Parameter-efficient fine-tuning (PEFT/LoRA) on</text>
     <text class="proj-desc" x="16" y="78">Qwen2.5-7B LLM with Unsloth.</text>
-    <!-- Zone 3: Bottom Tags -->
-    <g transform="translate(16, 114)">
-      <text class="meta-tag" fill="#DA5B0B"># Jupyter Notebook</text>
-      <text class="meta-tag" fill="#86868b" x="84">•</text>
-      <text class="meta-tag" fill="#30d158" x="98"># unsloth-lora</text>
-      <text class="meta-tag" fill="#86868b" x="190">•</text>
-      <text class="meta-tag" fill="#a1a1a6" x="204">qwen2.5-7b</text>
-    </g>
+    <!-- Zone 3: Bottom Tags (Flowing Inline Tspans - Zero Overlap) -->
+    <text class="meta-tag" x="16" y="116">
+      <tspan fill="#DA5B0B"># Jupyter</tspan>
+      <tspan fill="#52525b">  •  </tspan><tspan fill="#30d158"># unsloth-lora</tspan>
+      <tspan fill="#52525b">  •  </tspan><tspan fill="#a1a1a6"># qwen2.5-7b</tspan>
+    </text>
   </g>
 </svg>

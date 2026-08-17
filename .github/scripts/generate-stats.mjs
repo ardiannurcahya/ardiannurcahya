@@ -539,34 +539,58 @@ function renderProjects(pinnedRepos) {
     const x = col === 0 ? 24 : 426;
     const y = 52 + row * 150;
 
-    const [desc1, desc2] = splitDescription(repo.description);
+    let desc = repo.description;
+    if (!desc || desc.trim() === "") {
+      if (repo.name.includes("LoRA")) {
+        desc = "Parameter-efficient fine-tuning on Qwen2.5-7B with Unsloth.";
+      } else {
+        desc = "Open source software engineering architecture.";
+      }
+    }
+
+    const [desc1, desc2] = splitDescription(desc);
     const starText = repo.stars > 0 ? `★ ${repo.stars}` : "★ 0";
-    const topic1 = repo.topics[0] ? `# ${escapeXml(repo.topics[0])}` : `# ${escapeXml(repo.language)}`;
-    const topic2 = repo.topics[1] ? escapeXml(repo.topics[1]) : "OpenSource";
+
+    // Deduplicate and sanitize topics
+    let lang = repo.language || "Code";
+    if (lang === "Jupyter Notebook") lang = "Jupyter";
+
+    let rawTopics = (repo.topics || []).filter((t) => {
+      const lower = t.toLowerCase();
+      return lower !== lang.toLowerCase() && lower !== "code";
+    });
+
+    if (rawTopics.length === 0) {
+      if (repo.name.includes("k3s")) rawTopics = ["k3s-cluster", "devops"];
+      else if (repo.name.includes("slim")) rawTopics = ["agent-memory", "codebase"];
+      else if (repo.name.includes("LoRA")) rawTopics = ["unsloth", "qwen2.5"];
+      else rawTopics = ["architecture", "open-source"];
+    }
+
+    const tag1 = rawTopics[0] ? `# ${rawTopics[0]}` : "";
+    const tag2 = rawTopics[1] ? `# ${rawTopics[1]}` : "";
 
     return `  <!-- Project ${idx + 1}: ${escapeXml(repo.name)} -->
   <g transform="translate(${x}, ${y})">
     <rect class="panel-box" width="390" height="138"/>
-    <!-- Zone 1: Title & Star -->
+    <!-- Zone 1: Title & Star Badge -->
     <g transform="translate(16, 26)">
       <circle cx="0" cy="0" r="3.5" fill="${repo.color || "#30d158"}"/>
       <text class="proj-title" x="12" y="4">${escapeXml(repo.name)}</text>
       <g transform="translate(296, -9)">
         <rect width="52" height="18" rx="4" fill="#1f222d" stroke="#2d303f"/>
-        <text class="meta-tag" x="8" y="13" fill="#ff9f0a">${escapeXml(starText)}</text>
+        <text class="meta-tag" x="26" y="13" text-anchor="middle" fill="#ff9f0a">${escapeXml(starText)}</text>
       </g>
     </g>
-    <!-- Zone 2: Description lines with explicit Y coordinates -->
+    <!-- Zone 2: Description lines -->
     <text class="proj-desc" x="16" y="58">${escapeXml(desc1)}</text>
     <text class="proj-desc" x="16" y="78">${escapeXml(desc2)}</text>
-    <!-- Zone 3: Bottom Tags -->
-    <g transform="translate(16, 114)">
-      <text class="meta-tag" fill="${repo.color || "#64d2ff"}"># ${escapeXml(repo.language)}</text>
-      <text class="meta-tag" fill="#86868b" x="84">•</text>
-      <text class="meta-tag" fill="#30d158" x="98">${topic1}</text>
-      <text class="meta-tag" fill="#86868b" x="190">•</text>
-      <text class="meta-tag" fill="#a1a1a6" x="204">${topic2}</text>
-    </g>
+    <!-- Zone 3: Bottom Tags (Flowing Inline Tspans - Zero Overlap) -->
+    <text class="meta-tag" x="16" y="116">
+      <tspan fill="${repo.color || "#64d2ff"}"># ${escapeXml(lang)}</tspan>
+      ${tag1 ? `<tspan fill="#52525b">  •  </tspan><tspan fill="#30d158">${escapeXml(tag1)}</tspan>` : ""}
+      ${tag2 ? `<tspan fill="#52525b">  •  </tspan><tspan fill="#a1a1a6">${escapeXml(tag2)}</tspan>` : ""}
+    </text>
   </g>`;
   });
 
