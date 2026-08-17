@@ -1,0 +1,148 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="220" viewBox="0 0 840 220" fill="none" role="img" aria-labelledby="hero-title hero-desc">
+  <title id="hero-title">Ardian Nurcahya - AI Systems &amp; Agent Memory Engineer</title>
+  <desc id="hero-desc">Industrial telemetry hero banner showcasing Ardian Nurcahya, AI Systems Architect and Agent Memory Engineer.</desc>
+  <style>
+    @keyframes radarPulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.3; transform: scale(1.3); }
+    }
+    @keyframes waveDash {
+      0% { stroke-dashoffset: 0; }
+      100% { stroke-dashoffset: -120; }
+    }
+    @keyframes tickBlink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.2; }
+    }
+    .mono-title {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: 3px;
+      fill: #f4f4f5;
+    }
+    .mono-sub {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      fill: #10b981;
+    }
+    .meta-text {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 11px;
+      font-weight: 500;
+      fill: #71717a;
+      letter-spacing: 0.5px;
+    }
+    .tagline {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: 13.5px;
+      font-weight: 400;
+      fill: #a1a1aa;
+    }
+    .badge-text {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      fill: #e4e4e7;
+    }
+    .pulse-dot {
+      transform-origin: 792px 34px;
+      animation: radarPulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+    .wave-line {
+      stroke-dasharray: 8, 4;
+      animation: waveDash 3s linear infinite;
+    }
+    .corner-tick {
+      fill: #52525b;
+      font-family: ui-monospace, monospace;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    @media (prefers-color-scheme: light) {
+      .card-bg { fill: #f8fafc; stroke: #e2e8f0; }
+      .inner-box { fill: #f1f5f9; stroke: #cbd5e1; }
+      .mono-title { fill: #09090b; }
+      .mono-sub { fill: #059669; }
+      .meta-text { fill: #64748b; }
+      .tagline { fill: #334155; }
+      .badge-text { fill: #0f172a; }
+      .grid-line { stroke: #e2e8f0; }
+    }
+  </style>
+
+  <!-- Container Base (Matte Obsidian) -->
+  <rect class="card-bg" x="1" y="1" width="838" height="218" rx="8" fill="#090a0f" stroke="#27272a" stroke-width="1.5"/>
+
+  <!-- Architectural Corner Crosshairs -->
+  <text class="corner-tick" x="14" y="22">+</text>
+  <text class="corner-tick" x="818" y="22">+</text>
+  <text class="corner-tick" x="14" y="208">+</text>
+  <text class="corner-tick" x="818" y="208">+</text>
+
+  <!-- Subtle Horizontal Grid Lines -->
+  <line class="grid-line" x1="1" y1="52" x2="839" y2="52" stroke="#18181b" stroke-width="1"/>
+  <line class="grid-line" x1="1" y1="156" x2="839" y2="156" stroke="#18181b" stroke-width="1"/>
+
+  <!-- Header Status Bar -->
+  <g transform="translate(32, 36)">
+    <text class="meta-text" x="0" y="0">SYSTEM_ID: // ARDIAN.IO</text>
+    <text class="meta-text" x="180" y="0">NODE: JKT/ID-01</text>
+    <text class="meta-text" x="320" y="0">STATUS: PRODUCTION_READY</text>
+    
+    <!-- Live Tactical Emerald Status -->
+    <g transform="translate(630, -11)">
+      <rect width="138" height="22" rx="4" fill="#062e24" stroke="#059669" stroke-width="1"/>
+      <circle class="pulse-dot" cx="14" cy="11" r="3.5" fill="#10b981"/>
+      <text font-family="ui-monospace, monospace" font-size="10" font-weight="700" fill="#34d399" x="26" y="14.5">ONLINE • OPEN</text>
+    </g>
+  </g>
+
+  <!-- Main Identity & Telemetry Waveform -->
+  <g transform="translate(32, 90)">
+    <!-- Identity -->
+    <text class="mono-title" x="0" y="0">ARDIAN NURCAHYA</text>
+    <text class="mono-sub" x="0" y="22">AI SYSTEMS ARCHITECT <tspan fill="#52525b">//</tspan> AGENT MEMORY &amp; ROUTING</text>
+    <text class="tagline" x="0" y="46">Engineering self-hosted knowledge graphs, autonomous agent memory, and ultra-low latency model gateways.</text>
+
+    <!-- Telemetry Oscilloscope Waveform (Right Side) -->
+    <g transform="translate(560, -32)">
+      <rect class="inner-box" width="208" height="68" rx="6" fill="#12131a" stroke="#27272a" stroke-width="1"/>
+      <text class="meta-text" x="12" y="18" fill="#52525b">SIGNAL // 48.2ms</text>
+      <!-- Telemetry Oscilloscope Line -->
+      <path class="wave-line" d="M 12 44 Q 30 20 48 44 T 84 44 T 120 44 T 156 44 T 196 44" fill="none" stroke="#10b981" stroke-width="1.8"/>
+      <circle cx="196" cy="44" r="3" fill="#10b981"/>
+    </g>
+  </g>
+
+  <!-- Bottom Quick Specs Matrix -->
+  <g transform="translate(32, 172)">
+    <!-- Spec 1 -->
+    <g transform="translate(0, 0)">
+      <rect class="inner-box" width="176" height="30" rx="4" fill="#12131a" stroke="#27272a" stroke-width="1"/>
+      <text class="meta-text" x="10" y="19" fill="#10b981">CORE:</text>
+      <text class="badge-text" x="54" y="19">KNOWLEDGE GRAPH</text>
+    </g>
+    <!-- Spec 2 -->
+    <g transform="translate(188, 0)">
+      <rect class="inner-box" width="168" height="30" rx="4" fill="#12131a" stroke="#27272a" stroke-width="1"/>
+      <text class="meta-text" x="10" y="19" fill="#f59e0b">ROUTER:</text>
+      <text class="badge-text" x="66" y="19">AI GATEWAYS</text>
+    </g>
+    <!-- Spec 3 -->
+    <g transform="translate(368, 0)">
+      <rect class="inner-box" width="186" height="30" rx="4" fill="#12131a" stroke="#27272a" stroke-width="1"/>
+      <text class="meta-text" x="10" y="19" fill="#38bdf8">STACK:</text>
+      <text class="badge-text" x="62" y="19">GO • PY • TS • SQL</text>
+    </g>
+    <!-- Spec 4 -->
+    <g transform="translate(566, 0)">
+      <rect class="inner-box" width="202" height="30" rx="4" fill="#12131a" stroke="#27272a" stroke-width="1"/>
+      <text class="meta-text" x="10" y="19" fill="#a1a1aa">INFRA:</text>
+      <text class="badge-text" x="60" y="19">K3S CLUSTER • DOCKER</text>
+    </g>
+  </g>
+</svg>

@@ -1,27 +1,57 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="340" height="200" viewBox="0 0 340 200" role="img" aria-labelledby="title desc">
-  <title id="title">ardiannurcahya&apos;s GitHub Stats</title>
-  <desc id="desc">GitHub activity found by public API search and a rank calculated with the GitHub Readme Stats formula.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="410" height="215" viewBox="0 0 410 215" fill="none" role="img" aria-labelledby="title desc">
+  <title id="title">TELEMETRY_STATS</title>
+  <desc id="desc">GitHub activity and statistics calculated across public repositories.</desc>
   <style>
-    .text { font: 600 13px 'Segoe UI', Ubuntu, sans-serif; fill: #c9d1d9; }
-    .label { font: 400 12px 'Segoe UI', Ubuntu, sans-serif; fill: #8b949e; }
-    .title { font: 600 18px 'Segoe UI', Ubuntu, sans-serif; fill: #58a6ff; }
-    .value { font: 600 14px 'Segoe UI', Ubuntu, sans-serif; fill: #f0f6fc; }
+    .title { font: 700 13px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; letter-spacing: 0.5px; fill: #10b981; }
+    .meta { font: 500 10.5px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; fill: #71717a; }
+    .label { font: 500 12px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; fill: #a1a1aa; }
+    .value { font: 700 14px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; fill: #f4f4f5; }
+    .rank-badge { font: 800 15px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; fill: #10b981; }
+    .text { font: 600 12.5px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; fill: #e4e4e7; }
+    .corner-tick { fill: #52525b; font-family: ui-monospace, monospace; font-size: 11px; font-weight: 700; }
+    @media (prefers-color-scheme: light) {
+      .card-bg { fill: #f8fafc; stroke: #e2e8f0; }
+      .title { fill: #059669; }
+      .label { fill: #64748b; }
+      .value { fill: #09090b; }
+      .rank-badge { fill: #059669; }
+      .text { fill: #1e293b; }
+      .divider { stroke: #e2e8f0; }
+      .pill-bg { fill: #f1f5f9; stroke: #cbd5e1; }
+    }
   </style>
-  <rect x="0.5" y="0.5" width="339" height="199" rx="6" fill="#0d1117" stroke="#30363d"/>
-  <text x="24" y="34" class="title">ardiannurcahya&apos;s GitHub Stats</text>
-  <text x="24" y="69" class="label">Commits found</text>
-  <text x="145" y="69" text-anchor="end" class="value">830</text>
-  <text x="184" y="69" class="label">Pull requests</text>
-  <text x="316" y="69" text-anchor="end" class="value">32</text>
-  <text x="24" y="106" class="label">Public repos</text>
-  <text x="145" y="106" text-anchor="end" class="value">47</text>
-  <text x="184" y="106" class="label">Issues opened</text>
-  <text x="316" y="106" text-anchor="end" class="value">2</text>
-  <text x="24" y="143" class="label">Stars earned</text>
-  <text x="145" y="143" text-anchor="end" class="value">156</text>
-  <text x="184" y="143" class="label">Followers</text>
-  <text x="316" y="143" text-anchor="end" class="value">12</text>
-  <line x1="24" y1="162" x2="316" y2="162" stroke="#21262d"/>
-  <text x="24" y="184" class="label">Estimated rank</text>
-  <text x="316" y="184" text-anchor="end" class="value">B</text>
+
+  <rect class="card-bg" x="1" y="1" width="408" height="213" rx="8" fill="#090a0f" stroke="#27272a" stroke-width="1.5"/>
+
+  <!-- Corner Crosshairs -->
+  <text class="corner-tick" x="10" y="18">+</text>
+  <text class="corner-tick" x="392" y="18">+</text>
+  <text class="corner-tick" x="10" y="206">+</text>
+  <text class="corner-tick" x="392" y="206">+</text>
+
+  <!-- Card Header -->
+  <g transform="translate(24, 28)">
+    <circle cx="0" cy="0" r="3" fill="#10b981"/>
+    <text x="10" y="4" class="title">TELEMETRY_STATS</text>
+    <text x="360" y="4" text-anchor="end" class="meta">REALTIME</text>
+  </g>
+
+  <text x="24" y="68" class="label">Commits Indexed</text>
+  <text x="180" y="68" text-anchor="end" class="value">837</text>
+  <text x="215" y="68" class="label">Pull Requests</text>
+  <text x="386" y="68" text-anchor="end" class="value">33</text>
+  <text x="24" y="102" class="label">Public Repos</text>
+  <text x="180" y="102" text-anchor="end" class="value">47</text>
+  <text x="215" y="102" class="label">Issues Opened</text>
+  <text x="386" y="102" text-anchor="end" class="value">2</text>
+  <text x="24" y="136" class="label">Stars Earned</text>
+  <text x="180" y="136" text-anchor="end" class="value">159</text>
+  <text x="215" y="136" class="label">Followers</text>
+  <text x="386" y="136" text-anchor="end" class="value">12</text>
+  <line class="divider" x1="24" y1="168" x2="386" y2="168" stroke="#1c202a" stroke-width="1"/>
+  <g transform="translate(24, 182)">
+    <text y="14" class="label">Overall Activity Rank</text>
+    <rect class="pill-bg" x="320" y="-3" width="42" height="24" rx="4" fill="#12131a" stroke="#27272a"/>
+    <text x="341" y="14" text-anchor="middle" class="rank-badge">B+</text>
+  </g>
 </svg>
