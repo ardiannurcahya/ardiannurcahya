@@ -1,12 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="840" height="360" viewBox="0 0 840 360" fill="none" role="img" aria-labelledby="proj-title proj-desc">
-  <title id="proj-title">Ardian Nurcahya - Featured Engineering Systems</title>
-  <desc id="proj-desc">Showcase of featured open-source repositories and engineering architectures built by Ardian Nurcahya.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="490" viewBox="0 0 840 490" fill="none" role="img" aria-labelledby="proj-title proj-desc">
+  <title id="proj-title">Ardian Nurcahya - Pinned Repositories Telemetry</title>
+  <desc id="proj-desc">Showcase of pinned open-source repositories and AI architectures built by Ardian Nurcahya.</desc>
   <style>
     @keyframes scanLine {
       0% { transform: translateY(0); opacity: 0; }
       10% { opacity: 0.8; }
       90% { opacity: 0.8; }
-      100% { transform: translateY(356px); opacity: 0; }
+      100% { transform: translateY(486px); opacity: 0; }
     }
     .sec-header {
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
@@ -17,7 +17,7 @@
     }
     .proj-title {
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 700;
       fill: #f4f4f5;
     }
@@ -66,7 +66,7 @@
   </defs>
 
   <!-- Container Base -->
-  <rect class="card-bg" x="1" y="1" width="838" height="358" rx="8" fill="#090a0f" stroke="#27272a" stroke-width="1.5"/>
+  <rect class="card-bg" x="1" y="1" width="838" height="488" rx="8" fill="#090a0f" stroke="#27272a" stroke-width="1.5"/>
 
   <!-- Scanning Sweep Laser Animation -->
   <line class="scanner" x1="2" y1="0" x2="838" y2="0" stroke="url(#scan-grad)" stroke-width="2"/>
@@ -74,18 +74,18 @@
   <!-- Architectural Corner Crosshairs -->
   <text class="corner-tick" x="14" y="22">+</text>
   <text class="corner-tick" x="818" y="22">+</text>
-  <text class="corner-tick" x="14" y="348">+</text>
-  <text class="corner-tick" x="818" y="348">+</text>
+  <text class="corner-tick" x="14" y="478">+</text>
+  <text class="corner-tick" x="818" y="478">+</text>
 
   <!-- Header -->
   <g transform="translate(32, 34)">
-    <text class="sec-header" x="0" y="0">FEATURED_SYSTEMS // OPEN_SOURCE ARCHITECTURE</text>
-    <text font-family="ui-monospace, monospace" font-size="11" font-weight="400" fill="#71717a" x="530" y="0">TELEMETRY: VERIFIED REPOSITORIES</text>
+    <text class="sec-header" x="0" y="0">PINNED_SYSTEMS // REPOSITORY MATRIX</text>
+    <text font-family="ui-monospace, monospace" font-size="11" font-weight="400" fill="#71717a" x="550" y="0">STATUS: 6 PINNED VERIFIED</text>
   </g>
 
-  <!-- Project 1: OpenGraphMemory (Top Left) -->
+  <!-- Row 1 Left: open-graph-memory -->
   <g transform="translate(32, 54)">
-    <rect class="panel-box" width="374" height="136"/>
+    <rect class="panel-box" width="374" height="130"/>
     <!-- Top Bar -->
     <g transform="translate(16, 26)">
       <circle cx="0" cy="0" r="3.5" fill="#10b981"/>
@@ -97,10 +97,10 @@
       </g>
     </g>
     <!-- Description -->
-    <text class="proj-desc" x="16" y="60">Self-hosted knowledge graph extraction, temporal graph</text>
-    <text class="proj-desc" x="16" y="78">storage, and autonomous AI agent memory platform.</text>
+    <text class="proj-desc" x="16" y="58">Self-hosted knowledge graph extraction, temporal graph</text>
+    <text class="proj-desc" x="16" y="76">storage, and autonomous agent memory platform.</text>
     <!-- Tags -->
-    <g transform="translate(16, 114)">
+    <g transform="translate(16, 110)">
       <text class="meta-tag" fill="#3776AB"># Python</text>
       <text class="meta-tag" fill="#71717a" x="64">•</text>
       <text class="meta-tag" fill="#10b981" x="78">Knowledge Graph</text>
@@ -109,9 +109,9 @@
     </g>
   </g>
 
-  <!-- Project 2: antigravity-cli-telegram-bot (Top Right) -->
+  <!-- Row 1 Right: antigravity-cli-telegram-bot -->
   <g transform="translate(434, 54)">
-    <rect class="panel-box" width="374" height="136"/>
+    <rect class="panel-box" width="374" height="130"/>
     <!-- Top Bar -->
     <g transform="translate(16, 26)">
       <circle cx="0" cy="0" r="3.5" fill="#3178c6"/>
@@ -123,10 +123,10 @@
       </g>
     </g>
     <!-- Description -->
-    <text class="proj-desc" x="16" y="60">Connect Antigravity CLI to Telegram with secure</text>
-    <text class="proj-desc" x="16" y="78">allowlisted bot gateway and execution hooks.</text>
+    <text class="proj-desc" x="16" y="58">Connect Antigravity CLI to Telegram with secure</text>
+    <text class="proj-desc" x="16" y="76">allowlisted bot gateway and execution hooks.</text>
     <!-- Tags -->
-    <g transform="translate(16, 114)">
+    <g transform="translate(16, 110)">
       <text class="meta-tag" fill="#3178c6"># TypeScript</text>
       <text class="meta-tag" fill="#71717a" x="84">•</text>
       <text class="meta-tag" fill="#38bdf8" x="98">AI CLI Gateway</text>
@@ -135,9 +135,9 @@
     </g>
   </g>
 
-  <!-- Project 3: k3s-multinode-vps (Bottom Left) -->
-  <g transform="translate(32, 204)">
-    <rect class="panel-box" width="374" height="136"/>
+  <!-- Row 2 Left: k3s-multinode-vps -->
+  <g transform="translate(32, 196)">
+    <rect class="panel-box" width="374" height="130"/>
     <!-- Top Bar -->
     <g transform="translate(16, 26)">
       <circle cx="0" cy="0" r="3.5" fill="#f59e0b"/>
@@ -145,14 +145,14 @@
       <!-- Star Badge -->
       <g transform="translate(280, -9)">
         <rect width="52" height="18" rx="3" fill="#1c202a" stroke="#27272a"/>
-        <text class="meta-tag" x="8" y="13" fill="#f59e0b">★ 16</text>
+        <text class="meta-tag" x="8" y="13" fill="#f59e0b">★ 17</text>
       </g>
     </g>
     <!-- Description -->
-    <text class="proj-desc" x="16" y="60">Automated multi-node K3s cluster provisioning and</text>
-    <text class="proj-desc" x="16" y="78">workload orchestration across distributed small VPS nodes.</text>
+    <text class="proj-desc" x="16" y="58">Multi-node K3s cluster infrastructure provisioning and</text>
+    <text class="proj-desc" x="16" y="76">workload orchestration across small VPS instances.</text>
     <!-- Tags -->
-    <g transform="translate(16, 114)">
+    <g transform="translate(16, 110)">
       <text class="meta-tag" fill="#f59e0b"># Kubernetes</text>
       <text class="meta-tag" fill="#71717a" x="86">•</text>
       <text class="meta-tag" fill="#e4e4e7" x="100">K3s Cluster</text>
@@ -161,29 +161,81 @@
     </g>
   </g>
 
-  <!-- Project 4: svclabs-router (Bottom Right) -->
-  <g transform="translate(434, 204)">
-    <rect class="panel-box" width="374" height="136"/>
+  <!-- Row 2 Right: ogm-mcp-skills -->
+  <g transform="translate(434, 196)">
+    <rect class="panel-box" width="374" height="130"/>
     <!-- Top Bar -->
     <g transform="translate(16, 26)">
-      <circle cx="0" cy="0" r="3.5" fill="#00ADD8"/>
-      <text class="proj-title" x="12" y="4">svclabs-router</text>
-      <!-- Mode Badge -->
-      <g transform="translate(262, -9)">
-        <rect width="70" height="18" rx="3" fill="#1c202a" stroke="#27272a"/>
-        <text class="meta-tag" x="8" y="13" fill="#00ADD8">GO • ROUTE</text>
+      <circle cx="0" cy="0" r="3.5" fill="#10b981"/>
+      <text class="proj-title" x="12" y="4">ogm-mcp-skills</text>
+      <!-- Star Badge -->
+      <g transform="translate(280, -9)">
+        <rect width="52" height="18" rx="3" fill="#1c202a" stroke="#27272a"/>
+        <text class="meta-tag" x="12" y="13" fill="#f59e0b">★ 6</text>
       </g>
     </g>
     <!-- Description -->
-    <text class="proj-desc" x="16" y="60">High-performance AI Routing Gateway with native</text>
-    <text class="proj-desc" x="16" y="78">OpenAI-compatible API built in pure Go for low-latency.</text>
+    <text class="proj-desc" x="16" y="58">Model Context Protocol (MCP) Server and AI Agent</text>
+    <text class="proj-desc" x="16" y="76">Skills integration for OpenGraphMemory workflows.</text>
     <!-- Tags -->
-    <g transform="translate(16, 114)">
-      <text class="meta-tag" fill="#00ADD8"># Go (Golang)</text>
-      <text class="meta-tag" fill="#71717a" x="86">•</text>
-      <text class="meta-tag" fill="#34d399" x="100">AI Gateway</text>
-      <text class="meta-tag" fill="#71717a" x="174">•</text>
-      <text class="meta-tag" fill="#a1a1aa" x="188">Low-Latency</text>
+    <g transform="translate(16, 110)">
+      <text class="meta-tag" fill="#3776AB"># Python</text>
+      <text class="meta-tag" fill="#71717a" x="64">•</text>
+      <text class="meta-tag" fill="#34d399" x="78">MCP Server</text>
+      <text class="meta-tag" fill="#71717a" x="156">•</text>
+      <text class="meta-tag" fill="#a1a1aa" x="170">Agent Skills</text>
+    </g>
+  </g>
+
+  <!-- Row 3 Left: ogm-slim -->
+  <g transform="translate(32, 338)">
+    <rect class="panel-box" width="374" height="130"/>
+    <!-- Top Bar -->
+    <g transform="translate(16, 26)">
+      <circle cx="0" cy="0" r="3.5" fill="#3178c6"/>
+      <text class="proj-title" x="12" y="4">ogm-slim</text>
+      <!-- Star Badge -->
+      <g transform="translate(280, -9)">
+        <rect width="52" height="18" rx="3" fill="#1c202a" stroke="#27272a"/>
+        <text class="meta-tag" x="12" y="13" fill="#f59e0b">★ 2</text>
+      </g>
+    </g>
+    <!-- Description -->
+    <text class="proj-desc" x="16" y="58">OpenGraphMemory Slim: persistent experience memory</text>
+    <text class="proj-desc" x="16" y="76">&amp; codebase extraction engine for AI coding agents.</text>
+    <!-- Tags -->
+    <g transform="translate(16, 110)">
+      <text class="meta-tag" fill="#3178c6"># TypeScript</text>
+      <text class="meta-tag" fill="#71717a" x="84">•</text>
+      <text class="meta-tag" fill="#10b981" x="98">Agent Memory</text>
+      <text class="meta-tag" fill="#71717a" x="190">•</text>
+      <text class="meta-tag" fill="#a1a1aa" x="204">Codebase Graph</text>
+    </g>
+  </g>
+
+  <!-- Row 3 Right: LoRA-Fine-Tuning-Qwen2.5-7B -->
+  <g transform="translate(434, 338)">
+    <rect class="panel-box" width="374" height="130"/>
+    <!-- Top Bar -->
+    <g transform="translate(16, 26)">
+      <circle cx="0" cy="0" r="3.5" fill="#DA5B0B"/>
+      <text class="proj-title" x="12" y="4">LoRA-Fine-Tuning-Qwen2.5</text>
+      <!-- Star Badge -->
+      <g transform="translate(260, -9)">
+        <rect width="72" height="18" rx="3" fill="#1c202a" stroke="#27272a"/>
+        <text class="meta-tag" x="8" y="13" fill="#DA5B0B">LLM TUNING</text>
+      </g>
+    </g>
+    <!-- Description -->
+    <text class="proj-desc" x="16" y="58">Parameter-efficient fine-tuning (PEFT/LoRA) pipeline</text>
+    <text class="proj-desc" x="16" y="76">on Qwen2.5-7B large language model using Unsloth.</text>
+    <!-- Tags -->
+    <g transform="translate(16, 110)">
+      <text class="meta-tag" fill="#DA5B0B"># Jupyter</text>
+      <text class="meta-tag" fill="#71717a" x="64">•</text>
+      <text class="meta-tag" fill="#f59e0b" x="78">Unsloth LoRA</text>
+      <text class="meta-tag" fill="#71717a" x="162">•</text>
+      <text class="meta-tag" fill="#a1a1aa" x="176">Qwen2.5-7B</text>
     </g>
   </g>
 </svg>
