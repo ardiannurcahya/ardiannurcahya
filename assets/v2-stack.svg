@@ -275,7 +275,7 @@
         <circle cx="37" cy="19" r="2.5" fill="#ffffff"/>
         <circle cx="37" cy="29" r="2.5" fill="#ffffff"/>
         <path d="M 25 24 L 37 19 M 25 24 L 37 29" stroke="#ffffff" stroke-width="1.5"/>
-        <text class="chip-name" x="31" y="60">Actions CI</text>
+        <text class="chip-name" x="31" y="60">Github Actions</text>
       </g>
 
       <!-- Nginx Hexagon Icon -->
