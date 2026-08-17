@@ -73,33 +73,33 @@
         <circle cx="12" cy="15" r="3.5" fill="#00ADD8"/>
         <text class="badge-text" x="22" y="19">Go</text>
       </g>
-      <!-- SQL -->
+      <!-- TypeScript -->
       <g transform="translate(160, 0)">
-        <rect class="badge-pill" width="68" height="30"/>
-        <circle cx="12" cy="15" r="3.5" fill="#4479A1"/>
-        <text class="badge-text" x="22" y="19">SQL</text>
-      </g>
-      <!-- Bash -->
-      <g transform="translate(236, 0)">
-        <rect class="badge-pill" width="72" height="30"/>
-        <circle cx="12" cy="15" r="3.5" fill="#4EAA25"/>
-        <text class="badge-text" x="22" y="19">Bash</text>
+        <rect class="badge-pill" width="108" height="30"/>
+        <circle cx="12" cy="15" r="3.5" fill="#3178c6"/>
+        <text class="badge-text" x="22" y="19">TypeScript</text>
       </g>
     </g>
 
     <!-- Badges Row 2 -->
     <g transform="translate(16, 82)">
-      <!-- C++ -->
+      <!-- JavaScript -->
       <g transform="translate(0, 0)">
-        <rect class="badge-pill" width="68" height="30"/>
-        <circle cx="12" cy="15" r="3.5" fill="#f34b7d"/>
-        <text class="badge-text" x="22" y="19">C++</text>
+        <rect class="badge-pill" width="104" height="30"/>
+        <circle cx="12" cy="15" r="3.5" fill="#f1e05a"/>
+        <text class="badge-text" x="22" y="19">JavaScript</text>
       </g>
-      <!-- TypeScript -->
-      <g transform="translate(76, 0)">
-        <rect class="badge-pill" width="108" height="30"/>
-        <circle cx="12" cy="15" r="3.5" fill="#3178c6"/>
-        <text class="badge-text" x="22" y="19">TypeScript</text>
+      <!-- SQL -->
+      <g transform="translate(112, 0)">
+        <rect class="badge-pill" width="68" height="30"/>
+        <circle cx="12" cy="15" r="3.5" fill="#4479A1"/>
+        <text class="badge-text" x="22" y="19">SQL</text>
+      </g>
+      <!-- Bash -->
+      <g transform="translate(188, 0)">
+        <rect class="badge-pill" width="74" height="30"/>
+        <circle cx="12" cy="15" r="3.5" fill="#4EAA25"/>
+        <text class="badge-text" x="22" y="19">Bash</text>
       </g>
     </g>
   </g>
