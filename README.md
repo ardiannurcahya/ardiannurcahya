@@ -4,7 +4,7 @@
 
 <!-- Developer Profile Hero Banner -->
 <a href="https://portofolio-ardian-nurcahya.vercel.app/">
-  <img src="./assets/v2-hero.svg" width="100%" alt="Ardian Nurcahya - AI Systems &amp; Agent Memory Engineer" />
+  <img src="assets/v2-hero.svg" width="100%" alt="Ardian Nurcahya - AI Systems &amp; Agent Memory Engineer" />
 </a>
 
 ---
@@ -30,7 +30,7 @@
 
 <!-- Pure Vector Tech Stack Matrix -->
 <div align="center">
-  <img src="./assets/v2-stack.svg" width="100%" alt="Technology Stack Symbols" />
+  <img src="assets/v2-stack.svg" width="100%" alt="Technology Stack Symbols" />
 </div>
 
 <br/>
@@ -38,8 +38,8 @@
 <!-- Activity Metrics & Language Distribution -->
 
 <div align="center">
-  <img src="./assets/github-stats.svg" width="49%" alt="Activity Metrics" />
-  <img src="./assets/github-languages.svg" width="49%" alt="Language Distribution" />
+  <img src="assets/github-stats.svg" width="49%" alt="Activity Metrics" />
+  <img src="assets/github-languages.svg" width="49%" alt="Language Distribution" />
 </div>
 
 <!-- Custom Animated Contribution Activity Stream -->
