@@ -36,13 +36,14 @@
 <br/>
 
 <!-- Activity Metrics & Language Distribution -->
+<!--
 <div align="center">
   <img src="./assets/github-stats.svg" width="49%" alt="Activity Metrics" />
   <img src="./assets/github-languages.svg" width="49%" alt="Language Distribution" />
 </div>
 
 <br/>
-
+-->
 <!-- Custom Animated Contribution Activity Stream -->
 <div align="center">
   <img src="./assets/v2-contributions.svg" width="100%" alt="Custom Animated 52-Week Contribution Stream" />
