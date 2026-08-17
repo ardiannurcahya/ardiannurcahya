@@ -1,0 +1,247 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="370" viewBox="0 0 840 370" fill="none" role="img" aria-labelledby="arsenal-title arsenal-desc">
+  <title id="arsenal-title">Ardian Nurcahya - Tech Arsenal</title>
+  <desc id="arsenal-desc">Full technology stack across Languages, AI and Machine Learning, Backend and Data, Infrastructure and MLOps.</desc>
+  <style>
+    .cat-title {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .badge-text {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      fill: #e2e8f0;
+    }
+    .panel-bg {
+      fill: #161b22;
+      stroke: #30363d;
+      stroke-width: 1;
+      rx: 10;
+    }
+    .badge-pill {
+      fill: #21262d;
+      stroke: #363d47;
+      stroke-width: 1;
+      rx: 6;
+    }
+    @media (prefers-color-scheme: light) {
+      .arsenal-bg { fill: #f8fafc; stroke: #e2e8f0; }
+      .panel-bg { fill: #ffffff; stroke: #e2e8f0; }
+      .badge-pill { fill: #f1f5f9; stroke: #cbd5e1; }
+      .badge-text { fill: #1e293b; }
+      .text-sub { fill: #64748b; }
+    }
+  </style>
+
+  <defs>
+    <linearGradient id="main-border" x1="0" y1="0" x2="840" y2="370" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.3"/>
+      <stop offset="50%" stop-color="#30363d" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#818cf8" stop-opacity="0.3"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Container Base -->
+  <rect class="arsenal-bg" x="1" y="1" width="838" height="368" rx="14" fill="#0d1117" stroke="url(#main-border)" stroke-width="1.5"/>
+
+  <!-- Header -->
+  <g transform="translate(24, 28)">
+    <text font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="17" font-weight="700" fill="#38bdf8">⚡ TECH ARSENAL &amp; ARCHITECTURE</text>
+    <text font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="400" fill="#8b949e" x="0" y="20">Core technologies, frameworks, and engineering tools leveraged in daily workflows</text>
+  </g>
+
+  <!-- Panel 1: Core Languages (Top Left) -->
+  <g transform="translate(24, 68)">
+    <rect class="panel-bg" width="384" height="132"/>
+    <circle cx="20" cy="22" r="4" fill="#38bdf8"/>
+    <text class="cat-title" x="32" y="26" fill="#38bdf8">Core Languages</text>
+
+    <!-- Badges Row 1 -->
+    <g transform="translate(16, 42)">
+      <!-- Python -->
+      <g transform="translate(0, 0)">
+        <rect class="badge-pill" width="84" height="30"/>
+        <circle cx="12" cy="15" r="3.5" fill="#3776AB"/>
+        <text class="badge-text" x="22" y="19">Python</text>
+      </g>
+      <!-- Go -->
+      <g transform="translate(92, 0)">
+        <rect class="badge-pill" width="60" height="30"/>
+        <circle cx="12" cy="15" r="3.5" fill="#00ADD8"/>
+        <text class="badge-text" x="22" y="19">Go</text>
+      </g>
+      <!-- SQL -->
+      <g transform="translate(160, 0)">
+        <rect class="badge-pill" width="68" height="30"/>
+        <circle cx="12" cy="15" r="3.5" fill="#4479A1"/>
+        <text class="badge-text" x="22" y="19">SQL</text>
+      </g>
+      <!-- Bash -->
+      <g transform="translate(236, 0)">
+        <rect class="badge-pill" width="72" height="30"/>
+        <circle cx="12" cy="15" r="3.5" fill="#4EAA25"/>
+        <text class="badge-text" x="22" y="19">Bash</text>
+      </g>
+    </g>
+
+    <!-- Badges Row 2 -->
+    <g transform="translate(16, 82)">
+      <!-- C++ -->
+      <g transform="translate(0, 0)">
+        <rect class="badge-pill" width="68" height="30"/>
+        <circle cx="12" cy="15" r="3.5" fill="#f34b7d"/>
+        <text class="badge-text" x="22" y="19">C++</text>
+      </g>
+      <!-- TypeScript -->
+      <g transform="translate(76, 0)">
+        <rect class="badge-pill" width="108" height="30"/>
+        <circle cx="12" cy="15" r="3.5" fill="#3178c6"/>
+        <text class="badge-text" x="22" y="19">TypeScript</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Panel 2: AI / ML & Agents (Top Right) -->
+  <g transform="translate(432, 68)">
+    <rect class="panel-bg" width="384" height="132"/>
+    <circle cx="20" cy="22" r="4" fill="#a78bfa"/>
+    <text class="cat-title" x="32" y="26" fill="#a78bfa">AI, ML &amp; Agentic Systems</text>
+
+    <!-- Badges Row 1 -->
+    <g transform="translate(16, 42)">
+      <!-- PyTorch -->
+      <g transform="translate(0, 0)">
+        <rect class="badge-pill" width="92" height="30"/>
+        <circle cx="12" cy="15" r="3.5" fill="#EE4C2C"/>
+        <text class="badge-text" x="22" y="19">PyTorch</text>
+      </g>
+      <!-- TensorFlow -->
+      <g transform="translate(100, 0)">
+        <rect class="badge-pill" width="112" height="30"/>
+        <circle cx="12" cy="15" r="3.5" fill="#FF6F00"/>
+        <text class="badge-text" x="22" y="19">TensorFlow</text>
+      </g>
+      <!-- OpenCV -->
+      <g transform="translate(220, 0)">
+        <rect class="badge-pill" width="92" height="30"/>
+        <circle cx="12" cy="15" r="3.5" fill="#5C3EE8"/>
+        <text class="badge-text" x="22" y="19">OpenCV</text>
+      </g>
+    </g>
+
+    <!-- Badges Row 2 -->
+    <g transform="translate(16, 82)">
+      <!-- LangChain / Agents -->
+      <g transform="translate(0, 0)">
+        <rect class="badge-pill" width="118" height="30"/>
+        <circle cx="12" cy="15" r="3.5" fill="#34d399"/>
+        <text class="badge-text" x="22" y="19">LLM Agents</text>
+      </g>
+      <!-- Scikit-Learn -->
+      <g transform="translate(126, 0)">
+        <rect class="badge-pill" width="112" height="30"/>
+        <circle cx="12" cy="15" r="3.5" fill="#F7931E"/>
+        <text class="badge-text" x="22" y="19">Scikit-Learn</text>
+      </g>
+      <!-- HuggingFace -->
+      <g transform="translate(246, 0)">
+        <rect class="badge-pill" width="102" height="30"/>
+        <circle cx="12" cy="15" r="3.5" fill="#FFD21E"/>
+        <text class="badge-text" x="22" y="19">HuggingFace</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Panel 3: Backend & Data (Bottom Left) -->
+  <g transform="translate(24, 216)">
+    <rect class="panel-bg" width="384" height="132"/>
+    <circle cx="20" cy="22" r="4" fill="#34d399"/>
+    <text class="cat-title" x="32" y="26" fill="#34d399">Backend &amp; High-Perf Data</text>
+
+    <!-- Badges Row 1 -->
+    <g transform="translate(16, 42)">
+      <!-- FastAPI -->
+      <g transform="translate(0, 0)">
+        <rect class="badge-pill" width="88" height="30"/>
+        <circle cx="12" cy="15" r="3.5" fill="#009688"/>
+        <text class="badge-text" x="22" y="19">FastAPI</text>
+      </g>
+      <!-- PostgreSQL -->
+      <g transform="translate(96, 0)">
+        <rect class="badge-pill" width="110" height="30"/>
+        <circle cx="12" cy="15" r="3.5" fill="#4169E1"/>
+        <text class="badge-text" x="22" y="19">PostgreSQL</text>
+      </g>
+      <!-- Redis -->
+      <g transform="translate(214, 0)">
+        <rect class="badge-pill" width="76" height="30"/>
+        <circle cx="12" cy="15" r="3.5" fill="#DC382D"/>
+        <text class="badge-text" x="22" y="19">Redis</text>
+      </g>
+    </g>
+
+    <!-- Badges Row 2 -->
+    <g transform="translate(16, 82)">
+      <!-- Qdrant / Vector DB -->
+      <g transform="translate(0, 0)">
+        <rect class="badge-pill" width="128" height="30"/>
+        <circle cx="12" cy="15" r="3.5" fill="#ec4899"/>
+        <text class="badge-text" x="22" y="19">Vector DBs</text>
+      </g>
+      <!-- REST / gRPC -->
+      <g transform="translate(136, 0)">
+        <rect class="badge-pill" width="118" height="30"/>
+        <circle cx="12" cy="15" r="3.5" fill="#06b6d4"/>
+        <text class="badge-text" x="22" y="19">REST &amp; gRPC</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Panel 4: Infrastructure & MLOps (Bottom Right) -->
+  <g transform="translate(432, 216)">
+    <rect class="panel-bg" width="384" height="132"/>
+    <circle cx="20" cy="22" r="4" fill="#fb923c"/>
+    <text class="cat-title" x="32" y="26" fill="#fb923c">MLOps, Cloud &amp; Infra</text>
+
+    <!-- Badges Row 1 -->
+    <g transform="translate(16, 42)">
+      <!-- Docker -->
+      <g transform="translate(0, 0)">
+        <rect class="badge-pill" width="88" height="30"/>
+        <circle cx="12" cy="15" r="3.5" fill="#2496ED"/>
+        <text class="badge-text" x="22" y="19">Docker</text>
+      </g>
+      <!-- Kubernetes -->
+      <g transform="translate(96, 0)">
+        <rect class="badge-pill" width="116" height="30"/>
+        <circle cx="12" cy="15" r="3.5" fill="#326CE5"/>
+        <text class="badge-text" x="22" y="19">Kubernetes</text>
+      </g>
+      <!-- Nginx -->
+      <g transform="translate(220, 0)">
+        <rect class="badge-pill" width="82" height="30"/>
+        <circle cx="12" cy="15" r="3.5" fill="#009639"/>
+        <text class="badge-text" x="22" y="19">Nginx</text>
+      </g>
+    </g>
+
+    <!-- Badges Row 2 -->
+    <g transform="translate(16, 82)">
+      <!-- GitHub Actions -->
+      <g transform="translate(0, 0)">
+        <rect class="badge-pill" width="144" height="30"/>
+        <circle cx="12" cy="15" r="3.5" fill="#2088FF"/>
+        <text class="badge-text" x="22" y="19">GitHub Actions</text>
+      </g>
+      <!-- MLflow -->
+      <g transform="translate(152, 0)">
+        <rect class="badge-pill" width="96" height="30"/>
+        <circle cx="12" cy="15" r="3.5" fill="#0194E2"/>
+        <text class="badge-text" x="22" y="19">MLflow</text>
+      </g>
+    </g>
+  </g>
+</svg>
