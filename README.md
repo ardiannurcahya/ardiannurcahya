@@ -7,7 +7,7 @@
   <img src="./assets/v2-hero.svg" width="100%" alt="Ardian Nurcahya - AI Systems &amp; Agent Memory Engineer" />
 </a>
 
-<br/>
+---
 
 <!-- Action Triggers (Compact Flat-Square) -->
 <p align="center">
@@ -41,8 +41,6 @@
   <img src="./assets/github-stats.svg" width="49%" alt="Activity Metrics" />
   <img src="./assets/github-languages.svg" width="49%" alt="Language Distribution" />
 </div>
-
-<br/>
 
 <!-- Custom Animated Contribution Activity Stream -->
 <!--
