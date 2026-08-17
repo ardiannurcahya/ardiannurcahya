@@ -9,18 +9,18 @@
 
 <br/>
 
-<!-- Action Triggers -->
+<!-- Action Triggers (Compact Flat-Square) -->
 <p align="center">
   <a href="https://portofolio-ardian-nurcahya.vercel.app/">
-    <img src="https://img.shields.io/badge/PORTFOLIO-121319?style=for-the-badge&logo=vercel&logoColor=f4f4f5&labelColor=1c1e26" alt="Portfolio"/>
+    <img src="https://img.shields.io/badge/Portfolio-121319?style=flat-square&logo=vercel&logoColor=f4f4f5&labelColor=1c1e26" alt="Portfolio"/>
   </a>
   &nbsp;
   <a href="https://linkedin.com/in/ardiannurcahya436">
-    <img src="https://img.shields.io/badge/LINKEDIN-121319?style=for-the-badge&logo=linkedin&logoColor=30d158&labelColor=1c1e26" alt="LinkedIn"/>
+    <img src="https://img.shields.io/badge/LinkedIn-121319?style=flat-square&logo=linkedin&logoColor=30d158&labelColor=1c1e26" alt="LinkedIn"/>
   </a>
   &nbsp;
   <a href="mailto:ardiannurcahya436@gmail.com">
-    <img src="https://img.shields.io/badge/EMAIL_DIRECT-121319?style=for-the-badge&logo=gmail&logoColor=ff9f0a&labelColor=1c1e26" alt="Email"/>
+    <img src="https://img.shields.io/badge/Email%20Direct-121319?style=flat-square&logo=gmail&logoColor=ff9f0a&labelColor=1c1e26" alt="Email"/>
   </a>
 </p>
 
