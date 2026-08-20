@@ -44,7 +44,7 @@
   <text x="215" y="102" class="label">Issues Opened</text>
   <text x="386" y="102" text-anchor="end" class="value">2</text>
   <text x="24" y="136" class="label">Stars Earned</text>
-  <text x="180" y="136" text-anchor="end" class="value">175</text>
+  <text x="180" y="136" text-anchor="end" class="value">197</text>
   <text x="215" y="136" class="label">Followers</text>
   <text x="386" y="136" text-anchor="end" class="value">12</text>
   <line class="divider" x1="24" y1="168" x2="386" y2="168" stroke="#21242e" stroke-width="1"/>
