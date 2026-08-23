@@ -36,24 +36,24 @@
   <text class="window-title" x="205" y="22" text-anchor="middle">language-distribution</text>
 
   <rect x="24" y="52" width="362" height="7" rx="3.5" fill="#1b1e27"/>
-  <rect x="24.00" y="52" width="137.46" height="7" fill="#3776AB"/>
-  <rect x="161.46" y="52" width="77.59" height="7" fill="#00ADD8"/>
-  <rect x="239.05" y="52" width="64.84" height="7" fill="#DA5B0B"/>
-  <rect x="303.89" y="52" width="33.83" height="7" fill="#f1e05a"/>
-  <rect x="337.73" y="52" width="32.33" height="7" fill="#3178c6"/>
+  <rect x="24.00" y="52" width="142.17" height="7" fill="#3776AB"/>
+  <rect x="166.17" y="52" width="80.67" height="7" fill="#00ADD8"/>
+  <rect x="246.85" y="52" width="67.41" height="7" fill="#DA5B0B"/>
+  <rect x="314.26" y="52" width="34.65" height="7" fill="#3178c6"/>
+  <rect x="348.92" y="52" width="20.51" height="7" fill="#f1e05a"/>
   <circle cx="28" cy="84" r="3.5" fill="#3776AB"/>
   <text x="42" y="88" class="text">Python</text>
-  <text x="386" y="88" text-anchor="end" class="label">38.0%</text>
+  <text x="386" y="88" text-anchor="end" class="label">39.3%</text>
   <circle cx="28" cy="108" r="3.5" fill="#00ADD8"/>
   <text x="42" y="112" class="text">Go</text>
-  <text x="386" y="112" text-anchor="end" class="label">21.4%</text>
+  <text x="386" y="112" text-anchor="end" class="label">22.3%</text>
   <circle cx="28" cy="132" r="3.5" fill="#DA5B0B"/>
   <text x="42" y="136" class="text">Jupyter Notebook</text>
-  <text x="386" y="136" text-anchor="end" class="label">17.9%</text>
-  <circle cx="28" cy="156" r="3.5" fill="#f1e05a"/>
-  <text x="42" y="160" class="text">JavaScript</text>
-  <text x="386" y="160" text-anchor="end" class="label">9.3%</text>
-  <circle cx="28" cy="180" r="3.5" fill="#3178c6"/>
-  <text x="42" y="184" class="text">TypeScript</text>
-  <text x="386" y="184" text-anchor="end" class="label">8.9%</text>
+  <text x="386" y="136" text-anchor="end" class="label">18.6%</text>
+  <circle cx="28" cy="156" r="3.5" fill="#3178c6"/>
+  <text x="42" y="160" class="text">TypeScript</text>
+  <text x="386" y="160" text-anchor="end" class="label">9.6%</text>
+  <circle cx="28" cy="180" r="3.5" fill="#f1e05a"/>
+  <text x="42" y="184" class="text">JavaScript</text>
+  <text x="386" y="184" text-anchor="end" class="label">5.7%</text>
 </svg>
