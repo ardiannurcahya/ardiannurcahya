@@ -531,8 +531,8 @@ function renderContributions(calendar) {
   });
 
   return `<svg xmlns="http://www.w3.org/2000/svg" width="840" height="240" viewBox="0 0 840 240" fill="none" role="img" aria-labelledby="contrib-title contrib-desc">
-  <title id="contrib-title">Ardian Nurcahya - macOS Contribution Telemetry</title>
-  <desc id="contrib-desc">macOS Glassmorphism window displaying animated 52-week contribution telemetry and laser sweep.</desc>
+  <title id="contrib-title">Ardian Nurcahya - Activity Telemetry</title>
+  <desc id="contrib-desc">Glassmorphic window displaying animated 52-week contribution telemetry and laser sweep.</desc>
   <defs>
     <!-- Background Glass Gradients -->
     <linearGradient id="glass-base-contrib" x1="0" y1="0" x2="840" y2="240" gradientUnits="userSpaceOnUse">
@@ -647,11 +647,11 @@ function renderContributions(calendar) {
   <rect class="win-bg" x="2" y="2" width="836" height="236" rx="14" fill="url(#glass-base-contrib)" stroke="url(#glass-stroke-contrib)" stroke-width="1.2" filter="url(#contrib-shadow)"/>
   <rect x="2" y="2" width="836" height="236" rx="14" fill="url(#ambient-emerald)"/>
 
-  <!-- macOS Frosted Titlebar Header -->
+  <!-- Frosted Titlebar Header -->
   <path class="win-header" d="M 2 14 C 2 7.37 7.37 2 14 2 L 826 2 C 832.63 2 838 7.37 838 14 L 838 38 L 2 38 Z" fill="url(#header-glass-c)"/>
   <line class="divider" x1="2" y1="38" x2="838" y2="38" stroke="#ffffff" stroke-opacity="0.08" stroke-width="1"/>
 
-  <!-- macOS Glossy Traffic Lights -->
+  <!-- Glossy Window Controls -->
   <g transform="translate(18, 13)">
     <circle cx="6" cy="6" r="5.5" fill="url(#btn-red-c)"/>
     <circle cx="6" cy="6" r="5.5" stroke="#d63029" stroke-width="0.6" fill="none"/>
@@ -662,7 +662,7 @@ function renderContributions(calendar) {
   </g>
 
   <!-- Centered Window Title -->
-  <text class="window-title" x="420" y="23.5" text-anchor="middle">CONTRIBUTION_TELEMETRY // 52_WEEKS_STREAM — macos</text>
+  <text class="window-title" x="420" y="23.5" text-anchor="middle">CONTRIBUTION_TELEMETRY // 52_WEEKS_STREAM</text>
 
   <!-- Live Pulse Beacon -->
   <g transform="translate(684, 9)">
@@ -743,4 +743,4 @@ await Promise.all([
   writeAtomically(resolve(outputDir, "github-languages.svg"), renderLanguages(languages)),
   writeAtomically(resolve(outputDir, "v2-contributions.svg"), renderContributions(calendar)),
 ]);
-console.log(`Successfully generated macOS Glassmorphic profile assets for ${username}!`);
+console.log(`Successfully generated Glassmorphic profile assets for ${username}!`);

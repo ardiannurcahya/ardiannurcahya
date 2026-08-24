@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="840" height="230" viewBox="0 0 840 230" fill="none" role="img" aria-labelledby="hero-title hero-desc">
   <title id="hero-title">Ardian Nurcahya - Developer Profile</title>
-  <desc id="hero-desc">macOS Glassmorphism window displaying Ardian Nurcahya's developer profile and engineering specs.</desc>
+  <desc id="hero-desc">Glassmorphic window displaying Ardian Nurcahya's developer profile and engineering specs.</desc>
   <defs>
     <!-- Background Glass Gradients -->
     <linearGradient id="glass-base" x1="0" y1="0" x2="840" y2="230" gradientUnits="userSpaceOnUse">
@@ -166,11 +166,11 @@
   <rect x="2" y="2" width="836" height="226" rx="14" fill="url(#mesh-glow-2)"/>
   <rect x="2" y="2" width="836" height="226" rx="14" fill="url(#mesh-glow-3)"/>
 
-  <!-- macOS Frosted Titlebar -->
+  <!-- Frosted Titlebar -->
   <path class="win-header" d="M 2 16 C 2 8.27 8.27 2 16 2 L 824 2 C 831.73 2 838 8.27 838 16 L 838 38 L 2 38 Z" fill="url(#header-glass)"/>
   <line class="divider" x1="2" y1="38" x2="838" y2="38" stroke="#ffffff" stroke-opacity="0.08" stroke-width="1"/>
 
-  <!-- macOS Glossy Traffic Lights -->
+  <!-- Window Controls -->
   <g transform="translate(18, 13)">
     <!-- Red (Close) -->
     <circle cx="6" cy="6" r="5.5" fill="url(#btn-red)"/>
@@ -186,7 +186,7 @@
   <!-- Centered Window Title -->
   <text class="window-title" x="420" y="23.5" text-anchor="middle">ardian — developer profile — zsh</text>
 
-  <!-- Top Right macOS Glass Status Pill -->
+  <!-- Top Right Glass Status Pill -->
   <g transform="translate(668, 9)" filter="url(#glow-badge)">
     <rect width="154" height="20" rx="10" fill="#06281e" fill-opacity="0.8" stroke="#059669" stroke-width="1"/>
     <circle class="pulse-dot" cx="12" cy="10" r="3.5" fill="#34d399"/>
@@ -197,7 +197,7 @@
   <g transform="translate(26, 62)">
     <!-- Terminal Prompt Line -->
     <text class="mono-prompt" x="0" y="0">
-      <tspan fill="#34d399">ardian@macbook</tspan> <tspan fill="#64d2ff">~</tspan> <tspan fill="#8e8e93">%</tspan> <tspan fill="#f5f5f7">cat profile.json</tspan>
+      <tspan fill="#34d399">ardian@workstation</tspan> <tspan fill="#64d2ff">~</tspan> <tspan fill="#8e8e93">%</tspan> <tspan fill="#f5f5f7">cat profile.json</tspan>
     </text>
 
     <!-- Main Identity with Glass Drop Shadow -->
