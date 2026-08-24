@@ -251,7 +251,6 @@ async function collectData() {
   };
   stats.rank = calculateRank(stats);
 
-  // Fetch languages concurrently in batches of 8
   const languages = new Map();
   const batchSize = 8;
   for (let i = 0; i < repositories.length; i += batchSize) {
@@ -284,39 +283,97 @@ function darkWindowShell(title, body, description, width = 410, height = 215) {
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" fill="none" role="img" aria-labelledby="title desc">
   <title id="title">${escapeXml(title)}</title>
   <desc id="desc">${escapeXml(description)}</desc>
+  <defs>
+    <!-- Background Glass Gradients -->
+    <linearGradient id="glass-base-w" x1="0" y1="0" x2="${width}" y2="${height}" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#141724" stop-opacity="0.95"/>
+      <stop offset="50%" stop-color="#0e1018" stop-opacity="0.98"/>
+      <stop offset="100%" stop-color="#090a10" stop-opacity="0.99"/>
+    </linearGradient>
+
+    <linearGradient id="glass-stroke-w" x1="0" y1="0" x2="${width}" y2="${height}" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.25"/>
+      <stop offset="30%" stop-color="#38bdf8" stop-opacity="0.12"/>
+      <stop offset="70%" stop-color="#ffffff" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#34d399" stop-opacity="0.15"/>
+    </linearGradient>
+
+    <!-- Ambient Mesh Glow -->
+    <radialGradient id="mesh-w-1" cx="20%" cy="20%" r="50%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="mesh-w-2" cx="80%" cy="80%" r="50%">
+      <stop offset="0%" stop-color="#34d399" stop-opacity="0.10"/>
+      <stop offset="100%" stop-color="#34d399" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Header Glass Gradient -->
+    <linearGradient id="header-glass-w" x1="0" y1="0" x2="0" y2="38" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.02"/>
+    </linearGradient>
+
+    <!-- Traffic Lights -->
+    <linearGradient id="btn-red-w" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ff6b62"/>
+      <stop offset="100%" stop-color="#ea3e36"/>
+    </linearGradient>
+    <linearGradient id="btn-yellow-w" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffd043"/>
+      <stop offset="100%" stop-color="#f5a623"/>
+    </linearGradient>
+    <linearGradient id="btn-green-w" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3fe25e"/>
+      <stop offset="100%" stop-color="#1db939"/>
+    </linearGradient>
+
+    <!-- Filter Shadow -->
+    <filter id="win-shadow" x="-5%" y="-5%" width="110%" height="115%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+
   <style>
-    .window-title { font: 500 12px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; fill: #86868b; }
-    .label { font: 500 12px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; fill: #a1a1a6; }
-    .value { font: 700 14px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; fill: #f5f5f7; }
-    .rank-badge { font: 800 14px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; fill: #30d158; }
-    .text { font: 600 12px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; fill: #f5f5f7; }
+    .window-title { font: 500 11.5px -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif; fill: #8e8e93; letter-spacing: 0.3px; }
+    .label { font: 500 12px ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace; fill: #a1a1aa; }
+    .value { font: 700 14px ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace; fill: #f5f5f7; }
+    .rank-badge { font: 800 13px ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace; fill: #34d399; }
+    .text { font: 600 12px -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif; fill: #f5f5f7; }
     @media (prefers-color-scheme: light) {
-      .win-bg { fill: #ffffff; stroke: #d1d5db; }
-      .win-header { fill: #f3f4f6; stroke: #e5e7eb; }
-      .window-title { fill: #4b5563; }
-      .label { fill: #6b7280; }
-      .value { fill: #111827; }
+      .win-bg { fill: #f8fafc; stroke: #cbd5e1; }
+      .win-header { fill: #f1f5f9; stroke: #e2e8f0; }
+      .window-title { fill: #475569; }
+      .label { fill: #64748b; }
+      .value { fill: #0f172a; }
       .rank-badge { fill: #059669; }
-      .text { fill: #111827; }
-      .divider { stroke: #e5e7eb; }
-      .pill-bg { fill: #f3f4f6; stroke: #e5e7eb; }
+      .text { fill: #0f172a; }
+      .divider { stroke: #e2e8f0; }
+      .pill-bg { fill: #f1f5f9; stroke: #e2e8f0; }
     }
   </style>
 
-  <!-- Window Container -->
-  <rect class="win-bg" x="1" y="1" width="${width - 2}" height="${height - 2}" rx="10" fill="#121319" stroke="#2d3139" stroke-width="1.5"/>
+  <!-- Window Container with Glass Elevation Shadow -->
+  <rect class="win-bg" x="2" y="2" width="${width - 4}" height="${height - 4}" rx="14" fill="url(#glass-base-w)" stroke="url(#glass-stroke-w)" stroke-width="1.2" filter="url(#win-shadow)"/>
+  <rect x="2" y="2" width="${width - 4}" height="${height - 4}" rx="14" fill="url(#mesh-w-1)"/>
+  <rect x="2" y="2" width="${width - 4}" height="${height - 4}" rx="14" fill="url(#mesh-w-2)"/>
 
   <!-- Titlebar Header -->
-  <path class="win-header" d="M 1 11 C 1 5.5 5.5 1 11 1 L ${width - 11} 1 C ${width - 5.5} 1 ${width - 1} 5.5 ${width - 1} 11 L ${width - 1} 36 L 1 36 Z" fill="#1c1e26"/>
-  <line class="divider" x1="1" y1="36" x2="${width - 1}" y2="36" stroke="#262833" stroke-width="1"/>
+  <path class="win-header" d="M 2 14 C 2 7.37 7.37 2 14 2 L ${width - 14} 2 C ${width - 7.37} 2 ${width - 2} 7.37 ${width - 2} 14 L ${width - 2} 36 L 2 36 Z" fill="url(#header-glass-w)"/>
+  <line class="divider" x1="2" y1="36" x2="${width - 2}" y2="36" stroke="#ffffff" stroke-opacity="0.08" stroke-width="1"/>
 
   <!-- Control Dots -->
-  <circle cx="18" cy="18" r="5" fill="#ff5f56" stroke="#e0443e" stroke-width="0.8"/>
-  <circle cx="34" cy="18" r="5" fill="#ffbd2e" stroke="#dea123" stroke-width="0.8"/>
-  <circle cx="50" cy="18" r="5" fill="#27c93f" stroke="#1aab29" stroke-width="0.8"/>
+  <g transform="translate(16, 12)">
+    <circle cx="5" cy="5" r="5" fill="url(#btn-red-w)"/>
+    <circle cx="5" cy="5" r="5" stroke="#d63029" stroke-width="0.5" fill="none"/>
+    <circle cx="20" cy="5" r="5" fill="url(#btn-yellow-w)"/>
+    <circle cx="20" cy="5" r="5" stroke="#d48d17" stroke-width="0.5" fill="none"/>
+    <circle cx="35" cy="5" r="5" fill="url(#btn-green-w)"/>
+    <circle cx="35" cy="5" r="5" stroke="#189e30" stroke-width="0.5" fill="none"/>
+  </g>
 
   <!-- Centered Title -->
-  <text class="window-title" x="${width / 2}" y="22" text-anchor="middle">${escapeXml(title)}</text>
+  <text class="window-title" x="${width / 2}" y="22.5" text-anchor="middle">${escapeXml(title)}</text>
 
 ${body}
 </svg>
@@ -341,16 +398,16 @@ function renderStats(stats) {
   });
 
   bodyItems.push(
-    '  <line class="divider" x1="24" y1="168" x2="386" y2="168" stroke="#21242e" stroke-width="1"/>',
-    '  <g transform="translate(24, 182)">',
+    '  <line class="divider" x1="24" y1="168" x2="386" y2="168" stroke="#ffffff" stroke-opacity="0.08" stroke-width="1"/>',
+    '  <g transform="translate(24, 180)">',
     '    <text y="14" class="label">Activity Rank</text>',
-    '    <rect class="pill-bg" x="320" y="-3" width="42" height="24" rx="5" fill="#1b1e27" stroke="#2a2d3a"/>',
-    `    <text x="341" y="14" text-anchor="middle" class="rank-badge">${escapeXml(stats.rank)}</text>`,
+    '    <rect class="pill-bg" x="316" y="-2" width="46" height="24" rx="6" fill="#06281e" fill-opacity="0.8" stroke="#059669" stroke-width="1"/>',
+    `    <text x="339" y="14.5" text-anchor="middle" class="rank-badge">${escapeXml(stats.rank)}</text>`,
     '  </g>'
   );
 
   return darkWindowShell(
-    "activity-metrics",
+    "activity-metrics — stats",
     bodyItems.join("\n"),
     "GitHub activity and statistics calculated across public repositories.",
     410,
@@ -405,7 +462,7 @@ function renderLanguages(languages) {
   ].join("\n");
 
   return darkWindowShell(
-    "language-distribution",
+    "language-distribution — analytics",
     body,
     "Top programming languages by code volume across public non-fork repositories.",
     410,
@@ -474,8 +531,70 @@ function renderContributions(calendar) {
   });
 
   return `<svg xmlns="http://www.w3.org/2000/svg" width="840" height="240" viewBox="0 0 840 240" fill="none" role="img" aria-labelledby="contrib-title contrib-desc">
-  <title id="contrib-title">Ardian Nurcahya - Ultra Luxury Contribution Telemetry</title>
-  <desc id="contrib-desc">Super luxurious dark obsidian window displaying animated 52-week contribution telemetry and holographic laser sweep.</desc>
+  <title id="contrib-title">Ardian Nurcahya - macOS Contribution Telemetry</title>
+  <desc id="contrib-desc">macOS Glassmorphism window displaying animated 52-week contribution telemetry and laser sweep.</desc>
+  <defs>
+    <!-- Background Glass Gradients -->
+    <linearGradient id="glass-base-contrib" x1="0" y1="0" x2="840" y2="240" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#141724" stop-opacity="0.95"/>
+      <stop offset="50%" stop-color="#0e1018" stop-opacity="0.98"/>
+      <stop offset="100%" stop-color="#090a10" stop-opacity="0.99"/>
+    </linearGradient>
+
+    <linearGradient id="glass-stroke-contrib" x1="0" y1="0" x2="840" y2="240" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.25"/>
+      <stop offset="30%" stop-color="#34d399" stop-opacity="0.15"/>
+      <stop offset="70%" stop-color="#ffffff" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0.15"/>
+    </linearGradient>
+
+    <!-- Header Glass Gradient -->
+    <linearGradient id="header-glass-c" x1="0" y1="0" x2="0" y2="38" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.02"/>
+    </linearGradient>
+
+    <!-- Holographic Laser Beam Gradient -->
+    <linearGradient id="holo-laser" x1="0" y1="0" x2="0" y2="105" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#34d399" stop-opacity="0"/>
+      <stop offset="25%" stop-color="#34d399" stop-opacity="0.8"/>
+      <stop offset="50%" stop-color="#10b981" stop-opacity="1"/>
+      <stop offset="75%" stop-color="#059669" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#047857" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Glass Ambient Backlight Gradient -->
+    <radialGradient id="ambient-emerald" cx="50%" cy="0%" r="80%">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- HUD Card Glass Gradient -->
+    <linearGradient id="hud-glass-grad" x1="0" y1="0" x2="0" y2="28" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.07"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.02"/>
+    </linearGradient>
+
+    <!-- Traffic Lights -->
+    <linearGradient id="btn-red-c" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ff6b62"/>
+      <stop offset="100%" stop-color="#ea3e36"/>
+    </linearGradient>
+    <linearGradient id="btn-yellow-c" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffd043"/>
+      <stop offset="100%" stop-color="#f5a623"/>
+    </linearGradient>
+    <linearGradient id="btn-green-c" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3fe25e"/>
+      <stop offset="100%" stop-color="#1db939"/>
+    </linearGradient>
+
+    <!-- Filter Shadow -->
+    <filter id="contrib-shadow" x="-5%" y="-5%" width="110%" height="115%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+
   <style>
     @keyframes holoLaser {
       0% { transform: translateX(0); opacity: 0; }
@@ -499,92 +618,80 @@ function renderContributions(calendar) {
       0%, 100% { transform: scale(1); opacity: 1; }
       50% { transform: scale(1.25); opacity: 0.4; }
     }
-    .window-title { font: 600 11.5px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; letter-spacing: 0.8px; fill: #86868b; }
-    .label-month { font: 600 10.5px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; fill: #71717a; }
-    .label-day { font: 600 10px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; fill: #52525b; }
-    .hud-title { font: 700 9.5px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; letter-spacing: 0.5px; fill: #71717a; }
-    .hud-val { font: 800 12px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
-    .legend-text { font: 500 10.5px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; fill: #71717a; }
+    .window-title { font: 500 11.5px -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif; letter-spacing: 0.3px; fill: #8e8e93; }
+    .label-month { font: 600 10.5px ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace; fill: #71717a; }
+    .label-day { font: 600 10px ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace; fill: #52525b; }
+    .hud-title { font: 700 9.5px ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace; letter-spacing: 0.5px; fill: #a1a1aa; }
+    .hud-val { font: 800 12px ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace; }
+    .legend-text { font: 500 10.5px ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace; fill: #71717a; }
     
     .laser-beam { animation: holoLaser 5.5s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
     .glow-a { animation: shimmerA 3s ease-in-out infinite; }
     .glow-b { animation: shimmerB 3.5s ease-in-out infinite 0.8s; }
     .glow-c { animation: shimmerC 2.8s ease-in-out infinite 1.6s; }
     .glow-peak { animation: shimmerB 2s ease-in-out infinite; filter: drop-shadow(0 0 5px #34d399); }
-    .live-dot { transform-origin: 708px 18px; animation: pulseLive 2s ease-in-out infinite; }
+    .live-dot { transform-origin: 12px 10px; animation: pulseLive 2s ease-in-out infinite; }
 
-    .hud-card { fill: #151824; stroke: #262c3e; stroke-width: 1; rx: 5; }
+    .hud-card { fill: url(#hud-glass-grad); stroke: #ffffff; stroke-opacity: 0.12; stroke-width: 1; rx: 6; }
     
     @media (prefers-color-scheme: light) {
-      .win-bg { fill: #ffffff; stroke: #d1d5db; }
-      .win-header { fill: #f3f4f6; stroke: #e5e7eb; }
-      .window-title { fill: #4b5563; }
-      .hud-card { fill: #f9fafb; stroke: #e5e7eb; }
-      .divider { stroke: #e5e7eb; }
+      .win-bg { fill: #f8fafc; stroke: #cbd5e1; }
+      .win-header { fill: #f1f5f9; stroke: #e2e8f0; }
+      .window-title { fill: #475569; }
+      .hud-card { fill: #f8fafc; stroke: #e2e8f0; }
+      .divider { stroke: #e2e8f0; }
     }
   </style>
 
-  <defs>
-    <!-- Multi-tier Holographic Laser Beam Gradient -->
-    <linearGradient id="holo-laser" x1="0" y1="0" x2="0" y2="105" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#34d399" stop-opacity="0"/>
-      <stop offset="25%" stop-color="#34d399" stop-opacity="0.8"/>
-      <stop offset="50%" stop-color="#10b981" stop-opacity="1"/>
-      <stop offset="75%" stop-color="#059669" stop-opacity="0.8"/>
-      <stop offset="100%" stop-color="#047857" stop-opacity="0"/>
-    </linearGradient>
+  <!-- Window Container Base with Glass Elevation Shadow -->
+  <rect class="win-bg" x="2" y="2" width="836" height="236" rx="14" fill="url(#glass-base-contrib)" stroke="url(#glass-stroke-contrib)" stroke-width="1.2" filter="url(#contrib-shadow)"/>
+  <rect x="2" y="2" width="836" height="236" rx="14" fill="url(#ambient-emerald)"/>
 
-    <!-- Glass Ambient Backlight Gradient -->
-    <radialGradient id="ambient-emerald" cx="50%" cy="0%" r="80%">
-      <stop offset="0%" stop-color="#10b981" stop-opacity="0.08"/>
-      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
-    </radialGradient>
-  </defs>
+  <!-- macOS Frosted Titlebar Header -->
+  <path class="win-header" d="M 2 14 C 2 7.37 7.37 2 14 2 L 826 2 C 832.63 2 838 7.37 838 14 L 838 38 L 2 38 Z" fill="url(#header-glass-c)"/>
+  <line class="divider" x1="2" y1="38" x2="838" y2="38" stroke="#ffffff" stroke-opacity="0.08" stroke-width="1"/>
 
-  <!-- Window Container Base -->
-  <rect class="win-bg" x="1" y="1" width="838" height="238" rx="10" fill="#0d0f17" stroke="#232838" stroke-width="1.5"/>
-  <rect x="1" y="1" width="838" height="238" rx="10" fill="url(#ambient-emerald)"/>
-
-  <!-- Titlebar Header -->
-  <path class="win-header" d="M 1 11 C 1 5.5 5.5 1 11 1 L 829 1 C 834.5 1 839 5.5 839 11 L 839 36 L 1 36 Z" fill="#171a24"/>
-  <line class="divider" x1="1" y1="36" x2="839" y2="36" stroke="#232838" stroke-width="1"/>
-
-  <!-- Traffic Lights with Gloss -->
-  <circle cx="20" cy="18" r="5.5" fill="#ff5f56" stroke="#e0443e" stroke-width="0.8"/>
-  <circle cx="36" cy="18" r="5.5" fill="#ffbd2e" stroke="#dea123" stroke-width="0.8"/>
-  <circle cx="52" cy="18" r="5.5" fill="#27c93f" stroke="#1aab29" stroke-width="0.8"/>
-
-  <!-- Centered Title -->
-  <text class="window-title" x="420" y="22" text-anchor="middle">CONTRIBUTION_TELEMETRY // 52_WEEKS_STREAM</text>
-
-  <!-- Live Pulse Beacon -->
-  <g transform="translate(696, 9)">
-    <rect width="128" height="20" rx="10" fill="#06281e" stroke="#059669" stroke-width="1"/>
-    <circle class="live-dot" cx="12" cy="10" r="3.5" fill="#34d399"/>
-    <text font-family="ui-monospace, monospace" font-size="10" font-weight="700" fill="#34d399" x="24" y="13.5">LIVE STREAM</text>
+  <!-- macOS Glossy Traffic Lights -->
+  <g transform="translate(18, 13)">
+    <circle cx="6" cy="6" r="5.5" fill="url(#btn-red-c)"/>
+    <circle cx="6" cy="6" r="5.5" stroke="#d63029" stroke-width="0.6" fill="none"/>
+    <circle cx="23" cy="6" r="5.5" fill="url(#btn-yellow-c)"/>
+    <circle cx="23" cy="6" r="5.5" stroke="#d48d17" stroke-width="0.6" fill="none"/>
+    <circle cx="40" cy="6" r="5.5" fill="url(#btn-green-c)"/>
+    <circle cx="40" cy="6" r="5.5" stroke="#189e30" stroke-width="0.6" fill="none"/>
   </g>
 
-  <!-- 3x Luxury HUD Metrics Bar -->
-  <g transform="translate(52, 46)">
+  <!-- Centered Window Title -->
+  <text class="window-title" x="420" y="23.5" text-anchor="middle">CONTRIBUTION_TELEMETRY // 52_WEEKS_STREAM — macos</text>
+
+  <!-- Live Pulse Beacon -->
+  <g transform="translate(684, 9)">
+    <rect width="138" height="20" rx="10" fill="#06281e" fill-opacity="0.8" stroke="#059669" stroke-width="1"/>
+    <circle class="live-dot" cx="12" cy="10" r="3.5" fill="#34d399"/>
+    <text font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="10" font-weight="700" letter-spacing="0.5px" fill="#34d399" x="22" y="13.5">LIVE TELEMETRY</text>
+  </g>
+
+  <!-- 3x Glass HUD Metrics Bar -->
+  <g transform="translate(52, 48)">
     <!-- Metric 1: Total Volume -->
     <g transform="translate(0, 0)">
-      <rect class="hud-card" width="220" height="26"/>
-      <text class="hud-title" x="10" y="17">TOTAL_ACTIVITY:</text>
-      <text class="hud-val" fill="#34d399" x="110" y="18">${total}+ COMMITS &amp; PRS</text>
+      <rect class="hud-card" width="220" height="28"/>
+      <text class="hud-title" x="10" y="18">TOTAL_ACTIVITY:</text>
+      <text class="hud-val" fill="#34d399" x="112" y="19">${total}+ COMMITS &amp; PRS</text>
     </g>
 
     <!-- Metric 2: Peak Velocity -->
     <g transform="translate(240, 0)">
-      <rect class="hud-card" width="230" height="26"/>
-      <text class="hud-title" x="10" y="17">PEAK_VELOCITY:</text>
-      <text class="hud-val" fill="#ff9f0a" x="112" y="18">${maxDayCount || 14} COMMITS / DAY</text>
+      <rect class="hud-card" width="230" height="28"/>
+      <text class="hud-title" x="10" y="18">PEAK_VELOCITY:</text>
+      <text class="hud-val" fill="#fbbf24" x="114" y="19">${maxDayCount || 14} COMMITS / DAY</text>
     </g>
 
     <!-- Metric 3: Consistency Rate -->
     <g transform="translate(490, 0)">
-      <rect class="hud-card" width="246" height="26"/>
-      <text class="hud-title" x="10" y="17">CONSISTENCY_RATE:</text>
-      <text class="hud-val" fill="#64d2ff" x="136" y="18">${consistencyRate}% DAYS ACTIVE</text>
+      <rect class="hud-card" width="246" height="28"/>
+      <text class="hud-title" x="10" y="18">CONSISTENCY_RATE:</text>
+      <text class="hud-val" fill="#38bdf8" x="138" y="19">${consistencyRate}% DAYS ACTIVE</text>
     </g>
   </g>
 
@@ -606,7 +713,7 @@ ${cells.join("\n")}
 
   <!-- Footer Telemetry Status & Legend -->
   <g transform="translate(52, 222)">
-    <text font-family="ui-monospace, monospace" font-size="10" font-weight="600" fill="#52525b" x="0" y="0">STATUS: 52 WEEKS SYNCHRONIZED • REALTIME TELEMETRY</text>
+    <text font-family="ui-monospace, monospace" font-size="10" font-weight="600" fill="#71717a" x="0" y="0">STATUS: 52 WEEKS SYNCHRONIZED • REALTIME TELEMETRY</text>
   </g>
 
   <!-- Bottom Legend -->
@@ -636,4 +743,4 @@ await Promise.all([
   writeAtomically(resolve(outputDir, "github-languages.svg"), renderLanguages(languages)),
   writeAtomically(resolve(outputDir, "v2-contributions.svg"), renderContributions(calendar)),
 ]);
-console.log(`Successfully generated ultra-luxury profile assets for ${username}!`);
+console.log(`Successfully generated macOS Glassmorphic profile assets for ${username}!`);

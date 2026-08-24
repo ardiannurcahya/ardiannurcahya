@@ -1,133 +1,238 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="840" height="230" viewBox="0 0 840 230" fill="none" role="img" aria-labelledby="hero-title hero-desc">
   <title id="hero-title">Ardian Nurcahya - Developer Profile</title>
-  <desc id="hero-desc">Dark developer window showing Ardian Nurcahya's profile and engineering specs.</desc>
+  <desc id="hero-desc">macOS Glassmorphism window displaying Ardian Nurcahya's developer profile and engineering specs.</desc>
+  <defs>
+    <!-- Background Glass Gradients -->
+    <linearGradient id="glass-base" x1="0" y1="0" x2="840" y2="230" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#141724" stop-opacity="0.95"/>
+      <stop offset="50%" stop-color="#0e1018" stop-opacity="0.98"/>
+      <stop offset="100%" stop-color="#090a10" stop-opacity="0.99"/>
+    </linearGradient>
+
+    <linearGradient id="glass-stroke" x1="0" y1="0" x2="840" y2="230" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.25"/>
+      <stop offset="25%" stop-color="#64d2ff" stop-opacity="0.15"/>
+      <stop offset="70%" stop-color="#ffffff" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#30d158" stop-opacity="0.15"/>
+    </linearGradient>
+
+    <!-- Ambient Mesh Glows -->
+    <radialGradient id="mesh-glow-1" cx="15%" cy="15%" r="45%">
+      <stop offset="0%" stop-color="#30d158" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#30d158" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="mesh-glow-2" cx="85%" cy="30%" r="50%">
+      <stop offset="0%" stop-color="#64d2ff" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#64d2ff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="mesh-glow-3" cx="50%" cy="100%" r="60%">
+      <stop offset="0%" stop-color="#bf5af2" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#bf5af2" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Header Glass Gradient -->
+    <linearGradient id="header-glass" x1="0" y1="0" x2="0" y2="38" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.02"/>
+    </linearGradient>
+
+    <!-- Glass Pill Gradients -->
+    <linearGradient id="pill-glass-grad" x1="0" y1="0" x2="0" y2="30" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.07"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.02"/>
+    </linearGradient>
+    <linearGradient id="pill-stroke-grad" x1="0" y1="0" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.05"/>
+    </linearGradient>
+
+    <!-- Traffic Lights -->
+    <linearGradient id="btn-red" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ff6b62"/>
+      <stop offset="100%" stop-color="#ea3e36"/>
+    </linearGradient>
+    <linearGradient id="btn-yellow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffd043"/>
+      <stop offset="100%" stop-color="#f5a623"/>
+    </linearGradient>
+    <linearGradient id="btn-green" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3fe25e"/>
+      <stop offset="100%" stop-color="#1db939"/>
+    </linearGradient>
+
+    <!-- Text Gradient -->
+    <linearGradient id="name-grad" x1="0" y1="0" x2="400" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="60%" stop-color="#f5f5f7"/>
+      <stop offset="100%" stop-color="#d1d5db"/>
+    </linearGradient>
+    <linearGradient id="role-grad" x1="0" y1="0" x2="350" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#34d399"/>
+      <stop offset="100%" stop-color="#38bdf8"/>
+    </linearGradient>
+
+    <!-- Filter Shadow -->
+    <filter id="card-shadow" x="-5%" y="-5%" width="110%" height="115%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.45"/>
+    </filter>
+    <filter id="glow-badge" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="0" stdDeviation="3" flood-color="#30d158" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
   <style>
     @keyframes pulse {
       0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.35; transform: scale(1.2); }
+      50% { opacity: 0.35; transform: scale(1.25); }
     }
     @keyframes blink {
       0%, 100% { opacity: 1; }
       50% { opacity: 0; }
     }
+
     .window-title {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      font-size: 12px;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+      font-size: 11.5px;
       font-weight: 500;
-      fill: #86868b;
+      letter-spacing: 0.3px;
+      fill: #8e8e93;
     }
     .mono-prompt {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
       font-size: 12.5px;
       font-weight: 600;
+      letter-spacing: 0.2px;
     }
     .main-name {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
       font-size: 26px;
       font-weight: 800;
-      letter-spacing: -0.5px;
-      fill: #f5f5f7;
+      letter-spacing: -0.6px;
+      fill: url(#name-grad);
     }
     .main-role {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
       font-size: 13.5px;
       font-weight: 600;
-      fill: #30d158;
+      letter-spacing: 0.1px;
+      fill: url(#role-grad);
     }
     .main-desc {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
       font-size: 13px;
       font-weight: 400;
-      fill: #a1a1a6;
+      letter-spacing: -0.1px;
+      fill: #a1a1aa;
     }
     .spec-text {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
       font-size: 11px;
       font-weight: 500;
       fill: #e4e4e7;
     }
     .pulse-dot {
-      transform-origin: 792px 18px;
-      animation: pulse 2s ease-in-out infinite;
+      transform-origin: 12px 10px;
+      animation: pulse 2.2s ease-in-out infinite;
     }
     .cursor {
-      fill: #30d158;
+      fill: #34d399;
       animation: blink 1s infinite steps(2, start);
     }
     .pill {
-      fill: #1a1c24;
-      stroke: #2d303b;
+      fill: url(#pill-glass-grad);
+      stroke: url(#pill-stroke-grad);
       stroke-width: 1;
-      rx: 5;
+      rx: 7;
     }
+
     @media (prefers-color-scheme: light) {
-      .win-bg { fill: #ffffff; stroke: #d1d5db; }
-      .win-header { fill: #f3f4f6; stroke: #e5e7eb; }
-      .window-title { fill: #4b5563; }
-      .main-name { fill: #111827; }
+      .win-bg { fill: #f8fafc; stroke: #cbd5e1; }
+      .win-header { fill: #f1f5f9; stroke: #e2e8f0; }
+      .window-title { fill: #475569; }
+      .main-name { fill: #0f172a; }
       .main-role { fill: #059669; }
-      .main-desc { fill: #4b5563; }
-      .pill { fill: #f9fafb; stroke: #e5e7eb; }
-      .spec-text { fill: #1f2937; }
-      .divider { stroke: #e5e7eb; }
+      .main-desc { fill: #475569; }
+      .pill { fill: #f8fafc; stroke: #e2e8f0; }
+      .spec-text { fill: #1e293b; }
+      .divider { stroke: #e2e8f0; }
     }
   </style>
 
-  <!-- Window Container -->
-  <rect class="win-bg" x="1" y="1" width="838" height="228" rx="10" fill="#121319" stroke="#2d3139" stroke-width="1.5"/>
+  <!-- Window Container with Glass Elevation Shadow -->
+  <rect class="win-bg" x="2" y="2" width="836" height="226" rx="14" fill="url(#glass-base)" stroke="url(#glass-stroke)" stroke-width="1.2" filter="url(#card-shadow)"/>
 
-  <!-- Titlebar Header -->
-  <path class="win-header" d="M 1 11 C 1 5.5 5.5 1 11 1 L 829 1 C 834.5 1 839 5.5 839 11 L 839 36 L 1 36 Z" fill="#1c1e26"/>
-  <line class="divider" x1="1" y1="36" x2="839" y2="36" stroke="#262833" stroke-width="1"/>
+  <!-- Ambient Internal Glass Glow Mesh -->
+  <rect x="2" y="2" width="836" height="226" rx="14" fill="url(#mesh-glow-1)"/>
+  <rect x="2" y="2" width="836" height="226" rx="14" fill="url(#mesh-glow-2)"/>
+  <rect x="2" y="2" width="836" height="226" rx="14" fill="url(#mesh-glow-3)"/>
 
-  <!-- Control Dots -->
-  <circle cx="20" cy="18" r="5.5" fill="#ff5f56" stroke="#e0443e" stroke-width="0.8"/>
-  <circle cx="36" cy="18" r="5.5" fill="#ffbd2e" stroke="#dea123" stroke-width="0.8"/>
-  <circle cx="52" cy="18" r="5.5" fill="#27c93f" stroke="#1aab29" stroke-width="0.8"/>
+  <!-- macOS Frosted Titlebar -->
+  <path class="win-header" d="M 2 16 C 2 8.27 8.27 2 16 2 L 824 2 C 831.73 2 838 8.27 838 16 L 838 38 L 2 38 Z" fill="url(#header-glass)"/>
+  <line class="divider" x1="2" y1="38" x2="838" y2="38" stroke="#ffffff" stroke-opacity="0.08" stroke-width="1"/>
 
-  <!-- Window Title -->
-  <text class="window-title" x="420" y="22" text-anchor="middle">ardian — developer profile</text>
+  <!-- macOS Glossy Traffic Lights -->
+  <g transform="translate(18, 13)">
+    <!-- Red (Close) -->
+    <circle cx="6" cy="6" r="5.5" fill="url(#btn-red)"/>
+    <circle cx="6" cy="6" r="5.5" stroke="#d63029" stroke-width="0.6" fill="none"/>
+    <!-- Yellow (Minimize) -->
+    <circle cx="23" cy="6" r="5.5" fill="url(#btn-yellow)"/>
+    <circle cx="23" cy="6" r="5.5" stroke="#d48d17" stroke-width="0.6" fill="none"/>
+    <!-- Green (Zoom) -->
+    <circle cx="40" cy="6" r="5.5" fill="url(#btn-green)"/>
+    <circle cx="40" cy="6" r="5.5" stroke="#189e30" stroke-width="0.6" fill="none"/>
+  </g>
 
-  <!-- Top Right Status Badge -->
-  <g transform="translate(670, 9)">
-    <rect width="148" height="20" rx="10" fill="#08231a" stroke="#059669" stroke-width="1"/>
-    <circle class="pulse-dot" cx="12" cy="10" r="3.5" fill="#30d158"/>
-    <text font-family="-apple-system, sans-serif" font-size="10" font-weight="700" fill="#30d158" x="22" y="13.5">ONLINE • OPEN</text>
+  <!-- Centered Window Title -->
+  <text class="window-title" x="420" y="23.5" text-anchor="middle">ardian — developer profile — zsh</text>
+
+  <!-- Top Right macOS Glass Status Pill -->
+  <g transform="translate(668, 9)" filter="url(#glow-badge)">
+    <rect width="154" height="20" rx="10" fill="#06281e" fill-opacity="0.8" stroke="#059669" stroke-width="1"/>
+    <circle class="pulse-dot" cx="12" cy="10" r="3.5" fill="#34d399"/>
+    <text font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="10" font-weight="700" letter-spacing="0.5px" fill="#34d399" x="22" y="13.5">ONLINE • OPEN TO WORK</text>
   </g>
 
   <!-- Terminal Content Body -->
-  <g transform="translate(24, 60)">
-    <!-- Prompt Line -->
+  <g transform="translate(26, 62)">
+    <!-- Terminal Prompt Line -->
     <text class="mono-prompt" x="0" y="0">
-      <tspan fill="#30d158">ardian@workstation</tspan> <tspan fill="#86868b">~ $</tspan> <tspan fill="#f5f5f7">cat profile.json</tspan>
+      <tspan fill="#34d399">ardian@macbook</tspan> <tspan fill="#64d2ff">~</tspan> <tspan fill="#8e8e93">%</tspan> <tspan fill="#f5f5f7">cat profile.json</tspan>
     </text>
 
-    <!-- Main Identity -->
+    <!-- Main Identity with Glass Drop Shadow -->
     <text class="main-name" x="0" y="34">Ardian Nurcahya</text>
-    <text class="main-role" x="0" y="56">AI Engineer Platform, AI Product Development</text>
-    <text class="main-desc" x="0" y="78">Building OpenGraphMemory Ecosystem for AI Agent.</text>
+    <text class="main-role" x="0" y="56">AI Systems &amp; Agent Memory Engineer</text>
+    <text class="main-desc" x="0" y="78">Architecting OpenGraphMemory Ecosystem for Autonomous AI Agents.</text>
   </g>
 
-  <!-- Bottom Specs / Features Bar -->
-  <g transform="translate(24, 174)">
+  <!-- Bottom Specs / Features Bar (Glassmorphic Pills) -->
+  <g transform="translate(26, 174)">
+    <!-- Pill 1 -->
     <g transform="translate(0, 0)">
-      <rect class="pill" width="220" height="30"/>
-      <circle cx="12" cy="15" r="3.5" fill="#30d158"/>
-      <text class="spec-text" x="24" y="19">Knowledge Graphs &amp; Memory</text>
+      <rect class="pill" width="222" height="32"/>
+      <circle cx="14" cy="16" r="4" fill="#34d399"/>
+      <text class="spec-text" x="26" y="20">Knowledge Graphs &amp; Memory</text>
     </g>
-    <g transform="translate(230, 0)">
-      <rect class="pill" width="268" height="30"/>
-      <circle cx="12" cy="15" r="3.5" fill="#64d2ff"/>
-      <text class="spec-text" x="24" y="19">Go • Python • TypeScript • SQL • Bash</text>
+
+    <!-- Pill 2 -->
+    <g transform="translate(232, 0)">
+      <rect class="pill" width="270" height="32"/>
+      <circle cx="14" cy="16" r="4" fill="#38bdf8"/>
+      <text class="spec-text" x="26" y="20">Go • Python • TypeScript • SQL • Bash</text>
     </g>
-    <g transform="translate(508, 0)">
-      <rect class="pill" width="200" height="30"/>
-      <circle cx="12" cy="15" r="3.5" fill="#ff9f0a"/>
-      <text class="spec-text" x="24" y="19">K8s/k3s • Docker</text>
+
+    <!-- Pill 3 -->
+    <g transform="translate(512, 0)">
+      <rect class="pill" width="198" height="32"/>
+      <circle cx="14" cy="16" r="4" fill="#fbbf24"/>
+      <text class="spec-text" x="26" y="20">K8s/k3s • Docker</text>
     </g>
-    <g transform="translate(718, 0)">
-      <rect class="pill" width="74" height="30"/>
-      <text class="spec-text" x="14" y="19"><tspan class="cursor">▋</tspan></text>
+
+    <!-- Pill 4: Cursor -->
+    <g transform="translate(720, 0)">
+      <rect class="pill" width="68" height="32"/>
+      <text class="spec-text" x="24" y="20"><tspan class="cursor">▋</tspan></text>
     </g>
   </g>
 </svg>
