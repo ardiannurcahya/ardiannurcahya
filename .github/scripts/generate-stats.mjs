@@ -280,23 +280,31 @@ function escapeXml(value) {
 }
 
 function darkWindowShell(title, body, description, width = 410, height = 215) {
+  const perimeter = Math.round(2 * (width + height) - 24);
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" fill="none" role="img" aria-labelledby="title desc">
   <title id="title">${escapeXml(title)}</title>
   <desc id="desc">${escapeXml(description)}</desc>
   <defs>
     <!-- Background Glass Base -->
     <linearGradient id="glass-base-w" x1="0" y1="0" x2="${width}" y2="${height}" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#10131e" stop-opacity="0.88"/>
-      <stop offset="50%" stop-color="#0a0c14" stop-opacity="0.92"/>
-      <stop offset="100%" stop-color="#06070b" stop-opacity="0.96"/>
+      <stop offset="0%" stop-color="#10131e" stop-opacity="0.90"/>
+      <stop offset="50%" stop-color="#0a0c14" stop-opacity="0.94"/>
+      <stop offset="100%" stop-color="#06070b" stop-opacity="0.98"/>
+    </linearGradient>
+
+    <!-- Static Base Border Stroke -->
+    <linearGradient id="static-border-w" x1="0" y1="0" x2="${width}" y2="${height}" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.18"/>
+      <stop offset="50%" stop-color="#ffffff" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0.15"/>
     </linearGradient>
 
     <!-- Animated Border Gradient Stroke -->
     <linearGradient id="border-beam-w" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.6"/>
-      <stop offset="40%" stop-color="#c084fc" stop-opacity="0.3"/>
-      <stop offset="80%" stop-color="#34d399" stop-opacity="0.5"/>
-      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0.2"/>
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="40%" stop-color="#c084fc"/>
+      <stop offset="80%" stop-color="#34d399"/>
+      <stop offset="100%" stop-color="#38bdf8"/>
     </linearGradient>
 
     <!-- Ambient Aurora Orbs -->
@@ -340,9 +348,33 @@ function darkWindowShell(title, body, description, width = 410, height = 215) {
     <filter id="win-shadow" x="-5%" y="-5%" width="110%" height="118%" filterUnits="userSpaceOnUse">
       <feDropShadow dx="0" dy="10" stdDeviation="16" flood-color="#000000" flood-opacity="0.6"/>
     </filter>
+    <filter id="laser-glow-w" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="0" stdDeviation="3" flood-color="#38bdf8" flood-opacity="0.7"/>
+    </filter>
   </defs>
 
   <style>
+    /* Running Border Laser Animation */
+    @keyframes borderLaserLoopW {
+      0% { stroke-dashoffset: 0; }
+      100% { stroke-dashoffset: -${perimeter}; }
+    }
+    .laser-border-w {
+      stroke: url(#border-beam-w);
+      stroke-width: 1.8;
+      stroke-dasharray: 8 16 32 20 8 16 60 140 8 16 40 140;
+      stroke-linecap: round;
+      animation: borderLaserLoopW 12s linear infinite;
+    }
+    .laser-border-fast-w {
+      stroke: #34d399;
+      stroke-width: 1.5;
+      stroke-dasharray: 30 220 60 250;
+      stroke-linecap: round;
+      animation: borderLaserLoopW 8s linear infinite;
+      opacity: 0.75;
+    }
+
     @keyframes auroraW1 {
       0% { transform: translate(0px, 0px) scale(1); opacity: 0.65; }
       33% { transform: translate(40px, 15px) scale(1.2); opacity: 0.9; }
@@ -365,30 +397,30 @@ function darkWindowShell(title, body, description, width = 410, height = 215) {
     .star-1 { animation: starTwinkle 3s ease-in-out infinite; }
     .star-2 { animation: starTwinkle 4s ease-in-out infinite 1.5s; }
 
-    .window-title { font: 500 11.5px -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif; fill: #94a3b8; letter-spacing: 0.4px; }
-    .label { font: 500 12px ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace; fill: #a1a1aa; }
+    .window-title { font: 500 12px -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif; fill: #86868b; }
+    .label { font: 500 12px ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace; fill: #a1a1a6; }
     .value { font: 700 14px ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace; fill: #f5f5f7; }
-    .rank-badge { font: 800 13px ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace; fill: #34d399; }
+    .rank-badge { font: 800 14px ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace; fill: #30d158; }
     .text { font: 600 12px -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif; fill: #f5f5f7; }
     @media (prefers-color-scheme: light) {
-      .win-bg { fill: #f8fafc; stroke: #cbd5e1; }
-      .win-header { fill: #f1f5f9; stroke: #e2e8f0; }
-      .window-title { fill: #475569; }
-      .label { fill: #64748b; }
-      .value { fill: #0f172a; }
+      .win-bg { fill: #ffffff; stroke: #d1d5db; }
+      .win-header { fill: #f3f4f6; stroke: #e5e7eb; }
+      .window-title { fill: #4b5563; }
+      .label { fill: #6b7280; }
+      .value { fill: #111827; }
       .rank-badge { fill: #059669; }
-      .text { fill: #0f172a; }
-      .divider { stroke: #e2e8f0; }
-      .pill-bg { fill: #f1f5f9; stroke: #e2e8f0; }
+      .text { fill: #111827; }
+      .divider { stroke: #e5e7eb; }
+      .pill-bg { fill: #f3f4f6; stroke: #e5e7eb; }
     }
   </style>
 
   <!-- Window Container with Glass Elevation Shadow -->
-  <rect class="win-bg" x="2" y="2" width="${width - 4}" height="${height - 4}" rx="16" fill="url(#glass-base-w)" stroke="url(#border-beam-w)" stroke-width="1.4" filter="url(#win-shadow)"/>
+  <rect class="win-bg" x="2" y="2" width="${width - 4}" height="${height - 4}" rx="14" fill="url(#glass-base-w)" stroke="url(#static-border-w)" stroke-width="1.2" filter="url(#win-shadow)"/>
   
   <!-- Clip Path for Internal Animated Aurora -->
   <clipPath id="shell-clip">
-    <rect x="3" y="3" width="${width - 6}" height="${height - 6}" rx="15"/>
+    <rect x="3" y="3" width="${width - 6}" height="${height - 6}" rx="13"/>
   </clipPath>
 
   <g clip-path="url(#shell-clip)">
@@ -405,6 +437,10 @@ function darkWindowShell(title, body, description, width = 410, height = 215) {
     <g class="star-2" transform="translate(${width - 60}, ${height - 25})"><circle cx="0" cy="0" r="1.5" fill="#34d399"/><circle cx="0" cy="0" r="3.5" fill="#34d399" fill-opacity="0.3"/></g>
   </g>
 
+  <!-- Animated Running Border Laser -->
+  <rect class="laser-border-w" x="2" y="2" width="${width - 4}" height="${height - 4}" rx="14" fill="none" filter="url(#laser-glow-w)"/>
+  <rect class="laser-border-fast-w" x="2" y="2" width="${width - 4}" height="${height - 4}" rx="14" fill="none"/>
+
   <!-- Titlebar Header -->
   <path class="win-header" d="M 2 14 C 2 7.37 7.37 2 14 2 L ${width - 14} 2 C ${width - 7.37} 2 ${width - 2} 7.37 ${width - 2} 14 L ${width - 2} 36 L 2 36 Z" fill="url(#header-glass-w)"/>
   <line class="divider" x1="2" y1="36" x2="${width - 2}" y2="36" stroke="#ffffff" stroke-opacity="0.10" stroke-width="1"/>
@@ -420,7 +456,7 @@ function darkWindowShell(title, body, description, width = 410, height = 215) {
   </g>
 
   <!-- Centered Title -->
-  <text class="window-title" x="${width / 2}" y="22.5" text-anchor="middle">${escapeXml(title)}</text>
+  <text class="window-title" x="${width / 2}" y="22" text-anchor="middle">${escapeXml(title)}</text>
 
 ${body}
 </svg>
