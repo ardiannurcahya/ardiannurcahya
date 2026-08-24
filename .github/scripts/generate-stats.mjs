@@ -284,33 +284,41 @@ function darkWindowShell(title, body, description, width = 410, height = 215) {
   <title id="title">${escapeXml(title)}</title>
   <desc id="desc">${escapeXml(description)}</desc>
   <defs>
-    <!-- Background Glass Gradients -->
+    <!-- Background Glass Base -->
     <linearGradient id="glass-base-w" x1="0" y1="0" x2="${width}" y2="${height}" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#141724" stop-opacity="0.95"/>
-      <stop offset="50%" stop-color="#0e1018" stop-opacity="0.98"/>
-      <stop offset="100%" stop-color="#090a10" stop-opacity="0.99"/>
+      <stop offset="0%" stop-color="#10131e" stop-opacity="0.88"/>
+      <stop offset="50%" stop-color="#0a0c14" stop-opacity="0.92"/>
+      <stop offset="100%" stop-color="#06070b" stop-opacity="0.96"/>
     </linearGradient>
 
-    <linearGradient id="glass-stroke-w" x1="0" y1="0" x2="${width}" y2="${height}" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.25"/>
-      <stop offset="30%" stop-color="#38bdf8" stop-opacity="0.12"/>
-      <stop offset="70%" stop-color="#ffffff" stop-opacity="0.05"/>
-      <stop offset="100%" stop-color="#34d399" stop-opacity="0.15"/>
+    <!-- Animated Border Gradient Stroke -->
+    <linearGradient id="border-beam-w" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.6"/>
+      <stop offset="40%" stop-color="#c084fc" stop-opacity="0.3"/>
+      <stop offset="80%" stop-color="#34d399" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0.2"/>
     </linearGradient>
 
-    <!-- Ambient Mesh Glow -->
-    <radialGradient id="mesh-w-1" cx="20%" cy="20%" r="50%">
-      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.12"/>
-      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0"/>
+    <!-- Ambient Aurora Orbs -->
+    <radialGradient id="aurora-w-1" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.30"/>
+      <stop offset="60%" stop-color="#0284c7" stop-opacity="0.10"/>
+      <stop offset="100%" stop-color="#0284c7" stop-opacity="0"/>
     </radialGradient>
-    <radialGradient id="mesh-w-2" cx="80%" cy="80%" r="50%">
-      <stop offset="0%" stop-color="#34d399" stop-opacity="0.10"/>
-      <stop offset="100%" stop-color="#34d399" stop-opacity="0"/>
+    <radialGradient id="aurora-w-2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#34d399" stop-opacity="0.25"/>
+      <stop offset="60%" stop-color="#059669" stop-opacity="0.10"/>
+      <stop offset="100%" stop-color="#059669" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="aurora-w-3" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#a855f7" stop-opacity="0.22"/>
+      <stop offset="60%" stop-color="#7e22ce" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#7e22ce" stop-opacity="0"/>
     </radialGradient>
 
     <!-- Header Glass Gradient -->
     <linearGradient id="header-glass-w" x1="0" y1="0" x2="0" y2="38" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.08"/>
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.10"/>
       <stop offset="100%" stop-color="#ffffff" stop-opacity="0.02"/>
     </linearGradient>
 
@@ -329,13 +337,35 @@ function darkWindowShell(title, body, description, width = 410, height = 215) {
     </linearGradient>
 
     <!-- Filter Shadow -->
-    <filter id="win-shadow" x="-5%" y="-5%" width="110%" height="115%" filterUnits="userSpaceOnUse">
-      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.45"/>
+    <filter id="win-shadow" x="-5%" y="-5%" width="110%" height="118%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="10" stdDeviation="16" flood-color="#000000" flood-opacity="0.6"/>
     </filter>
   </defs>
 
   <style>
-    .window-title { font: 500 11.5px -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif; fill: #8e8e93; letter-spacing: 0.3px; }
+    @keyframes auroraW1 {
+      0% { transform: translate(0px, 0px) scale(1); opacity: 0.65; }
+      33% { transform: translate(40px, 15px) scale(1.2); opacity: 0.9; }
+      66% { transform: translate(-25px, -10px) scale(0.85); opacity: 0.55; }
+      100% { transform: translate(0px, 0px) scale(1); opacity: 0.65; }
+    }
+    @keyframes auroraW2 {
+      0% { transform: translate(0px, 0px) scale(1); opacity: 0.6; }
+      33% { transform: translate(-35px, -15px) scale(1.15); opacity: 0.85; }
+      66% { transform: translate(30px, 20px) scale(0.9); opacity: 0.5; }
+      100% { transform: translate(0px, 0px) scale(1); opacity: 0.6; }
+    }
+    @keyframes starTwinkle {
+      0%, 100% { opacity: 0.2; transform: scale(0.8); }
+      50% { opacity: 0.95; transform: scale(1.3); }
+    }
+
+    .aurora-orb-1 { animation: auroraW1 10s ease-in-out infinite; }
+    .aurora-orb-2 { animation: auroraW2 12s ease-in-out infinite; }
+    .star-1 { animation: starTwinkle 3s ease-in-out infinite; }
+    .star-2 { animation: starTwinkle 4s ease-in-out infinite 1.5s; }
+
+    .window-title { font: 500 11.5px -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif; fill: #94a3b8; letter-spacing: 0.4px; }
     .label { font: 500 12px ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace; fill: #a1a1aa; }
     .value { font: 700 14px ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace; fill: #f5f5f7; }
     .rank-badge { font: 800 13px ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace; fill: #34d399; }
@@ -354,15 +384,32 @@ function darkWindowShell(title, body, description, width = 410, height = 215) {
   </style>
 
   <!-- Window Container with Glass Elevation Shadow -->
-  <rect class="win-bg" x="2" y="2" width="${width - 4}" height="${height - 4}" rx="14" fill="url(#glass-base-w)" stroke="url(#glass-stroke-w)" stroke-width="1.2" filter="url(#win-shadow)"/>
-  <rect x="2" y="2" width="${width - 4}" height="${height - 4}" rx="14" fill="url(#mesh-w-1)"/>
-  <rect x="2" y="2" width="${width - 4}" height="${height - 4}" rx="14" fill="url(#mesh-w-2)"/>
+  <rect class="win-bg" x="2" y="2" width="${width - 4}" height="${height - 4}" rx="16" fill="url(#glass-base-w)" stroke="url(#border-beam-w)" stroke-width="1.4" filter="url(#win-shadow)"/>
+  
+  <!-- Clip Path for Internal Animated Aurora -->
+  <clipPath id="shell-clip">
+    <rect x="3" y="3" width="${width - 6}" height="${height - 6}" rx="15"/>
+  </clipPath>
+
+  <g clip-path="url(#shell-clip)">
+    <g class="aurora-orb-1">
+      <circle cx="${width * 0.2}" cy="${height * 0.3}" r="120" fill="url(#aurora-w-1)"/>
+    </g>
+    <g class="aurora-orb-2">
+      <circle cx="${width * 0.8}" cy="${height * 0.7}" r="130" fill="url(#aurora-w-2)"/>
+    </g>
+    <g class="aurora-orb-1">
+      <circle cx="${width * 0.5}" cy="${height * 0.9}" r="100" fill="url(#aurora-w-3)"/>
+    </g>
+    <g class="star-1" transform="translate(60, 20)"><circle cx="0" cy="0" r="1.4" fill="#38bdf8"/><circle cx="0" cy="0" r="3" fill="#38bdf8" fill-opacity="0.3"/></g>
+    <g class="star-2" transform="translate(${width - 60}, ${height - 25})"><circle cx="0" cy="0" r="1.5" fill="#34d399"/><circle cx="0" cy="0" r="3.5" fill="#34d399" fill-opacity="0.3"/></g>
+  </g>
 
   <!-- Titlebar Header -->
   <path class="win-header" d="M 2 14 C 2 7.37 7.37 2 14 2 L ${width - 14} 2 C ${width - 7.37} 2 ${width - 2} 7.37 ${width - 2} 14 L ${width - 2} 36 L 2 36 Z" fill="url(#header-glass-w)"/>
-  <line class="divider" x1="2" y1="36" x2="${width - 2}" y2="36" stroke="#ffffff" stroke-opacity="0.08" stroke-width="1"/>
+  <line class="divider" x1="2" y1="36" x2="${width - 2}" y2="36" stroke="#ffffff" stroke-opacity="0.10" stroke-width="1"/>
 
-  <!-- Control Dots -->
+  <!-- Window Controls -->
   <g transform="translate(16, 12)">
     <circle cx="5" cy="5" r="5" fill="url(#btn-red-w)"/>
     <circle cx="5" cy="5" r="5" stroke="#d63029" stroke-width="0.5" fill="none"/>

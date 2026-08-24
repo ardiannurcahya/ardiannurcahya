@@ -1,49 +1,62 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="840" height="230" viewBox="0 0 840 230" fill="none" role="img" aria-labelledby="hero-title hero-desc">
   <title id="hero-title">Ardian Nurcahya - Developer Profile</title>
-  <desc id="hero-desc">Glassmorphic window displaying Ardian Nurcahya's developer profile and engineering specs.</desc>
+  <desc id="hero-desc">Dark glassmorphism window with rich animated ambient aurora glow displaying Ardian Nurcahya's developer profile.</desc>
   <defs>
-    <!-- Background Glass Gradients -->
+    <!-- Background Glass Base -->
     <linearGradient id="glass-base" x1="0" y1="0" x2="840" y2="230" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#141724" stop-opacity="0.95"/>
-      <stop offset="50%" stop-color="#0e1018" stop-opacity="0.98"/>
-      <stop offset="100%" stop-color="#090a10" stop-opacity="0.99"/>
+      <stop offset="0%" stop-color="#10131e" stop-opacity="0.88"/>
+      <stop offset="50%" stop-color="#0a0c14" stop-opacity="0.92"/>
+      <stop offset="100%" stop-color="#06070b" stop-opacity="0.96"/>
     </linearGradient>
 
-    <linearGradient id="glass-stroke" x1="0" y1="0" x2="840" y2="230" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.25"/>
-      <stop offset="25%" stop-color="#64d2ff" stop-opacity="0.15"/>
-      <stop offset="70%" stop-color="#ffffff" stop-opacity="0.05"/>
-      <stop offset="100%" stop-color="#30d158" stop-opacity="0.15"/>
+    <!-- Animated Border Gradient Stroke -->
+    <linearGradient id="border-beam" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#34d399" stop-opacity="0.6"/>
+      <stop offset="30%" stop-color="#38bdf8" stop-opacity="0.3"/>
+      <stop offset="60%" stop-color="#c084fc" stop-opacity="0.5"/>
+      <stop offset="85%" stop-color="#ffffff" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#34d399" stop-opacity="0.4"/>
     </linearGradient>
 
-    <!-- Ambient Mesh Glows -->
-    <radialGradient id="mesh-glow-1" cx="15%" cy="15%" r="45%">
-      <stop offset="0%" stop-color="#30d158" stop-opacity="0.14"/>
-      <stop offset="100%" stop-color="#30d158" stop-opacity="0"/>
-    </radialGradient>
-    <radialGradient id="mesh-glow-2" cx="85%" cy="30%" r="50%">
-      <stop offset="0%" stop-color="#64d2ff" stop-opacity="0.12"/>
-      <stop offset="100%" stop-color="#64d2ff" stop-opacity="0"/>
-    </radialGradient>
-    <radialGradient id="mesh-glow-3" cx="50%" cy="100%" r="60%">
-      <stop offset="0%" stop-color="#bf5af2" stop-opacity="0.08"/>
-      <stop offset="100%" stop-color="#bf5af2" stop-opacity="0"/>
+    <!-- Ambient Aurora Orbs (Glow Filters) -->
+    <radialGradient id="aurora-emerald" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0.32"/>
+      <stop offset="50%" stop-color="#059669" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#059669" stop-opacity="0"/>
     </radialGradient>
 
-    <!-- Header Glass Gradient -->
+    <radialGradient id="aurora-cyan" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.28"/>
+      <stop offset="50%" stop-color="#0284c7" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#0284c7" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="aurora-purple" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#a855f7" stop-opacity="0.24"/>
+      <stop offset="50%" stop-color="#7e22ce" stop-opacity="0.10"/>
+      <stop offset="100%" stop-color="#7e22ce" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="aurora-amber" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fbbf24" stop-opacity="0.20"/>
+      <stop offset="100%" stop-color="#d97706" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Header Frosted Glass Gradient -->
     <linearGradient id="header-glass" x1="0" y1="0" x2="0" y2="38" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.08"/>
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.10"/>
       <stop offset="100%" stop-color="#ffffff" stop-opacity="0.02"/>
     </linearGradient>
 
-    <!-- Glass Pill Gradients -->
-    <linearGradient id="pill-glass-grad" x1="0" y1="0" x2="0" y2="30" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.07"/>
+    <!-- Pill Glass Gradient -->
+    <linearGradient id="pill-glass-grad" x1="0" y1="0" x2="0" y2="32" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.09"/>
       <stop offset="100%" stop-color="#ffffff" stop-opacity="0.02"/>
     </linearGradient>
     <linearGradient id="pill-stroke-grad" x1="0" y1="0" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.2"/>
-      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.05"/>
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.25"/>
+      <stop offset="50%" stop-color="#ffffff" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#34d399" stop-opacity="0.2"/>
     </linearGradient>
 
     <!-- Traffic Lights -->
@@ -60,42 +73,73 @@
       <stop offset="100%" stop-color="#1db939"/>
     </linearGradient>
 
-    <!-- Text Gradient -->
-    <linearGradient id="name-grad" x1="0" y1="0" x2="400" y2="0" gradientUnits="userSpaceOnUse">
+    <!-- Text Gradients -->
+    <linearGradient id="name-grad" x1="0" y1="0" x2="360" y2="0" gradientUnits="userSpaceOnUse">
       <stop offset="0%" stop-color="#ffffff"/>
-      <stop offset="60%" stop-color="#f5f5f7"/>
-      <stop offset="100%" stop-color="#d1d5db"/>
+      <stop offset="70%" stop-color="#f4f4f5"/>
+      <stop offset="100%" stop-color="#cbd5e1"/>
     </linearGradient>
-    <linearGradient id="role-grad" x1="0" y1="0" x2="350" y2="0" gradientUnits="userSpaceOnUse">
+    <linearGradient id="role-grad" x1="0" y1="0" x2="380" y2="0" gradientUnits="userSpaceOnUse">
       <stop offset="0%" stop-color="#34d399"/>
-      <stop offset="100%" stop-color="#38bdf8"/>
+      <stop offset="50%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#c084fc"/>
     </linearGradient>
 
-    <!-- Filter Shadow -->
-    <filter id="card-shadow" x="-5%" y="-5%" width="110%" height="115%" filterUnits="userSpaceOnUse">
-      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.45"/>
+    <!-- Drop Shadows & Blur Filters -->
+    <filter id="win-shadow" x="-5%" y="-5%" width="110%" height="118%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="10" stdDeviation="16" flood-color="#000000" flood-opacity="0.6"/>
     </filter>
-    <filter id="glow-badge" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="0" stdDeviation="3" flood-color="#30d158" flood-opacity="0.4"/>
+    <filter id="glow-badge" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#34d399" flood-opacity="0.5"/>
     </filter>
   </defs>
 
   <style>
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.35; transform: scale(1.25); }
+    /* Aurora Floating Animation */
+    @keyframes auroraFloat1 {
+      0% { transform: translate(0px, 0px) scale(1); opacity: 0.7; }
+      33% { transform: translate(60px, -20px) scale(1.15); opacity: 0.95; }
+      66% { transform: translate(-30px, 25px) scale(0.9); opacity: 0.6; }
+      100% { transform: translate(0px, 0px) scale(1); opacity: 0.7; }
     }
-    @keyframes blink {
+    @keyframes auroraFloat2 {
+      0% { transform: translate(0px, 0px) scale(1); opacity: 0.65; }
+      33% { transform: translate(-70px, 30px) scale(1.2); opacity: 0.9; }
+      66% { transform: translate(40px, -15px) scale(0.85); opacity: 0.55; }
+      100% { transform: translate(0px, 0px) scale(1); opacity: 0.65; }
+    }
+    @keyframes auroraFloat3 {
+      0% { transform: translate(0px, 0px) scale(1); opacity: 0.5; }
+      50% { transform: translate(45px, 20px) scale(1.25); opacity: 0.85; }
+      100% { transform: translate(0px, 0px) scale(1); opacity: 0.5; }
+    }
+    @keyframes starTwinkle {
+      0%, 100% { opacity: 0.2; transform: scale(0.8); }
+      50% { opacity: 0.9; transform: scale(1.3); }
+    }
+    @keyframes pulseLive {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.35; transform: scale(1.3); }
+    }
+    @keyframes blinkCursor {
       0%, 100% { opacity: 1; }
       50% { opacity: 0; }
     }
+
+    .aurora-blob-1 { animation: auroraFloat1 10s ease-in-out infinite; }
+    .aurora-blob-2 { animation: auroraFloat2 12s ease-in-out infinite; }
+    .aurora-blob-3 { animation: auroraFloat3 9s ease-in-out infinite; }
+    .star-1 { animation: starTwinkle 3s ease-in-out infinite; }
+    .star-2 { animation: starTwinkle 4s ease-in-out infinite 1.5s; }
+    .star-3 { animation: starTwinkle 3.5s ease-in-out infinite 0.8s; }
+    .star-4 { animation: starTwinkle 4.5s ease-in-out infinite 2.2s; }
 
     .window-title {
       font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
       font-size: 11.5px;
       font-weight: 500;
-      letter-spacing: 0.3px;
-      fill: #8e8e93;
+      letter-spacing: 0.4px;
+      fill: #94a3b8;
     }
     .mono-prompt {
       font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
@@ -122,27 +166,27 @@
       font-size: 13px;
       font-weight: 400;
       letter-spacing: -0.1px;
-      fill: #a1a1aa;
+      fill: #cbd5e1;
     }
     .spec-text {
       font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
       font-size: 11px;
       font-weight: 500;
-      fill: #e4e4e7;
+      fill: #f1f5f9;
     }
     .pulse-dot {
       transform-origin: 12px 10px;
-      animation: pulse 2.2s ease-in-out infinite;
+      animation: pulseLive 2.2s ease-in-out infinite;
     }
     .cursor {
       fill: #34d399;
-      animation: blink 1s infinite steps(2, start);
+      animation: blinkCursor 1s infinite steps(2, start);
     }
     .pill {
       fill: url(#pill-glass-grad);
       stroke: url(#pill-stroke-grad);
       stroke-width: 1;
-      rx: 7;
+      rx: 8;
     }
 
     @media (prefers-color-scheme: light) {
@@ -158,27 +202,50 @@
     }
   </style>
 
-  <!-- Window Container with Glass Elevation Shadow -->
-  <rect class="win-bg" x="2" y="2" width="836" height="226" rx="14" fill="url(#glass-base)" stroke="url(#glass-stroke)" stroke-width="1.2" filter="url(#card-shadow)"/>
+  <!-- Container Base with Deep Drop Shadow -->
+  <rect class="win-bg" x="2" y="2" width="836" height="226" rx="16" fill="url(#glass-base)" stroke="url(#border-beam)" stroke-width="1.4" filter="url(#win-shadow)"/>
 
-  <!-- Ambient Internal Glass Glow Mesh -->
-  <rect x="2" y="2" width="836" height="226" rx="14" fill="url(#mesh-glow-1)"/>
-  <rect x="2" y="2" width="836" height="226" rx="14" fill="url(#mesh-glow-2)"/>
-  <rect x="2" y="2" width="836" height="226" rx="14" fill="url(#mesh-glow-3)"/>
+  <!-- Clip Path for Internal Animated Aurora & Star Field -->
+  <clipPath id="inner-glass-clip">
+    <rect x="3" y="3" width="834" height="224" rx="15"/>
+  </clipPath>
 
-  <!-- Frosted Titlebar -->
+  <g clip-path="url(#inner-glass-clip)">
+    <!-- Animated Aurora Liquid Orbs -->
+    <g class="aurora-blob-1">
+      <circle cx="120" cy="50" r="160" fill="url(#aurora-emerald)"/>
+    </g>
+    <g class="aurora-blob-2">
+      <circle cx="700" cy="80" r="180" fill="url(#aurora-cyan)"/>
+    </g>
+    <g class="aurora-blob-3">
+      <circle cx="420" cy="190" r="150" fill="url(#aurora-purple)"/>
+    </g>
+    <g class="aurora-blob-1">
+      <circle cx="280" cy="180" r="110" fill="url(#aurora-amber)"/>
+    </g>
+
+    <!-- Animated Twinkling Constellation Nodes -->
+    <g class="star-1" transform="translate(180, 45)"><circle cx="0" cy="0" r="1.5" fill="#38bdf8"/><circle cx="0" cy="0" r="3.5" fill="#38bdf8" fill-opacity="0.3"/></g>
+    <g class="star-2" transform="translate(620, 50)"><circle cx="0" cy="0" r="1.8" fill="#34d399"/><circle cx="0" cy="0" r="4" fill="#34d399" fill-opacity="0.3"/></g>
+    <g class="star-3" transform="translate(760, 160)"><circle cx="0" cy="0" r="1.5" fill="#c084fc"/><circle cx="0" cy="0" r="3" fill="#c084fc" fill-opacity="0.3"/></g>
+    <g class="star-4" transform="translate(340, 90)"><circle cx="0" cy="0" r="1.2" fill="#ffffff"/><circle cx="0" cy="0" r="2.5" fill="#ffffff" fill-opacity="0.4"/></g>
+    <g class="star-2" transform="translate(510, 140)"><circle cx="0" cy="0" r="1.4" fill="#fbbf24"/><circle cx="0" cy="0" r="3" fill="#fbbf24" fill-opacity="0.3"/></g>
+
+    <!-- Subtle Diagonal Ambient Light Ray -->
+    <polygon points="0,0 260,0 120,230 0,230" fill="#ffffff" fill-opacity="0.015"/>
+  </g>
+
+  <!-- Frosted Titlebar Header -->
   <path class="win-header" d="M 2 16 C 2 8.27 8.27 2 16 2 L 824 2 C 831.73 2 838 8.27 838 16 L 838 38 L 2 38 Z" fill="url(#header-glass)"/>
-  <line class="divider" x1="2" y1="38" x2="838" y2="38" stroke="#ffffff" stroke-opacity="0.08" stroke-width="1"/>
+  <line class="divider" x1="2" y1="38" x2="838" y2="38" stroke="#ffffff" stroke-opacity="0.10" stroke-width="1"/>
 
-  <!-- Window Controls -->
+  <!-- Glossy Traffic Light Window Controls -->
   <g transform="translate(18, 13)">
-    <!-- Red (Close) -->
     <circle cx="6" cy="6" r="5.5" fill="url(#btn-red)"/>
     <circle cx="6" cy="6" r="5.5" stroke="#d63029" stroke-width="0.6" fill="none"/>
-    <!-- Yellow (Minimize) -->
     <circle cx="23" cy="6" r="5.5" fill="url(#btn-yellow)"/>
     <circle cx="23" cy="6" r="5.5" stroke="#d48d17" stroke-width="0.6" fill="none"/>
-    <!-- Green (Zoom) -->
     <circle cx="40" cy="6" r="5.5" fill="url(#btn-green)"/>
     <circle cx="40" cy="6" r="5.5" stroke="#189e30" stroke-width="0.6" fill="none"/>
   </g>
@@ -188,7 +255,7 @@
 
   <!-- Top Right Glass Status Pill -->
   <g transform="translate(668, 9)" filter="url(#glow-badge)">
-    <rect width="154" height="20" rx="10" fill="#06281e" fill-opacity="0.8" stroke="#059669" stroke-width="1"/>
+    <rect width="154" height="20" rx="10" fill="#042118" fill-opacity="0.85" stroke="#059669" stroke-width="1.2"/>
     <circle class="pulse-dot" cx="12" cy="10" r="3.5" fill="#34d399"/>
     <text font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="10" font-weight="700" letter-spacing="0.5px" fill="#34d399" x="22" y="13.5">ONLINE • OPEN TO WORK</text>
   </g>
@@ -197,10 +264,10 @@
   <g transform="translate(26, 62)">
     <!-- Terminal Prompt Line -->
     <text class="mono-prompt" x="0" y="0">
-      <tspan fill="#34d399">ardian@workstation</tspan> <tspan fill="#64d2ff">~</tspan> <tspan fill="#8e8e93">%</tspan> <tspan fill="#f5f5f7">cat profile.json</tspan>
+      <tspan fill="#34d399">ardian@workstation</tspan> <tspan fill="#38bdf8">~</tspan> <tspan fill="#94a3b8">%</tspan> <tspan fill="#f8fafc">cat profile.json</tspan>
     </text>
 
-    <!-- Main Identity with Glass Drop Shadow -->
+    <!-- Main Identity -->
     <text class="main-name" x="0" y="34">Ardian Nurcahya</text>
     <text class="main-role" x="0" y="56">AI Systems &amp; Agent Memory Engineer</text>
     <text class="main-desc" x="0" y="78">Architecting OpenGraphMemory Ecosystem for Autonomous AI Agents.</text>
