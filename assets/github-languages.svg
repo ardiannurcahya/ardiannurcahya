@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="410" height="215" viewBox="0 0 410 215" fill="none" role="img" aria-labelledby="title desc">
-  <title id="title">language-distribution — analytics</title>
+  <title id="title">language-distribution</title>
   <desc id="desc">Top programming languages by code volume across public non-fork repositories.</desc>
   <defs>
     <!-- Background Glass Base -->
@@ -138,7 +138,7 @@
   </g>
 
   <!-- Centered Title -->
-  <text class="window-title" x="205" y="22.5" text-anchor="middle">language-distribution — analytics</text>
+  <text class="window-title" x="205" y="22.5" text-anchor="middle">language-distribution</text>
 
   <rect x="24" y="52" width="362" height="7" rx="3.5" fill="#1b1e27"/>
   <rect x="24.00" y="52" width="162.90" height="7" fill="#3776AB"/>

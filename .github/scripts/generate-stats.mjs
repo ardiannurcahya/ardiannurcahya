@@ -454,7 +454,7 @@ function renderStats(stats) {
   );
 
   return darkWindowShell(
-    "activity-metrics — stats",
+    "activity-metrics",
     bodyItems.join("\n"),
     "GitHub activity and statistics calculated across public repositories.",
     410,
@@ -509,7 +509,7 @@ function renderLanguages(languages) {
   ].join("\n");
 
   return darkWindowShell(
-    "language-distribution — analytics",
+    "language-distribution",
     body,
     "Top programming languages by code volume across public non-fork repositories.",
     410,
@@ -715,7 +715,7 @@ function renderContributions(calendar) {
   <g transform="translate(684, 9)">
     <rect width="138" height="20" rx="10" fill="#06281e" fill-opacity="0.8" stroke="#059669" stroke-width="1"/>
     <circle class="live-dot" cx="12" cy="10" r="3.5" fill="#34d399"/>
-    <text font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="10" font-weight="700" letter-spacing="0.5px" fill="#34d399" x="22" y="13.5">LIVE TELEMETRY</text>
+    <text font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="10" font-weight="700" letter-spacing="0.5px" fill="#34d399" x="22" y="13.5">LIVE STREAM</text>
   </g>
 
   <!-- 3x Glass HUD Metrics Bar -->
