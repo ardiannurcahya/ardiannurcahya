@@ -95,7 +95,7 @@
     <g transform="translate(0, 0)">
       <rect class="hud-card" width="220" height="26"/>
       <text class="hud-title" x="10" y="17">TOTAL_ACTIVITY:</text>
-      <text class="hud-val" fill="#34d399" x="110" y="18">4216+ COMMITS &amp; PRS</text>
+      <text class="hud-val" fill="#34d399" x="110" y="18">4105+ COMMITS &amp; PRS</text>
     </g>
 
     <!-- Metric 2: Peak Velocity -->
@@ -109,7 +109,7 @@
     <g transform="translate(490, 0)">
       <rect class="hud-card" width="246" height="26"/>
       <text class="hud-title" x="10" y="17">CONSISTENCY_RATE:</text>
-      <text class="hud-val" fill="#64d2ff" x="136" y="18">63.2% DAYS ACTIVE</text>
+      <text class="hud-val" fill="#64d2ff" x="136" y="18">63.5% DAYS ACTIVE</text>
     </g>
   </g>
 
