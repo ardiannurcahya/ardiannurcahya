@@ -145,7 +145,7 @@
     <g transform="translate(0, 0)">
       <rect class="hud-card" width="220" height="28"/>
       <text class="hud-title" x="10" y="18">TOTAL_ACTIVITY:</text>
-      <text class="hud-val" fill="#34d399" x="112" y="19">4123+ COMMITS &amp; PRS</text>
+      <text class="hud-val" fill="#34d399" x="112" y="19">4124+ COMMITS &amp; PRS</text>
     </g>
 
     <!-- Metric 2: Peak Velocity -->
