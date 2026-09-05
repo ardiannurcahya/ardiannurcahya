@@ -184,9 +184,9 @@
   <text x="215" y="102" class="label">Issues Opened</text>
   <text x="386" y="102" text-anchor="end" class="value">2</text>
   <text x="24" y="136" class="label">Stars Earned</text>
-  <text x="180" y="136" text-anchor="end" class="value">258</text>
+  <text x="180" y="136" text-anchor="end" class="value">259</text>
   <text x="215" y="136" class="label">Followers</text>
-  <text x="386" y="136" text-anchor="end" class="value">151</text>
+  <text x="386" y="136" text-anchor="end" class="value">156</text>
   <line class="divider" x1="24" y1="168" x2="386" y2="168" stroke="#ffffff" stroke-opacity="0.08" stroke-width="1"/>
   <g transform="translate(24, 180)">
     <text y="14" class="label">Activity Rank</text>
