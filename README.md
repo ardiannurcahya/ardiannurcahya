@@ -21,5 +21,3 @@ Building autonomous AI agent infrastructure, episodic memory systems, and knowle
 
 ### Connect
 - **LinkedIn**: [linkedin.com/in/ardiannurcahya436](https://linkedin.com/in/ardiannurcahya436)
-- **Portfolio**: [portofolio-ardian-nurcahya.vercel.app](https://portofolio-ardian-nurcahya.vercel.app/)
-- **Email**: [ardiannurcahya436@gmail.com](mailto:ardiannurcahya436@gmail.com)
