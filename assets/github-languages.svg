@@ -176,14 +176,14 @@
   <text class="window-title" x="205" y="22" text-anchor="middle">language-distribution</text>
 
   <rect x="24" y="52" width="362" height="7" rx="3.5" fill="#1b1e27"/>
-  <rect x="24.00" y="52" width="136.61" height="7" fill="#3776AB"/>
-  <rect x="160.61" y="52" width="75.44" height="7" fill="#00ADD8"/>
-  <rect x="236.04" y="52" width="63.04" height="7" fill="#DA5B0B"/>
-  <rect x="299.08" y="52" width="50.42" height="7" fill="#3178c6"/>
-  <rect x="349.50" y="52" width="18.40" height="7" fill="#f1e05a"/>
+  <rect x="24.00" y="52" width="136.21" height="7" fill="#3776AB"/>
+  <rect x="160.21" y="52" width="75.22" height="7" fill="#00ADD8"/>
+  <rect x="235.43" y="52" width="62.86" height="7" fill="#DA5B0B"/>
+  <rect x="298.29" y="52" width="51.32" height="7" fill="#3178c6"/>
+  <rect x="349.61" y="52" width="18.35" height="7" fill="#f1e05a"/>
   <circle cx="28" cy="84" r="3.5" fill="#3776AB"/>
   <text x="42" y="88" class="text">Python</text>
-  <text x="386" y="88" text-anchor="end" class="label">37.7%</text>
+  <text x="386" y="88" text-anchor="end" class="label">37.6%</text>
   <circle cx="28" cy="108" r="3.5" fill="#00ADD8"/>
   <text x="42" y="112" class="text">Go</text>
   <text x="386" y="112" text-anchor="end" class="label">20.8%</text>
@@ -192,7 +192,7 @@
   <text x="386" y="136" text-anchor="end" class="label">17.4%</text>
   <circle cx="28" cy="156" r="3.5" fill="#3178c6"/>
   <text x="42" y="160" class="text">TypeScript</text>
-  <text x="386" y="160" text-anchor="end" class="label">13.9%</text>
+  <text x="386" y="160" text-anchor="end" class="label">14.2%</text>
   <circle cx="28" cy="180" r="3.5" fill="#f1e05a"/>
   <text x="42" y="184" class="text">JavaScript</text>
   <text x="386" y="184" text-anchor="end" class="label">5.1%</text>
